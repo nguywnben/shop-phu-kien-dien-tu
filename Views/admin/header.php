@@ -9,8 +9,8 @@
     <title>
         GearZone - Admin
     </title>
-    <link rel="icon" href="Assets/admin/favicon.ico">
-    <link href="Assets/admin/css/style.css" rel="stylesheet">
+    <link rel="icon" href="../../Assets/admin/favicon.ico">
+    <link href="../../Assets/admin/css/style.css" rel="stylesheet">
 </head>
 
 <body
