@@ -100,7 +100,7 @@
                             </li>
 
                             <li>
-                                <a href="product.php" @click.prevent="selected = (selected === 'Products' ? '':'Products')"
+                                <a href="#" @click.prevent="selected = (selected === 'Products' ? '':'Products')"
                                     class="menu-item group"
                                     :class=" (selected === 'Products') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-active' : 'menu-item-inactive'">
                                     <svg :class="(selected === 'Products') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
@@ -129,7 +129,7 @@
                                     <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
                                         class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
                                         <li>
-                                            <a href="product.php" class="menu-dropdown-item group"
+                                            <a href="admin.php?page=products&action=index" class="menu-dropdown-item group"
                                                 :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
                                                 Danh sách sản phẩm
                                             </a>
@@ -253,7 +253,7 @@
                             </li>
 
                             <li>
-                                <a href="calendar.html" @click="selected = (selected === 'Users' ? '':'Users')"
+                                <a href="admin.php?page=users&action=index" @click="selected = (selected === 'Users' ? '':'Users')"
                                     class="menu-item group"
                                     :class=" (selected === 'Users') && (page === 'calendar') ? 'menu-item-active' : 'menu-item-inactive'">
                                     <svg :class="(selected === 'Users') && (page === 'calendar') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"

@@ -1,25 +1,27 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
+require_once 'config.php';
+
 $page = isset($_GET['page']) ? $_GET['page'] : '';
 $action = isset($_GET['action']) ? $_GET['action'] : '';
-require_once 'config.php';
+
 require_once 'Controllers/Client/HomeController.php';
-$homeController = new HomeController();
+$home = new HomeController();
+
 switch ($page) {
-    case 'home':
+    case "":
+        $home->index();
+        break;
+    case "login":
         switch ($action) {
-            case 'index':
-                $homeController->index();
-                break;
-            default:
-                echo "Action not found.";
+            case "index":
+                $auth->login();
                 break;
         }
         break;
     default:
-        echo "Page not found.";
+        echo "Không tìm thấy trang.";
         break;
 }
+
 ?>
