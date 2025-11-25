@@ -78,7 +78,7 @@
                                     <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
                                         class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
                                         <li>
-                                            <a href="form-elements.html" class="menu-dropdown-item group"
+                                            <a href="category.php" class="menu-dropdown-item group"
                                                 :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
                                                 Danh sách danh mục
                                             </a>
@@ -90,7 +90,7 @@
                                     <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
                                         class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
                                         <li>
-                                            <a href="form-elements.html" class="menu-dropdown-item group"
+                                            <a href="category-add.php" class="menu-dropdown-item group"
                                                 :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
                                                 Thêm danh mục
                                             </a>
@@ -100,7 +100,7 @@
                             </li>
 
                             <li>
-                                <a href="#" @click.prevent="selected = (selected === 'Products' ? '':'Products')"
+                                <a href="product.php" @click.prevent="selected = (selected === 'Products' ? '':'Products')"
                                     class="menu-item group"
                                     :class=" (selected === 'Products') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-active' : 'menu-item-inactive'">
                                     <svg :class="(selected === 'Products') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
@@ -129,7 +129,7 @@
                                     <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
                                         class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
                                         <li>
-                                            <a href="form-elements.html" class="menu-dropdown-item group"
+                                            <a href="product.php" class="menu-dropdown-item group"
                                                 :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
                                                 Danh sách sản phẩm
                                             </a>
@@ -141,7 +141,7 @@
                                     <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
                                         class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
                                         <li>
-                                            <a href="form-elements.html" class="menu-dropdown-item group"
+                                            <a href="product-add.php" class="menu-dropdown-item group"
                                                 :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
                                                 Thêm sản phẩm
                                             </a>
