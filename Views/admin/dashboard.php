@@ -308,7 +308,7 @@
                                     <div class="flex items-center justify-between">
                                         <div class="flex items-center gap-3">
                                             <div class="w-full max-w-8 items-center rounded-full">
-                                                <img src="../../Assets/admin/images/country/country-01.svg" alt="usa" />
+                                                <img src="Assets/admin/images/country/country-01.svg" alt="usa" />
                                             </div>
                                             <div>
                                                 <p class="text-theme-sm font-semibold text-gray-800 dark:text-white/90">
@@ -336,7 +336,7 @@
                                     <div class="flex items-center justify-between">
                                         <div class="flex items-center gap-3">
                                             <div class="w-full max-w-8 items-center rounded-full">
-                                                <img src="../../Assets/admin/images/country/country-02.svg" alt="france" />
+                                                <img src="Assets/admin/images/country/country-02.svg" alt="france" />
                                             </div>
                                             <div>
                                                 <p class="text-theme-sm font-semibold text-gray-800 dark:text-white/90">
@@ -441,7 +441,7 @@
                                                     <div class="flex items-center">
                                                         <div class="flex items-center gap-3">
                                                             <div class="h-[50px] w-[50px] overflow-hidden rounded-md">
-                                                                <img src="../../Assets/admin/images/product/product-01.jpg" alt="Product" />
+                                                                <img src="Assets/admin/images/product/product-01.jpg" alt="Product" />
                                                             </div>
                                                             <div>
                                                                 <p
@@ -483,7 +483,7 @@
                                                     <div class="flex items-center">
                                                         <div class="flex items-center gap-3">
                                                             <div class="h-[50px] w-[50px] overflow-hidden rounded-md">
-                                                                <img src="../../Assets/admin/images/product/product-02.jpg" alt="Product" />
+                                                                <img src="Assets/admin/images/product/product-02.jpg" alt="Product" />
                                                             </div>
                                                             <div>
                                                                 <p
@@ -526,7 +526,7 @@
                                                     <div class="flex items-center">
                                                         <div class="flex items-center gap-3">
                                                             <div class="h-[50px] w-[50px] overflow-hidden rounded-md">
-                                                                <img src="../../Assets/admin/images/product/product-03.jpg" alt="Product" />
+                                                                <img src="Assets/admin/images/product/product-03.jpg" alt="Product" />
                                                             </div>
                                                             <div>
                                                                 <p
@@ -569,7 +569,7 @@
                                                     <div class="flex items-center">
                                                         <div class="flex items-center gap-3">
                                                             <div class="h-[50px] w-[50px] overflow-hidden rounded-md">
-                                                                <img src="../../Assets/admin/images/product/product-04.jpg" alt="Product" />
+                                                                <img src="Assets/admin/images/product/product-04.jpg" alt="Product" />
                                                             </div>
                                                             <div>
                                                                 <p
@@ -612,7 +612,7 @@
                                                     <div class="flex items-center">
                                                         <div class="flex items-center gap-3">
                                                             <div class="h-[50px] w-[50px] overflow-hidden rounded-md">
-                                                                <img src="../../Assets/admin/images/product/product-05.jpg" alt="Product" />
+                                                                <img src="Assets/admin/images/product/product-05.jpg" alt="Product" />
                                                             </div>
                                                             <div>
                                                                 <p

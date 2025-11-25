@@ -10,6 +10,6 @@
                     </p>
                     <a href="shop.html" class="btn">Mua Ngay</a>
                 </div>
-                <img src="../../Assets/client/img/home-img.png" class="home__img" alt="mũ" />
+                <img src="Assets/client/img/home-img.png" class="home__img" alt="mũ" />
             </div>
         </section>

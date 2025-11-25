@@ -29,8 +29,8 @@
                             </svg>
                         </button>
                         <a href="index.html" class="lg:hidden">
-                            <img class="dark:hidden" src="../../Assets/admin/images/logo/logo.svg" alt="Logo" />
-                            <img class="hidden dark:block" src="../../Assets/admin/images/logo/logo-dark.svg" alt="Logo" />
+                            <img class="dark:hidden" src="Assets/admin/images/logo/logo.svg" alt="Logo" />
+                            <img class="hidden dark:block" src="Assets/admin/images/logo/logo-dark.svg" alt="Logo" />
                         </a>
 
                         <button
@@ -127,7 +127,7 @@
                                             <a class="flex gap-3 rounded-lg border-b border-gray-100 p-3 px-4.5 py-3 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-white/5"
                                                 href="#">
                                                 <span class="relative z-1 block h-10 w-full max-w-10 rounded-full">
-                                                    <img src="../../Assets/admin/images/user/user-02.jpg" alt="User"
+                                                    <img src="Assets/admin/images/user/user-02.jpg" alt="User"
                                                         class="overflow-hidden rounded-full" />
                                                     <span
                                                         class="bg-success-500 absolute right-0 bottom-0 z-10 h-2.5 w-full max-w-2.5 rounded-full border-[1.5px] border-white dark:border-gray-900"></span>
@@ -156,7 +156,7 @@
                                             <a class="flex gap-3 rounded-lg border-b border-gray-100 p-3 px-4.5 py-3 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-white/5"
                                                 href="#">
                                                 <span class="relative z-1 block h-10 w-full max-w-10 rounded-full">
-                                                    <img src="../../Assets/admin/images/user/user-03.jpg" alt="User"
+                                                    <img src="Assets/admin/images/user/user-03.jpg" alt="User"
                                                         class="overflow-hidden rounded-full" />
                                                     <span
                                                         class="bg-success-500 absolute right-0 bottom-0 z-10 h-2.5 w-full max-w-2.5 rounded-full border-[1.5px] border-white dark:border-gray-900"></span>
@@ -185,7 +185,7 @@
                                             <a class="flex gap-3 rounded-lg border-b border-gray-100 p-3 px-4.5 py-3 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-white/5"
                                                 href="#">
                                                 <span class="relative z-1 block h-10 w-full max-w-10 rounded-full">
-                                                    <img src="../../Assets/admin/images/user/user-04.jpg" alt="User"
+                                                    <img src="Assets/admin/images/user/user-04.jpg" alt="User"
                                                         class="overflow-hidden rounded-full" />
                                                     <span
                                                         class="bg-success-500 absolute right-0 bottom-0 z-10 h-2.5 w-full max-w-2.5 rounded-full border-[1.5px] border-white dark:border-gray-900"></span>
@@ -214,7 +214,7 @@
                                             <a class="flex gap-3 rounded-lg border-b border-gray-100 p-3 px-4.5 py-3 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-white/5"
                                                 href="#">
                                                 <span class="relative z-1 block h-10 w-full max-w-10 rounded-full">
-                                                    <img src="../../Assets/admin/images/user/user-05.jpg" alt="User"
+                                                    <img src="Assets/admin/images/user/user-05.jpg" alt="User"
                                                         class="overflow-hidden rounded-full" />
                                                     <span
                                                         class="bg-error-500 absolute right-0 bottom-0 z-10 h-2.5 w-full max-w-2.5 rounded-full border-[1.5px] border-white dark:border-gray-900"></span>
@@ -243,7 +243,7 @@
                                             <a class="flex gap-3 rounded-lg border-b border-gray-100 p-3 px-4.5 py-3 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-white/5"
                                                 href="#">
                                                 <span class="relative z-1 block h-10 w-full max-w-10 rounded-full">
-                                                    <img src="../../Assets/admin/images/user/user-02.jpg" alt="User"
+                                                    <img src="Assets/admin/images/user/user-02.jpg" alt="User"
                                                         class="overflow-hidden rounded-full" />
                                                     <span
                                                         class="bg-success-500 absolute right-0 bottom-0 z-10 h-2.5 w-full max-w-2.5 rounded-full border-[1.5px] border-white dark:border-gray-900"></span>
@@ -272,7 +272,7 @@
                                             <a class="flex gap-3 rounded-lg border-b border-gray-100 p-3 px-4.5 py-3 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-white/5"
                                                 href="#">
                                                 <span class="relative z-1 block h-10 w-full max-w-10 rounded-full">
-                                                    <img src="../../Assets/admin/images/user/user-03.jpg" alt="User"
+                                                    <img src="Assets/admin/images/user/user-03.jpg" alt="User"
                                                         class="overflow-hidden rounded-full" />
                                                     <span
                                                         class="bg-success-500 absolute right-0 bottom-0 z-10 h-2.5 w-full max-w-2.5 rounded-full border-[1.5px] border-white dark:border-gray-900"></span>
@@ -301,7 +301,7 @@
                                             <a class="flex gap-3 rounded-lg border-b border-gray-100 p-3 px-4.5 py-3 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-white/5"
                                                 href="#">
                                                 <span class="relative z-1 block h-10 w-full max-w-10 rounded-full">
-                                                    <img src="../../Assets/admin/images/user/user-04.jpg" alt="User"
+                                                    <img src="Assets/admin/images/user/user-04.jpg" alt="User"
                                                         class="overflow-hidden rounded-full" />
                                                     <span
                                                         class="bg-success-500 absolute right-0 bottom-0 z-10 h-2.5 w-full max-w-2.5 rounded-full border-[1.5px] border-white dark:border-gray-900"></span>
@@ -330,7 +330,7 @@
                                             <a class="flex gap-3 rounded-lg border-b border-gray-100 p-3 px-4.5 py-3 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-white/5"
                                                 href="#">
                                                 <span class="relative z-1 block h-10 w-full max-w-10 rounded-full">
-                                                    <img src="../../Assets/admin/images/user/user-05.jpg" alt="User"
+                                                    <img src="Assets/admin/images/user/user-05.jpg" alt="User"
                                                         class="overflow-hidden rounded-full" />
                                                     <span
                                                         class="bg-error-500 absolute right-0 bottom-0 z-10 h-2.5 w-full max-w-2.5 rounded-full border-[1.5px] border-white dark:border-gray-900"></span>
@@ -368,7 +368,7 @@
                             <a class="flex items-center text-gray-700 dark:text-gray-400" href="#"
                                 @click.prevent="dropdownOpen = ! dropdownOpen">
                                 <span class="mr-3 h-11 w-11 overflow-hidden rounded-full">
-                                    <img src="../../Assets/admin/images/user/owner.jpg" alt="User" />
+                                    <img src="Assets/admin/images/user/owner.jpg" alt="User" />
                                 </span>
 
                                 <span class="text-theme-sm mr-1 block font-medium"> Musharof </span>

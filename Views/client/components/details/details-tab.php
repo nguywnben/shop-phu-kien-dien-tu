@@ -70,7 +70,7 @@
                     <div class="reviews__container grid">
                         <div class="review__single">
                             <div>
-                                <img src="../../Assets/client/img/avatar-1.jpg" alt="" class="review__img" />
+                                <img src="Assets/client/img/avatar-1.jpg" alt="" class="review__img" />
                                 <h4 class="review__title">Jacky Chan</h4>
                             </div>
                             <div class="review__data">
@@ -89,7 +89,7 @@
                         </div>
                         <div class="review__single">
                             <div>
-                                <img src="../../Assets/client/img/avatar-2.jpg" alt="" class="review__img" />
+                                <img src="Assets/client/img/avatar-2.jpg" alt="" class="review__img" />
                                 <h4 class="review__title">Meriem Js</h4>
                             </div>
                             <div class="review__data">
@@ -108,7 +108,7 @@
                         </div>
                         <div class="review__single">
                             <div>
-                                <img src="../../Assets/client/img/avatar-3.jpg" alt="" class="review__img" />
+                                <img src="Assets/client/img/avatar-3.jpg" alt="" class="review__img" />
                                 <h4 class="review__title">Moh Benz</h4>
                             </div>
                             <div class="review__data">

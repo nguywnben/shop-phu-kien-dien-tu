@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <link rel="stylesheet" href="../../Assets/client/css/styles.css" />
+    <link rel="stylesheet" href="Assets/client/css/styles.css" />
 
     <title>Trang Web Thương Mại Điện Tử</title>
 </head>

@@ -14,7 +14,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <img src="../../Assets/client//img/product-1-2.jpg" alt="" class="table__img" />
+                                <img src="Assets/client//img/product-1-2.jpg" alt="" class="table__img" />
                             </td>
                             <td>
                                 <h3 class="table__title">
@@ -33,7 +33,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <img src="../../Assets/client//img/product-7-1.jpg" alt="" class="table__img" />
+                                <img src="Assets/client//img/product-7-1.jpg" alt="" class="table__img" />
                             </td>
                             <td>
                                 <h3 class="table__title">Áo Ba Lỗ Nữ Amazon Essentials</h3>
@@ -50,7 +50,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <img src="../../Assets/client//img/product-2-1.jpg" alt="" class="table__img" />
+                                <img src="Assets/client//img/product-2-1.jpg" alt="" class="table__img" />
                             </td>
                             <td>
                                 <h3 class="table__title">

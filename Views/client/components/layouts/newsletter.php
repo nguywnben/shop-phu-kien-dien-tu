@@ -1,7 +1,7 @@
         <section class="newsletter section home__newsletter">
             <div class="newsletter__container container grid">
                 <h3 class="newsletter__title flex">
-                    <img src="../../Assets/client/img/icon-email.svg" alt="" class="newsletter__icon" />
+                    <img src="Assets/client/img/icon-email.svg" alt="" class="newsletter__icon" />
                     Đăng ký Bản tin
                 </h3>
                 <p class="newsletter__description">

@@ -4,8 +4,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-1-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-1-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-1-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-1-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -44,8 +44,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-2-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-2-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-2-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-2-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -84,8 +84,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-3-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-3-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-3-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-3-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -124,8 +124,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-4-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-4-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-4-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-4-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -164,8 +164,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-5-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-5-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-5-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-5-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -204,8 +204,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-6-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-6-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-6-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-6-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -244,8 +244,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-7-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-7-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-7-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-7-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -284,8 +284,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-8-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-8-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-8-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-8-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -323,8 +323,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-10-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-10-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-10-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-10-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -363,8 +363,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-11-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-11-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-11-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-11-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -403,8 +403,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-4-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-4-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-4-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-4-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">
@@ -443,8 +443,8 @@
                 <div class="product__item">
                     <div class="product__banner">
                         <a href="details.html" class="product__images">
-                            <img src="../../Assets/client/img/product-12-1.jpg" alt="" class="product__img default" />
-                            <img src="../../Assets/client/img/product-12-2.jpg" alt="" class="product__img hover" />
+                            <img src="Assets/client/img/product-12-1.jpg" alt="" class="product__img default" />
+                            <img src="Assets/client/img/product-12-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
                             <a href="#" class="action__btn" aria-label="Xem Nhanh">

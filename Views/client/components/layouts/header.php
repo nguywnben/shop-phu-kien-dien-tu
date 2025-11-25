@@ -16,12 +16,12 @@
 
         <nav class="nav container">
             <a href="home.php" class="nav__logo">
-                <img class="nav__logo-img" src="../../Assets/client/img/logo.svg" alt="logo trang web" />
+                <img class="nav__logo-img" src="Assets/client/img/logo.svg" alt="logo trang web" />
             </a>
             <div class="nav__menu" id="nav-menu">
                 <div class="nav__menu-top">
                     <a href="home.php" class="nav__menu-logo">
-                        <img src="../../Assets/client/img/logo.svg" alt="" />
+                        <img src="Assets/client/img/logo.svg" alt="" />
                     </a>
                     <div class="nav__close" id="nav-close">
                         <i class="fi fi-rs-cross-small"></i>
@@ -47,21 +47,21 @@
                 <div class="header__search">
                     <input type="text" placeholder="Tìm kiếm sản phẩm..." class="form__input" />
                     <button class="search__btn">
-                        <img src="../../Assets/client/img/search.png" alt="biểu tượng tìm kiếm" />
+                        <img src="Assets/client/img/search.png" alt="biểu tượng tìm kiếm" />
                     </button>
                 </div>
             </div>
             <div class="header__user-actions">
                 <a href="wishlist.php" class="header__action-btn" title="Danh sách yêu thích">
-                    <img src="../../Assets/client/img/icon-heart.svg" alt="" />
+                    <img src="Assets/client/img/icon-heart.svg" alt="" />
                     <span class="count">3</span>
                 </a>
                 <a href="cart.php" class="header__action-btn" title="Giỏ hàng">
-                    <img src="../../Assets/client/img/icon-cart.svg" alt="" />
+                    <img src="Assets/client/img/icon-cart.svg" alt="" />
                     <span class="count">3</span>
                 </a>
                 <div class="header__action-btn nav__toggle" id="nav-toggle">
-                    <img src="../../Assets/client//img/menu-burger.svg" alt="" />
+                    <img src="Assets/client//img/menu-burger.svg" alt="" />
                 </div>
             </div>
         </nav>

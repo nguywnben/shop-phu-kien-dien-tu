@@ -1,11 +1,11 @@
         <section class="details section--lg">
             <div class="details__container container grid">
                 <div class="details__group">
-                    <img src="../../Assets/client/img/product-8-1.jpg" alt="" class="details__img" />
+                    <img src="Assets/client/img/product-8-1.jpg" alt="" class="details__img" />
                     <div class="details__small-images grid">
-                        <img src="../../Assets/client/img/product-8-2.jpg" alt="" class="details__small-img" />
-                        <img src="../../Assets/client/img/product-8-1.jpg" alt="" class="details__small-img" />
-                        <img src="../../Assets/client/img/product-8-2.jpg" alt="" class="details__small-img" />
+                        <img src="Assets/client/img/product-8-2.jpg" alt="" class="details__small-img" />
+                        <img src="Assets/client/img/product-8-1.jpg" alt="" class="details__small-img" />
+                        <img src="Assets/client/img/product-8-2.jpg" alt="" class="details__small-img" />
                     </div>
                 </div>
                 <div class="details__group">

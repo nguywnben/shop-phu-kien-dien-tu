@@ -4,7 +4,7 @@
         <div class="footer__container grid">
             <div class="footer__content">
                 <a href="index.html" class="footer__logo">
-                    <img src="../../Assets/client/img/logo.svg" alt="" class="footer__logo-img" />
+                    <img src="Assets/client/img/logo.svg" alt="" class="footer__logo-img" />
                 </a>
                 <h4 class="footer__subtitle">Liên hệ</h4>
                 <p class="footer__description">
@@ -20,19 +20,19 @@
                     <h4 class="footer__subtitle">Theo dõi tôi</h4>
                     <div class="footer__links flex">
                         <a href="#">
-                            <img src="../../Assets/client/img/icon-facebook.svg" alt="" class="footer__social-icon" />
+                            <img src="Assets/client/img/icon-facebook.svg" alt="" class="footer__social-icon" />
                         </a>
                         <a href="#">
-                            <img src="../../Assets/client/img/icon-twitter.svg" alt="" class="footer__social-icon" />
+                            <img src="Assets/client/img/icon-twitter.svg" alt="" class="footer__social-icon" />
                         </a>
                         <a href="#">
-                            <img src="../../Assets/client/img/icon-instagram.svg" alt="" class="footer__social-icon" />
+                            <img src="Assets/client/img/icon-instagram.svg" alt="" class="footer__social-icon" />
                         </a>
                         <a href="#">
-                            <img src="../../Assets/client/img/icon-pinterest.svg" alt="" class="footer__social-icon" />
+                            <img src="Assets/client/img/icon-pinterest.svg" alt="" class="footer__social-icon" />
                         </a>
                         <a href="#">
-                            <img src="../../Assets/client/img/icon-youtube.svg" alt="" class="footer__social-icon" />
+                            <img src="Assets/client/img/icon-youtube.svg" alt="" class="footer__social-icon" />
                         </a>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
             </div>
             <div class="footer__content">
                 <h3 class="footer__title">Cổng Thanh Toán An Toàn</h3>
-                <img src="../../Assets/client/img/payment-method.png" alt="" class="payment__img" />
+                <img src="Assets/client/img/payment-method.png" alt="" class="payment__img" />
             </div>
         </div>
         <div class="footer__bottom">

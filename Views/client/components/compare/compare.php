@@ -3,13 +3,13 @@
                 <tr>
                     <th>Ảnh</th>
                     <td>
-                        <img src="../../Assets/client/img/product-2-1.jpg" alt="" class="compare__img" />
+                        <img src="Assets/client/img/product-2-1.jpg" alt="" class="compare__img" />
                     </td>
                     <td>
-                        <img src="../../Assets/client/img/product-4-1.jpg" alt="" class="compare__img" />
+                        <img src="Assets/client/img/product-4-1.jpg" alt="" class="compare__img" />
                     </td>
                     <td>
-                        <img src="../../Assets/client/img/product-7-1.jpg" alt="" class="compare__img" />
+                        <img src="Assets/client/img/product-7-1.jpg" alt="" class="compare__img" />
                     </td>
                 </tr>
                 <tr>

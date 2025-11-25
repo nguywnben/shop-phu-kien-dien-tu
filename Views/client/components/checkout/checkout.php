@@ -27,7 +27,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <img src="../../Assets/client/img/product-1-2.jpg" alt="" class="order__img" />
+                                    <img src="Assets/client/img/product-1-2.jpg" alt="" class="order__img" />
                                 </td>
                                 <td>
                                     <h3 class="table__title">Yidarton Women Summer Blue</h3>
@@ -37,7 +37,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="../../Assets/client/img/product-2-1.jpg" alt="" class="order__img" />
+                                    <img src="Assets/client/img/product-2-1.jpg" alt="" class="order__img" />
                                 </td>
                                 <td>
                                     <h3 class="table__title">LDB Moon Summer</h3>
@@ -47,7 +47,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <img src="../../Assets/client/img/product-7-1.jpg" alt="" class="order__img" />
+                                    <img src="Assets/client/img/product-7-1.jpg" alt="" class="order__img" />
                                 </td>
                                 <td>
                                     <h3 class="table__title">Women Short Sleeve Loose</h3>
