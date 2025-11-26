@@ -18,6 +18,8 @@ require_once "Controllers/Admin/CategoryController.php";
 $category = new CategoryController();
 require_once "Controllers/Admin/ProductController.php";
 $product = new ProductController();
+require_once "Controllers/Admin/CouponController.php";
+$coupon = new CouponController();
 
 switch($page) {
     case "":
@@ -53,6 +55,12 @@ switch($page) {
                 break;
         }
         break;
+        case "coupons":
+        switch ($action) {
+            case "index":
+                $coupon->index();
+                break;
+            }
     default:
         echo "Không tìm thấy trang.";
         break;
