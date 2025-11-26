@@ -22,6 +22,10 @@ require_once "Controllers/Admin/CouponController.php";
 $coupon = new CouponController();
 require_once "Controllers/Admin/OrderController.php";
 $order = new OrderController();
+require_once "Controllers/Admin/BrandController.php";
+$brand = new BrandController();
+require_once "Controllers/Admin/PostController.php";
+$post = new PostController();
 
 switch ($page) {
     case "":
