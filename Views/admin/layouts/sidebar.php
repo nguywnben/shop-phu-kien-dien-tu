@@ -21,25 +21,25 @@
                     </span>
 
                     <svg :class="sidebarToggle ? 'lg:block hidden' : 'hidden'"
-                        class="mx-auto fill-current menu-group-icon" width="24" height="24" viewBox="0 0 24 24"
+                        class="mx-auto menu-group-icon" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M5.99915 10.2451C6.96564 10.2451 7.74915 11.0286 7.74915 11.9951V12.0051C7.74915 12.9716 6.96564 13.7551 5.99915 13.7551C5.03265 13.7551 4.24915 12.9716 4.24915 12.0051V11.9951C4.24915 11.0286 5.03265 10.2451 5.99915 10.2451ZM17.9991 10.2451C18.9656 10.2451 19.7491 11.0286 19.7491 11.9951V12.0051C19.7491 12.9716 18.9656 13.7551 17.9991 13.7551C17.0326 13.7551 16.2491 12.9716 16.2491 12.0051V11.9951C16.2491 11.0286 17.0326 10.2451 17.9991 10.2451ZM13.7491 11.9951C13.7491 11.0286 12.9656 10.2451 11.9991 10.2451C11.0326 10.2451 10.2491 11.0286 10.2491 11.9951V12.0051C10.2491 12.9716 11.0326 13.7551 11.9991 13.7551C12.9656 13.7551 13.7491 12.9716 13.7491 12.0051V11.9951Z"
-                            fill="" />
-                    </svg>
+                            stroke="currentColor" stroke-width="1.5"/> </svg>
                 </h3>
 
                 <ul class="flex flex-col gap-4 mb-6">
                     <li>
-                        <a href="index.php" @click="selected = (selected === 'Dashboard' ? '':'Dashboard')"
+                        <a href="admin.php" @click="selected = (selected === 'Dashboard' ? '':'Dashboard')"
                             class="menu-item group"
-                            :class=" (selected === 'Dashboard') || (page === 'ecommerce' || page === 'analytics' || page === 'marketing' || page === 'crm' || page === 'stocks') ? 'menu-item-active' : 'menu-item-inactive'">
-                            <svg :class="(selected === 'Dashboard') || (page === 'ecommerce' || page === 'analytics' || page === 'marketing' || page === 'crm' || page === 'stocks') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                            :class=" (selected === 'Dashboard') ? 'menu-item-active' : 'menu-item-inactive'">
+                            <svg :class="(selected === 'Dashboard') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M5.5 3.25C4.25736 3.25 3.25 4.25736 3.25 5.5V8.99998C3.25 10.2426 4.25736 11.25 5.5 11.25H9C10.2426 11.25 11.25 10.2426 11.25 8.99998V5.5C11.25 4.25736 10.2426 3.25 9 3.25H5.5ZM4.75 5.5C4.75 5.08579 5.08579 4.75 5.5 4.75H9C9.41421 4.75 9.75 5.08579 9.75 5.5V8.99998C9.75 9.41419 9.41421 9.74998 9 9.74998H5.5C5.08579 9.74998 4.75 9.41419 4.75 8.99998V5.5ZM5.5 12.75C4.25736 12.75 3.25 13.7574 3.25 15V18.5C3.25 19.7426 4.25736 20.75 5.5 20.75H9C10.2426 20.75 11.25 19.7427 11.25 18.5V15C11.25 13.7574 10.2426 12.75 9 12.75H5.5ZM4.75 15C4.75 14.5858 5.08579 14.25 5.5 14.25H9C9.41421 14.25 9.75 14.5858 9.75 15V18.5C9.75 18.9142 9.41421 19.25 9 19.25H5.5C5.08579 19.25 4.75 18.9142 4.75 18.5V15ZM12.75 5.5C12.75 4.25736 13.7574 3.25 15 3.25H18.5C19.7426 3.25 20.75 4.25736 20.75 5.5V8.99998C20.75 10.2426 19.7426 11.25 18.5 11.25H15C13.7574 11.25 12.75 10.2426 12.75 8.99998V5.5ZM15 4.75C14.5858 4.75 14.25 5.08579 14.25 5.5V8.99998C14.25 9.41419 14.5858 9.74998 15 9.74998H18.5C18.9142 9.74998 19.25 9.41419 19.25 8.99998V5.5C19.25 5.08579 18.9142 4.75 18.5 4.75H15ZM15 12.75C13.7574 12.75 12.75 13.7574 12.75 15V18.5C12.75 19.7426 13.7574 20.75 15 20.75H18.5C19.7426 20.75 20.75 19.7427 20.75 18.5V15C20.75 13.7574 19.7426 12.75 18.5 12.75H15ZM14.25 15C14.25 14.5858 14.5858 14.25 15 14.25H18.5C18.9142 14.25 19.25 14.5858 19.25 15V18.5C19.25 18.9142 18.9142 19.25 18.5 19.25H15C14.5858 19.25 14.25 18.9142 14.25 18.5V15Z"
-                                    fill="" />
+                                <rect x="3.25" y="3.25" width="7.5" height="7.5" rx="1.25" stroke="currentColor" stroke-width="1.5" />
+                                <rect x="13.25" y="3.25" width="7.5" height="7.5" rx="1.25" stroke="currentColor" stroke-width="1.5" />
+                                <rect x="3.25" y="13.25" width="7.5" height="7.5" rx="1.25" stroke="currentColor" stroke-width="1.5" />
+                                <rect x="13.25" y="13.25" width="7.5" height="7.5" rx="1.25" stroke="currentColor" stroke-width="1.5" />
                             </svg>
 
                             <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
@@ -49,226 +49,80 @@
                     </li>
 
                     <li>
-                        <a href="#" @click.prevent="selected = (selected === 'Categories' ? '':'Categories')"
+                        <a href="admin.php?page=categories&action=index" @click="selected = (selected === 'Categories' ? '':'Categories')"
                             class="menu-item group"
-                            :class=" (selected === 'Categories') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-active' : 'menu-item-inactive'">
-                            <svg :class="(selected === 'Categories') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                            :class=" (selected === 'Categories') ? 'menu-item-active' : 'menu-item-inactive'">
+                            <svg :class="(selected === 'Categories') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M10 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4H10L12 6H20C21.1046 6 22 6.89543 22 8V18C22 19.1046 21.1046 20 20 20H10Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                                <path d="M5 4C4.44772 4 4 4.44772 4 5V19C4 19.5523 4.44772 20 5 20H19C19.5523 20 20 19.5523 20 19V5C20 4.44772 19.5523 4 19 4H5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 10H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 4V20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
 
                             <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
                                 Danh mục
                             </span>
-
-                            <svg class="menu-item-arrow absolute right-2.5 top-1/2 -translate-y-1/2 stroke-current"
-                                :class="[(selected === 'Categories') ? 'menu-item-arrow-active' : 'menu-item-arrow-inactive', sidebarToggle ? 'lg:hidden' : '' ]"
-                                width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.79175 7.39584L10.0001 12.6042L15.2084 7.39585" stroke="" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
                         </a>
-
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Categories') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="category.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Danh sách danh mục
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Categories') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="category-add.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Thêm danh mục
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
 
                     <li>
-                        <a href="#" @click.prevent="selected = (selected === 'Products' ? '':'Products')"
+                        <a href="admin.php?page=products&action=index" @click="selected = (selected === 'Products' ? '':'Products')"
                             class="menu-item group"
-                            :class=" (selected === 'Products') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-active' : 'menu-item-inactive'">
-                            <svg :class="(selected === 'Products') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                            :class=" (selected === 'Products') ? 'menu-item-active' : 'menu-item-inactive'">
+                            <svg :class="(selected === 'Products') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M7.75 4C6.50736 4 5.5 5.00736 5.5 6.25V17.75C5.5 18.9926 6.50736 20 7.75 20H16.25C17.4926 20 18.5 18.9926 18.5 17.75V6.25C18.5 5.00736 17.4926 4 16.25 4H7.75ZM5.5 8.75H18.5"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                                <path d="M12 3L2 9L12 15L22 9L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 15L12 21L22 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 9V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 9V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
 
                             <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
                                 Sản phẩm
                             </span>
-
-                            <svg class="menu-item-arrow absolute right-2.5 top-1/2 -translate-y-1/2 stroke-current"
-                                :class="[(selected === 'Products') ? 'menu-item-arrow-active' : 'menu-item-arrow-inactive', sidebarToggle ? 'lg:hidden' : '' ]"
-                                width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.79175 7.39584L10.0001 12.6042L15.2084 7.39585" stroke="" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
                         </a>
-
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Products') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="product.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Danh sách sản phẩm
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Products') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="product-add.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Thêm sản phẩm
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
 
                     <li>
-                        <a href="#" @click.prevent="selected = (selected === 'Orders' ? '':'Orders')"
+                        <a href="admin.php?page=orders&action=index" @click="selected = (selected === 'Orders' ? '':'Orders')"
                             class="menu-item group"
-                            :class=" (selected === 'Orders') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-active' : 'menu-item-inactive'">
-                            <svg :class="(selected === 'Orders') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                            :class=" (selected === 'Orders') ? 'menu-item-active' : 'menu-item-inactive'">
+                            <svg :class="(selected === 'Orders') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M3 6H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M15 10C15 11.6569 13.6569 13 12 13C10.3431 13 9 11.6569 9 10"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                                <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 6H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
 
                             <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
                                 Đơn hàng
                             </span>
-
-                            <svg class="menu-item-arrow absolute right-2.5 top-1/2 -translate-y-1/2 stroke-current"
-                                :class="[(selected === 'Orders') ? 'menu-item-arrow-active' : 'menu-item-arrow-inactive', sidebarToggle ? 'lg:hidden' : '' ]"
-                                width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.79175 7.39584L10.0001 12.6042L15.2084 7.39585" stroke="" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
                         </a>
-
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Orders') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="order.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Danh sách đơn hàng
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Orders') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="order-add.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Thêm đơn hàng
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
 
                     <li>
-                        <a href="#" @click.prevent="selected = (selected === 'Coupons' ? '':'Coupons')"
+                        <a href="admin.php?page=coupons&action=index" @click="selected = (selected === 'Coupons' ? '':'Coupons')"
                             class="menu-item group"
-                            :class=" (selected === 'Coupons') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-active' : 'menu-item-inactive'">
-                            <svg :class="(selected === 'Coupons') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                            :class=" (selected === 'Coupons') ? 'menu-item-active' : 'menu-item-inactive'">
+                            <svg :class="(selected === 'Coupons') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M15 9L9 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M9 9H9.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M15 15H15.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                                <path d="M20.5 12.5V5.5C20.5 5.03579 20.3156 4.59013 19.9882 4.26275C19.6609 3.93538 19.2152 3.75 18.75 3.75H5.25C4.78478 3.75 4.33913 3.93538 4.01175 4.26275C3.68437 4.59013 3.5 5.03579 3.5 5.5V18.5C3.5 18.9642 3.68437 19.4099 4.01175 19.7373C4.33913 20.0647 4.78478 20.25 5.25 20.25H12.5L20.5 12.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="8" cy="8" r="1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.5 9L18 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
 
                             <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
-                                Mã giảm
+                                Mã giảm giá
                             </span>
-
-                            <svg class="menu-item-arrow absolute right-2.5 top-1/2 -translate-y-1/2 stroke-current"
-                                :class="[(selected === 'Coupons') ? 'menu-item-arrow-active' : 'menu-item-arrow-inactive', sidebarToggle ? 'lg:hidden' : '' ]"
-                                width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.79175 7.39584L10.0001 12.6042L15.2084 7.39585" stroke="" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
                         </a>
-
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Coupons') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="coupon.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Danh sách mã giảm
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Coupons') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="coupon-add.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Thêm mã giảm
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
 
                     <li>
-                        <a href="user.php" @click="selected = (selected === 'Users' ? '':'Users')"
+                        <a href="admin.php?page=users&action=index" @click="selected = (selected === 'Users' ? '':'Users')"
                             class="menu-item group"
                             :class=" (selected === 'Users') ? 'menu-item-active' : 'menu-item-inactive'">
                             <svg :class="(selected === 'Users') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
@@ -291,117 +145,39 @@
                     </li>
 
                     <li>
-                        <a href="#" @click.prevent="selected = (selected === 'Brands' ? '':'Brands')"
+                        <a href="admin.php?page=brands&action=index" @click="selected = (selected === 'Brands' ? '':'Brands')"
                             class="menu-item group"
-                            :class=" (selected === 'Brands') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-active' : 'menu-item-inactive'">
-                            <svg :class="(selected === 'Brands') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                            :class=" (selected === 'Brands') ? 'menu-item-active' : 'menu-item-inactive'">
+                            <svg :class="(selected === 'Brands') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M12 7.5V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M12 7.5L4.5 11.75" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M12 7.5L19.5 11.75" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M20.5 4.5L13.5 11.5L4 11.5L4 20.5L11.5 20.5L20.5 11.5L20.5 4.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="8" cy="8" r="1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
 
                             <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
                                 Thương hiệu
                             </span>
-
-                            <svg class="menu-item-arrow absolute right-2.5 top-1/2 -translate-y-1/2 stroke-current"
-                                :class="[(selected === 'Brands') ? 'menu-item-arrow-active' : 'menu-item-arrow-inactive', sidebarToggle ? 'lg:hidden' : '' ]"
-                                width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.79175 7.39584L10.0001 12.6042L15.2084 7.39585" stroke="" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
                         </a>
-
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Brands') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="brand.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Danh sách thương hiệu
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Brands') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="brand-add.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Thêm thương hiệu
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
 
                     <li>
-                        <a href="#" @click.prevent="selected = (selected === 'Blogs' ? '':'Blogs')"
+                        <a href="admin.php?page=blogs&action=index" @click="selected = (selected === 'Blogs' ? '':'Blogs')"
                             class="menu-item group"
-                            :class=" (selected === 'Blogs') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-active' : 'menu-item-inactive'">
-                            <svg :class="(selected === 'Blogs') || (page === 'formElements' || page === 'formLayout' || page === 'proFormElements' || page === 'proFormLayout') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                            :class=" (selected === 'Blogs') ? 'menu-item-active' : 'menu-item-inactive'">
+                            <svg :class="(selected === 'Blogs') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 20H20.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path
-                                    d="M16 13L20.5 8.5C21.3284 7.67157 21.3284 6.32843 20.5 5.5C19.6716 4.67157 18.3284 4.67157 17.5 5.5L13 10L13 14H17L17 13Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M3.5 21C3.5 19.8954 4.39543 19 5.5 19H9" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M3.5 3C3.5 4.10457 4.39543 5 5.5 5H9" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M3.5 12C3.5 13.1046 4.39543 14 5.5 14H7" stroke="currentColor"
-                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M14.5 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8.5L14.5 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 2V8H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 15H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 11H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
 
                             <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
                                 Bài viết
                             </span>
-
-                            <svg class="menu-item-arrow absolute right-2.5 top-1/2 -translate-y-1/2 stroke-current"
-                                :class="[(selected === 'Blogs') ? 'menu-item-arrow-active' : 'menu-item-arrow-inactive', sidebarToggle ? 'lg:hidden' : '' ]"
-                                width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.79175 7.39584L10.0001 12.6042L15.2084 7.39585" stroke="" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
                         </a>
-
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Blogs') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="blog.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Danh sách bài viết
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="overflow-hidden transform translate"
-                            :class="(selected === 'Blogs') ? 'block' :'hidden'">
-                            <ul :class="sidebarToggle ? 'lg:hidden' : 'flex'"
-                                class="flex flex-col gap-1 mt-2 menu-dropdown pl-9">
-                                <li>
-                                    <a href="blog-add.php" class="menu-dropdown-item group"
-                                        :class="page === 'formElements' ? 'menu-dropdown-item-active' : 'menu-dropdown-item-inactive'">
-                                        Thêm bài viết
-                                    </a>
-                                </li>
                     </li>
                 </ul>
             </div>
