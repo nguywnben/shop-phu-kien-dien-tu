@@ -69,10 +69,14 @@ switch ($page) {
                 $coupon->index();
                 break;
         }
+        break;
     case "orders":
         switch ($action) {
             case "index":
                 $order->index();
+                break;
+        }
+        break;
     case "brands":
         switch ($action) {
             case "index":
@@ -91,6 +95,6 @@ switch ($page) {
         echo "Không tìm thấy trang.";
         break;
 }
-}
+
 
 ?>
