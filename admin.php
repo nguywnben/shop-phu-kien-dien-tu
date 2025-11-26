@@ -26,6 +26,8 @@ require_once "Controllers/Admin/BrandController.php";
 $brand = new BrandController();
 require_once "Controllers/Admin/PostController.php";
 $post = new PostController();
+require_once "Controllers/Admin/BrandController.php";
+$brand = new BrandController();
 
 switch ($page) {
     case "":
@@ -71,6 +73,17 @@ switch ($page) {
         switch ($action) {
             case "index":
                 $order->index();
+    case "brands":
+        switch ($action) {
+            case "index":
+                $brand->index();
+                break;
+        }
+        break;
+    case "posts":
+        switch ($action) {
+            case "index":
+                $post->index();
                 break;
         }
         break;

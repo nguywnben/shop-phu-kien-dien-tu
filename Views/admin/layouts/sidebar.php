@@ -162,7 +162,7 @@
                     </li>
 
                     <li>
-                        <a href="admin.php?page=blogs&action=index" @click="selected = (selected === 'Blogs' ? '':'Blogs')"
+                        <a href="admin.php?page=posts&action=index" @click="selected = (selected === 'Blogs' ? '':'Blogs')"
                             class="menu-item group"
                             :class=" (selected === 'Blogs') ? 'menu-item-active' : 'menu-item-inactive'">
                             <svg :class="(selected === 'Blogs') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
