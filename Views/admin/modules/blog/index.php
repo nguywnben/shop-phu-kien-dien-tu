@@ -47,7 +47,7 @@
                                                 <div class="flex items-center">
                                                     <div class="flex items-center gap-3">
                                                         <div class="w-10 h-10 overflow-hidden rounded-full">
-                                                            <img src="../../assets/admin/img/user/user-17.jpg" alt="brand" />
+                                                            <img src="assets/admin/img/user/user-17.jpg" alt="brand" />
                                                         </div>
 
                                                         <div>
@@ -73,15 +73,15 @@
                                                     <div class="flex -space-x-2">
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-22.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-22.jpg" alt="user" />
                                                         </div>
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-23.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-23.jpg" alt="user" />
                                                         </div>
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-24.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-24.jpg" alt="user" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -107,7 +107,7 @@
                                                 <div class="flex items-center">
                                                     <div class="flex items-center gap-3">
                                                         <div class="w-10 h-10 overflow-hidden rounded-full">
-                                                            <img src="../../assets/admin/img/user/user-18.jpg" alt="brand" />
+                                                            <img src="assets/admin/img/user/user-18.jpg" alt="brand" />
                                                         </div>
 
                                                         <div>
@@ -133,11 +133,11 @@
                                                     <div class="flex -space-x-2">
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-25.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-25.jpg" alt="user" />
                                                         </div>
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-26.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-26.jpg" alt="user" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -163,7 +163,7 @@
                                                 <div class="flex items-center">
                                                     <div class="flex items-center gap-3">
                                                         <div class="w-10 h-10 overflow-hidden rounded-full">
-                                                            <img src="../../assets/admin/img/user/user-19.jpg" alt="brand" />
+                                                            <img src="assets/admin/img/user/user-19.jpg" alt="brand" />
                                                         </div>
 
                                                         <div>
@@ -189,7 +189,7 @@
                                                     <div class="flex -space-x-2">
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-27.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-27.jpg" alt="user" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -215,7 +215,7 @@
                                                 <div class="flex items-center">
                                                     <div class="flex items-center gap-3">
                                                         <div class="w-10 h-10 overflow-hidden rounded-full">
-                                                            <img src="../../assets/admin/img/user/user-20.jpg" alt="brand" />
+                                                            <img src="assets/admin/img/user/user-20.jpg" alt="brand" />
                                                         </div>
 
                                                         <div>
@@ -241,15 +241,15 @@
                                                     <div class="flex -space-x-2">
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-28.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-28.jpg" alt="user" />
                                                         </div>
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-29.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-29.jpg" alt="user" />
                                                         </div>
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-30.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-30.jpg" alt="user" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -275,7 +275,7 @@
                                                 <div class="flex items-center">
                                                     <div class="flex items-center gap-3">
                                                         <div class="w-10 h-10 overflow-hidden rounded-full">
-                                                            <img src="../../assets/admin/img/user/user-21.jpg" alt="brand" />
+                                                            <img src="assets/admin/img/user/user-21.jpg" alt="brand" />
                                                         </div>
 
                                                         <div>
@@ -301,15 +301,15 @@
                                                     <div class="flex -space-x-2">
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-31.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-31.jpg" alt="user" />
                                                         </div>
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-32.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-32.jpg" alt="user" />
                                                         </div>
                                                         <div
                                                             class="w-6 h-6 overflow-hidden border-2 border-white rounded-full dark:border-gray-900">
-                                                            <img src="../../assets/admin/img/user/user-33.jpg" alt="user" />
+                                                            <img src="assets/admin/img/user/user-33.jpg" alt="user" />
                                                         </div>
                                                     </div>
                                                 </div>
