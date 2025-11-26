@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 24, 2025 lúc 01:30 AM
+-- Thời gian đã tạo: Th10 26, 2025 lúc 09:48 AM
 -- Phiên bản máy phục vụ: 8.0.39
 -- Phiên bản PHP: 8.2.27
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `shop-phu-kien-dien-tu`
+-- Cơ sở dữ liệu: `gearzone`
 --
 
 -- --------------------------------------------------------
@@ -169,24 +169,25 @@ CREATE TABLE `categories` (
   `level` tinyint DEFAULT '0' COMMENT '0: Root, 1: Sub-category, ...',
   `status` tinyint DEFAULT '1' COMMENT '1: Hiển thị, 0: Ẩn',
   `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `update_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `categories`
 --
 
-INSERT INTO `categories` (`id`, `parent_id`, `name`, `level`, `status`, `create_at`, `update_at`) VALUES
-(1, NULL, 'Phụ kiện Điện thoại', 0, 1, '2025-11-24 01:08:10', '2025-11-24 01:08:10'),
-(2, NULL, 'Phụ kiện Máy tính / Laptop', 0, 1, '2025-11-24 01:08:10', '2025-11-24 01:08:10'),
-(3, NULL, 'Thiết bị Âm thanh', 0, 1, '2025-11-24 01:08:10', '2025-11-24 01:08:10'),
-(4, 1, 'Ốp lưng & Bao da', 1, 1, '2025-11-24 01:08:10', '2025-11-24 01:08:10'),
-(5, 1, 'Cáp sạc & Củ sạc', 1, 1, '2025-11-24 01:08:10', '2025-11-24 01:08:10'),
-(6, 1, 'Kính cường lực', 1, 1, '2025-11-24 01:08:10', '2025-11-24 01:08:10'),
-(7, 1, 'Pin dự phòng', 1, 1, '2025-11-24 01:08:10', '2025-11-24 01:08:10'),
-(8, 2, 'Chuột & Bàn phím', 1, 1, '2025-11-24 01:08:10', '2025-11-24 01:08:10'),
-(9, 2, 'USB & Ổ cứng di động', 1, 1, '2025-11-24 01:08:10', '2025-11-24 01:08:10'),
-(10, 3, 'Tai nghe Bluetooth', 1, 1, '2025-11-24 01:08:10', '2025-11-24 01:08:10');
+INSERT INTO `categories` (`id`, `parent_id`, `name`, `level`, `status`, `create_at`, `update_at`, `image`) VALUES
+(1, NULL, 'Phụ kiện Điện thoại', 0, 1, '2025-11-24 01:08:10', '2025-11-26 08:18:38', 'phukiendienthoai.webp'),
+(2, NULL, 'Phụ kiện Máy tính / Laptop', 0, 1, '2025-11-24 01:08:10', '2025-11-26 08:18:47', 'phukienmaytinh.webp'),
+(3, NULL, 'Thiết bị Âm thanh', 0, 1, '2025-11-24 01:08:10', '2025-11-26 08:24:12', 'pinduphong.webp'),
+(4, 1, 'Ốp lưng & Bao da', 1, 1, '2025-11-24 01:08:10', '2025-11-26 08:19:45', 'oplungbaoda.webp'),
+(5, 1, 'Cáp sạc & Củ sạc', 1, 1, '2025-11-24 01:08:10', '2025-11-26 08:19:58', 'cocsacdaysac.webp'),
+(6, 1, 'Kính cường lực', 1, 1, '2025-11-24 01:08:10', '2025-11-26 08:20:07', 'kinhcuongluc.webp'),
+(7, 1, 'Pin dự phòng', 1, 1, '2025-11-24 01:08:10', '2025-11-26 08:20:28', 'pinduphong.webp'),
+(8, 2, 'Chuột & Bàn phím', 1, 1, '2025-11-24 01:08:10', '2025-11-26 08:20:42', 'phukienmaytinh.webp'),
+(9, 2, 'USB & Ổ cứng di động', 1, 1, '2025-11-24 01:08:10', '2025-11-26 08:07:23', 'usb.webp'),
+(10, 3, 'Tai nghe Bluetooth', 1, 1, '2025-11-24 01:08:10', '2025-11-26 08:23:26', 'tainghe.webp');
 
 -- --------------------------------------------------------
 
@@ -391,16 +392,16 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `url`, `sort_order`, `created_at`, `updated_at`) VALUES
-(1, 1, 'uploads/products/anker-30w-side.jpg', 1, '2025-11-24 01:21:34', '2025-11-24 01:21:34'),
-(2, 1, 'uploads/products/anker-30w-box.jpg', 2, '2025-11-24 01:21:34', '2025-11-24 01:21:34'),
-(3, 3, 'uploads/products/logitech-mx3s-top.jpg', 1, '2025-11-24 01:21:34', '2025-11-24 01:21:34'),
-(4, 3, 'uploads/products/logitech-mx3s-side.jpg', 2, '2025-11-24 01:21:34', '2025-11-24 01:21:34'),
-(5, 3, 'uploads/products/logitech-mx3s-hand.jpg', 3, '2025-11-24 01:21:34', '2025-11-24 01:21:34'),
-(6, 5, 'uploads/products/xiaomi-pb-ports.jpg', 1, '2025-11-24 01:21:34', '2025-11-24 01:21:34'),
-(7, 5, 'uploads/products/xiaomi-pb-lifestyle.jpg', 2, '2025-11-24 01:21:34', '2025-11-24 01:21:34'),
-(8, 7, 'uploads/products/sony-xm5-folded.jpg', 1, '2025-11-24 01:21:34', '2025-11-24 01:21:34'),
-(9, 7, 'uploads/products/sony-xm5-case.jpg', 2, '2025-11-24 01:21:34', '2025-11-24 01:21:34'),
-(10, 4, 'uploads/products/apple-case-onphone.jpg', 1, '2025-11-24 01:21:34', '2025-11-24 01:21:34');
+(1, 1, 'cucsacnhanh30w.webp', 1, '2025-11-24 01:21:34', '2025-11-26 08:32:37'),
+(2, 2, 'capsac.webp', 2, '2025-11-24 01:21:34', '2025-11-26 08:32:54'),
+(3, 3, 'chuotkhongday.webp', 1, '2025-11-24 01:21:34', '2025-11-26 08:34:21'),
+(4, 4, 'oplung.webp', 2, '2025-11-24 01:21:34', '2025-11-26 08:34:41'),
+(5, 5, 'sacxiaomi.webp', 3, '2025-11-24 01:21:34', '2025-11-26 08:34:59'),
+(6, 6, 'taingheblue.webp', 1, '2025-11-24 01:21:34', '2025-11-26 08:35:16'),
+(7, 7, 'tainghechuptai.webp', 2, '2025-11-24 01:21:34', '2025-11-26 08:35:29'),
+(8, 8, 'kinhcuonglucc.webp', 1, '2025-11-24 01:21:34', '2025-11-26 08:35:51'),
+(9, 9, 'giadodienthoai.webp', 2, '2025-11-24 01:21:34', '2025-11-26 08:36:20'),
+(10, 10, 'tramsacduphong.webp', 1, '2025-11-24 01:21:34', '2025-11-26 08:36:43');
 
 -- --------------------------------------------------------
 
