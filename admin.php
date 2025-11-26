@@ -20,8 +20,10 @@ require_once "Controllers/Admin/ProductController.php";
 $product = new ProductController();
 require_once "Controllers/Admin/CouponController.php";
 $coupon = new CouponController();
+require_once "Controllers/Admin/OrderController.php";
+$order = new OrderController();
 
-switch($page) {
+switch ($page) {
     case "":
         $dashboard->index();
         break;
@@ -55,12 +57,19 @@ switch($page) {
                 break;
         }
         break;
-        case "coupons":
+    case "coupons":
         switch ($action) {
             case "index":
                 $coupon->index();
                 break;
-            }
+        }
+    case "orders":
+        switch ($action) {
+            case "index":
+                $order->index();
+                break;
+        }
+        break;
     default:
         echo "Không tìm thấy trang.";
         break;
