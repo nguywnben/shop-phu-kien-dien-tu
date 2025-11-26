@@ -25,6 +25,65 @@ class CategoryModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function getOneCategory($id)
+    {
+        $stmt = $this->connection->prepare("SELECT * FROM categories WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function updateCategory($id, $name, $status)
+    {
+        try {
+
+            $sql = "UPDATE categories SET name = :name, status = :status WHERE id = :id";
+            $stmt = $this->connection->prepare($sql);
+
+            return $stmt->execute([
+                ':id' => $id,
+                ':name' => $name,
+                ':status' => $status
+            ]);
+        } catch (PDOException $e) {
+
+            var_dump($e->getMessage());
+            return false;
+        }
+
+    }
+
+    /**
+     * Check if a category name already exists.
+     * If $excludeId is provided, exclude that id from the check (useful when updating).
+     */
+    public function existsByName($name, $excludeId = null)
+    {
+        if ($excludeId !== null) {
+            $stmt = $this->connection->prepare("SELECT COUNT(*) FROM categories WHERE name = :name AND id != :id");
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':id', $excludeId, PDO::PARAM_INT);
+        } else {
+            $stmt = $this->connection->prepare("SELECT COUNT(*) FROM categories WHERE name = :name");
+            $stmt->bindParam(':name', $name);
+        }
+
+        $stmt->execute();
+        $count = $stmt->fetchColumn();
+        return $count > 0;
+    }
+    public function delete($id)
+    {
+        try {
+            $sql = "DELETE FROM categories WHERE id=:id";
+            $stmt = $this->connection->prepare($sql);
+
+            $categories = $stmt->execute([':id' => $id]);
+            return $categories;
+
+        } catch (PDOexception $e) {
+            var_dump($e->getMessage());
+        }
+    }
 }
 
 ?>

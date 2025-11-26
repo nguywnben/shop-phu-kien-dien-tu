@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // if ($_SESSION["login"]["role"] != 1) {
 //     header("Location: index.php");
 //     exit;
@@ -34,6 +34,15 @@ switch($page) {
         switch ($action) {
             case "index":
                 $category->index();
+                break;
+            case "edit":
+                $category->edit();
+                break;
+             case "update":
+                $category->update();
+                break;   
+                case 'delete':
+                $category->delete();
                 break;
         }
         break;
