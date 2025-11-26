@@ -91,5 +91,6 @@ switch ($page) {
         echo "Không tìm thấy trang.";
         break;
 }
+}
 
 ?>
