@@ -15,12 +15,12 @@
         </div>
 
         <nav class="nav container">
-            <a href="home.php" class="nav__logo">
+            <a href="index.php" class="nav__logo">
                 <img class="nav__logo-img" src="Assets/client/img/logo.svg" alt="logo trang web" />
             </a>
             <div class="nav__menu" id="nav-menu">
                 <div class="nav__menu-top">
-                    <a href="home.php" class="nav__menu-logo">
+                    <a href="index.php" class="nav__menu-logo">
                         <img src="Assets/client/img/logo.svg" alt="" />
                     </a>
                     <div class="nav__close" id="nav-close">
@@ -29,7 +29,7 @@
                 </div>
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="home.php" class="nav__link active-link">Trang Chủ</a>
+                        <a href="index.php" class="nav__link active-link">Trang Chủ</a>
                     </li>
                     <li class="nav__item">
                         <a href="index.php?page=shop" class="nav__link">Cửa Hàng</a>
