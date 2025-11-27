@@ -37,12 +37,6 @@
                     <li class="nav__item">
                         <a href="accounts.php" class="nav__link">Tài Khoản Của Tôi</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="compare.php" class="nav__link">So Sánh</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="login.php" class="nav__link">Đăng Nhập</a>
-                    </li>
                 </ul>
                 <div class="header__search">
                     <input type="text" placeholder="Tìm kiếm sản phẩm..." class="form__input" />
