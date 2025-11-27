@@ -16,6 +16,7 @@ class OrderController
         $orders = $this->orderModel->getAllOrders();
         require_once "Views/admin/orders-index.php";
     }
+    
 }
 
 ?>
