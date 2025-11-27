@@ -1,6 +1,43 @@
+<?php if (isset($_SESSION['error']) && !empty($_SESSION['error'])): ?>
+    <div x-data="{ show: true }" x-show="show" x-transition
+         class="mb-4 flex items-center justify-between rounded-lg bg-error-500 px-4 py-3 text-white shadow-md">
+        <div class="flex items-center gap-2">
+            <svg class="h-5 w-5 shrink-0 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+            </svg>
+            <span class="text-sm font-medium"><?= htmlspecialchars($_SESSION['error']) ?></span>
+        </div>
+        
+        <button @click="show = false" class="ml-auto text-white/70 hover:text-white focus:outline-none">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+    <?php unset($_SESSION['error']); ?>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['success']) && !empty($_SESSION['success'])): ?>
+    <div x-data="{ show: true }" x-show="show" x-transition
+         class="mb-4 flex items-center justify-between rounded-lg bg-success-500 px-4 py-3 text-white shadow-md">
+        <div class="flex items-center gap-2">
+            <svg class="h-5 w-5 shrink-0 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-sm font-medium"><?= htmlspecialchars($_SESSION['success']) ?></span>
+        </div>
+
+        <button @click="show = false" class="ml-auto text-white/70 hover:text-white focus:outline-none">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+    <?php unset($_SESSION['success']); ?>
+<?php endif; ?>
 <main>
     <div class="p-4 mx-auto max-w-(--breakpoint-2xl) md:p-6">
-        <div x-data="{ pageName: `Quản lý Danh mục` }">
+        <div x-data="{ pageName: `Quản lý mã giảm giá` }">
             <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
                 <h2 class="text-xl font-semibold text-gray-800 dark:text-white/90" x-text="pageName"></h2>
 
@@ -39,7 +76,7 @@
                                         <th class="px-5 py-3 sm:px-6">
                                             <div class="flex items-center">
                                                 <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
-                                                    Mã đơn hàng
+                                                    Mã giảm giá
                                                 </p>
                                             </div>
                                         </th>
@@ -116,27 +153,32 @@
                                                     <?php if ($coupon['status'] == 1): ?>
                                                         <p
                                                             class="rounded-full bg-success-50 px-2 py-0.5 text-theme-xs font-medium text-success-700 dark:bg-success-500/15 dark:text-success-500">
-                                                            Hiển thị
+                                                           Còn hạn
                                                         </p>
                                                     <?php else: ?>
                                                         <p
                                                             class="rounded-full bg-error-50 px-2 py-0.5 text-theme-xs font-medium text-error-700 dark:bg-error-500/15 dark:text-error-500">
-                                                            Đang ẩn
+                                                            Hết hạn
                                                         </p>
                                                     <?php endif; ?>
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="admin.php?page=categories&action=edit&id=<?= $coupon['id'] ?>"
+                                                <a href="admin.php?page=coupons&action=edit&id=<?= $coupon['id'] ?>"
                                                     class="inline-flex items-center justify-center gap-1 rounded-full bg-blue-light-50 px-2.5 py-0.5 text-sm font-medium text-blue-light-500 dark:bg-blue-light-500/15 dark:text-blue-light-500 ">
                                                     Sửa <i class="bi bi-pencil-square"></i>
 
                                                 </a>
 
-                                                <button
-                                                    class="inline-flex items-center justify-center gap-1 rounded-full bg-error-50 px-2.5 py-0.5 text-sm font-medium text-error-600 dark:bg-error-500/15 dark:text-error-500">
-                                                    Xóa <i class="bi bi-trash"></i>
-                                                </button>
+                                                <form method="post" action="admin.php?page=coupons&action=delete"
+                                                    onsubmit="return confirm('Bạn có chắc muốn xóa mã giảm giá này không?');"
+                                                    style="display:inline">
+                                                    <input type="hidden" name="id" value="<?= $coupon['id'] ?>" />
+                                                    <button type="submit"
+                                                        class="inline-flex items-center justify-center gap-1 rounded-full bg-error-50 px-2.5 py-0.5 text-sm font-medium text-error-600 dark:bg-error-500/15 dark:text-error-500">
+                                                        Xóa <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     <? endforeach; ?>
