@@ -48,10 +48,10 @@ switch ($page) {
             case "edit":
                 $category->edit();
                 break;
-             case "update":
+            case "update":
                 $category->update();
-                break;   
-                case 'delete':
+                break;
+            case 'delete':
                 $category->delete();
                 break;
         }
@@ -67,6 +67,15 @@ switch ($page) {
         switch ($action) {
             case "index":
                 $coupon->index();
+                break;
+            case "edit":
+                $coupon->edit();
+                break;
+            case "update":
+                $coupon->update();
+                break;
+            case 'delete':
+                $coupon->delete();
                 break;
         }
         break;
