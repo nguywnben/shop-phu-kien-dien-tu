@@ -44,7 +44,7 @@
                             ?>
                             <div class="product__item">
                                 <div class="product__banner">
-                                    <a href="details.php?product_id=<?php echo $product['id']; ?>" class="product__images">
+                                    <a href="index.php?page=details&product_id=<?php echo $product['id']; ?>" class="product__images">
                                         <img src="<?php echo htmlspecialchars($defaultImg); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="product__img default" />
                                         <img src="<?php echo htmlspecialchars($hoverImg); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="product__img hover" />
                                     </a>

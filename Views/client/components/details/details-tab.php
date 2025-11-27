@@ -1,4 +1,4 @@
-        <section class="details__tab container">
+        <!-- <section class="details__tab container">
             <div class="detail__tabs">
                 <span class="detail__tab active-tab" data-target="#info">
                     Thông tin bổ sung
@@ -149,4 +149,4 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->

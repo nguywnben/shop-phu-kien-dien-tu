@@ -8,14 +8,8 @@
                             <img src="Assets/client/img/product-1-2.jpg" alt="" class="product__img hover" />
                         </a>
                         <div class="product__actions">
-                            <a href="#" class="action__btn" aria-label="Xem Nhanh">
-                                <i class="fi fi-rs-eye"></i>
-                            </a>
                             <a href="#" class="action__btn" aria-label="Thêm vào Danh sách yêu thích">
                                 <i class="fi fi-rs-heart"></i>
-                            </a>
-                            <a href="#" class="action__btn" aria-label="So Sánh">
-                                <i class="fi fi-rs-shuffle"></i>
                             </a>
                         </div>
                         <div class="product__badge light-pink">Hot</div>
