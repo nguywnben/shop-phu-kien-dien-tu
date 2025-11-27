@@ -15,4 +15,12 @@ class ProductModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function getImagesByProductId($productId)
+    {
+        $sql = "SELECT url FROM product_images WHERE product_id = :pid ORDER BY sort_order ASC";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':pid', $productId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
 }

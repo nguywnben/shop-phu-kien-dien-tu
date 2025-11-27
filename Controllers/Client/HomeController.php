@@ -16,6 +16,12 @@ class HomeController
     {
         $categories = $this->categoryModel->getAllCategories();
         $products = $this->productModel->getAllProducts();
+        foreach ($products as $i => $p) {
+            $products[$i]['images'] = [];
+            if (isset($p['id'])) {
+                $products[$i]['images'] = $this->productModel->getImagesByProductId($p['id']);
+            }
+        }
         require_once "Views/client/index.php";
     }
 }
