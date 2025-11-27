@@ -15,14 +15,26 @@ class ShopController
     public function index()
     {
         $categories = $this->categoryModel->getAllCategories();
-        $products = $this->productModel->getAllProducts();
+
+        $perPage = 8;
+        $currentPage = isset($_GET['p']) ? max(1, intval($_GET['p'])) : 1;
+        $offset = ($currentPage - 1) * $perPage;
+
+        $totalProducts = $this->productModel->countProducts();
+        $totalPages = $totalProducts > 0 ? (int) ceil($totalProducts / $perPage) : 1;
+
+        $products = $this->productModel->getProductsPaginated($perPage, $offset);
         foreach ($products as $i => $p) {
             $products[$i]['images'] = [];
             if (isset($p['id'])) {
                 $products[$i]['images'] = $this->productModel->getImagesByProductId($p['id']);
             }
         }
-        require_once "Views/client/index.php";
+        $totalProducts = $totalProducts;
+        $totalPages = $totalPages;
+        $currentPage = $currentPage;
+        $perPage = $perPage;
+        require_once "Views/client/shop.php";
     }
     public function details()
     {

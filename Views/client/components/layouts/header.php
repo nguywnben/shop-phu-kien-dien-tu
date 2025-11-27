@@ -32,7 +32,7 @@
                         <a href="home.php" class="nav__link active-link">Trang Chủ</a>
                     </li>
                     <li class="nav__item">
-                        <a href="shop.php" class="nav__link">Cửa Hàng</a>
+                        <a href="index.php?page=shop" class="nav__link">Cửa Hàng</a>
                     </li>
                     <li class="nav__item">
                         <a href="accounts.php" class="nav__link">Tài Khoản Của Tôi</a>
