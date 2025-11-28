@@ -8,7 +8,7 @@
                 <p class="header__alert-news">
                     Ưu Đãi Giá Trị Lớn - Tiết kiệm nhiều hơn với phiếu giảm giá
                 </p>
-                <a href="login.php" class="header__top-action">
+                <a href="index.php?page=login&action=index" class="header__top-action">
                     Đăng nhập / Đăng ký
                 </a>
             </div>
