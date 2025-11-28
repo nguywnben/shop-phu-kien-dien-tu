@@ -47,54 +47,35 @@ class CouponModel
         }
     }
 
-    public function updateCoupon($id, $code, $max_discount, $min_order_total, $usage_limit, $start_at, $end_at, $status)
-    {
-        try {
-            $sql = "UPDATE coupons SET 
-                code = :code, 
+    public function updateCoupon($data)
+{
+    try {
+        $stmt = $this->connection->prepare("
+            UPDATE coupons 
+            SET 
                 max_discount = :max_discount, 
                 min_order_total = :min_order_total, 
                 usage_limit = :usage_limit, 
                 start_at = :start_at, 
                 end_at = :end_at, 
                 status = :status 
-                WHERE id = :id";
-            $stmt = $this->connection->prepare($sql);
-            return $stmt->execute([
-                ':id' => $id,
-                ':code' => $code,
-                ':max_discount' => $max_discount,
-                ':min_order_total' => $min_order_total,
-                ':usage_limit' => $usage_limit,
-                ':start_at' => $start_at,
-                ':end_at' => $end_at,
-                ':status' => $status
-            ]);
-        } catch (PDOException $e) {
-            var_dump($e->getMessage());
-            return false;
-        }
-    }
-
-    /**
-     * Check if a coupon code already exists.
-     * If $excludeId is provided, exclude that id from the check (useful when updating).
-     */
-    public function existsByCode($code, $excludeId = null)
-    {
-        if ($excludeId !== null) {
-            $stmt = $this->connection->prepare("SELECT COUNT(*) FROM coupons WHERE code = :code AND id != :id");
-            $stmt->bindParam(':code', $code);
-            $stmt->bindParam(':id', $excludeId, PDO::PARAM_INT);
-        } else {
-            $stmt = $this->connection->prepare("SELECT COUNT(*) FROM coupons WHERE code = :code");
-            $stmt->bindParam(':code', $code);
-        }
+            WHERE id = :id
+        ");
+        $stmt->bindParam(':id', $data['id']);
+        $stmt->bindParam(':max_discount', $data['max_discount']);
+        $stmt->bindParam(':min_order_total', $data['min_order_total']);
+        $stmt->bindParam(':usage_limit', $data['usage_limit']);
+        $stmt->bindParam(':start_at', $data['start_at']);
+        $stmt->bindParam(':end_at', $data['end_at']);
+        $stmt->bindParam(':status', $data['status']);
 
         $stmt->execute();
-        $count = $stmt->fetchColumn();
-        return $count > 0;
+        return true;
+        } catch (PDOException $e) {
+        var_dump($e->getMessage());
+        return false;
     }
+}
 
     public function delete($id)
     {

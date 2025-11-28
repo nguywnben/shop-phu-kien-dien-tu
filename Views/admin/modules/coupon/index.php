@@ -153,7 +153,7 @@
                                                     <?php if ($coupon['status'] == 1): ?>
                                                         <p
                                                             class="rounded-full bg-success-50 px-2 py-0.5 text-theme-xs font-medium text-success-700 dark:bg-success-500/15 dark:text-success-500">
-                                                           Còn hạn
+                                                           Hoạt động
                                                         </p>
                                                     <?php else: ?>
                                                         <p
