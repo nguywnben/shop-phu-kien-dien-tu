@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once 'config.php';
 
 $page = isset($_GET['page']) ? $_GET['page'] : '';
@@ -7,6 +9,8 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 require_once 'Controllers/Client/HomeController.php';
 $home = new HomeController();
+require_once "Controllers/Client/AuthController.php";
+$auth = new AuthController();
 
 switch ($page) {
     case "":
@@ -17,7 +21,23 @@ switch ($page) {
             case "index":
                 $auth->login();
                 break;
+            case "handle":
+                $auth->handleLogin();
+                break;
         }
+        break;
+    case "register":
+        switch ($action) {
+            case "index":
+                $auth->register();
+                break;
+            case "handle":
+                $auth->handleRegister();
+                break;
+        }
+        break;
+    case "logout":
+        $auth->logout();
         break;
     default:
         echo "Không tìm thấy trang.";
