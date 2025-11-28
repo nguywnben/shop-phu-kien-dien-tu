@@ -132,7 +132,7 @@
                                                 <div class="flex items-center">
                                                     <div class="flex items-center gap-3">
                                                         <div class="w-10 h-10 overflow-hidden rounded-full">
-                                                            <img src="Assets/category/thumbnail/<?= $category['thumbnail'] ?>"
+                                                            <img src="Assets/client/img/<?= $category['image'] ?>"
                                                                 alt="thumbnail" />
                                                         </div>
                                                         <div>

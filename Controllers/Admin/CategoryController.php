@@ -74,8 +74,8 @@ class CategoryController
 
             // Nếu có ảnh mới và hợp lệ thì upload
             if (!empty($image) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-
-                $target_dir = "Assets/category/thumbnail/";
+                
+                $target_dir = "Assets/client/img/";
                 $new_name = date("YmdHis") . '_' . basename($image);
                 $target_file = $target_dir . $new_name;
 
