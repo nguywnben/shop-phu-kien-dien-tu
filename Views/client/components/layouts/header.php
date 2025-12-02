@@ -8,9 +8,15 @@
                 <p class="header__alert-news">
                     Ưu Đãi Giá Trị Lớn - Tiết kiệm nhiều hơn với phiếu giảm giá
                 </p>
-                <a href="index.php?page=login&action=index" class="header__top-action">
-                    Đăng nhập / Đăng ký
-                </a>
+                <?php if (isset($_SESSION["login"])): ?>
+                    <a href="index.php?page=account&id=<?= $_SESSION["login"]["id"] ?>" class="header__top-action">
+                        <?= $_SESSION["login"]["name"] ?>
+                    </a>
+                <?php else: ?>
+                    <a href="index.php?page=login&action=index" class="header__top-action">
+                        Đăng nhập / Đăng ký
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -33,9 +39,6 @@
                     </li>
                     <li class="nav__item">
                         <a href="index.php?page=shop" class="nav__link">Cửa Hàng</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="accounts.php" class="nav__link">Tài Khoản Của Tôi</a>
                     </li>
                 </ul>
                 <div class="header__search">
