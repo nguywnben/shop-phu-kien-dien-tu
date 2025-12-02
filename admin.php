@@ -51,9 +51,16 @@ switch ($page) {
             case "update":
                 $category->update();
                 break;
+            case 'store':
+                // Route POST to controller->store() which processes create
+                $category->store();
+                break;
             case 'delete':
                 $category->delete();
                 break;
+            case 'add':
+                $category->add();
+                break;    
         }
         break;
     case "products":

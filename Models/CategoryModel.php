@@ -32,15 +32,16 @@ class CategoryModel
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-    public function updateCategory($id, $name, $status)
+    public function updateCategory($id, $image, $name, $status)
     {
         try {
 
-            $sql = "UPDATE categories SET name = :name, status = :status WHERE id = :id";
+            $sql = "UPDATE categories SET image = :image, name = :name, status = :status WHERE id = :id";
             $stmt = $this->connection->prepare($sql);
 
             return $stmt->execute([
                 ':id' => $id,
+                ':image' => $image,
                 ':name' => $name,
                 ':status' => $status
             ]);
@@ -70,6 +71,34 @@ class CategoryModel
         $stmt->execute();
         $count = $stmt->fetchColumn();
         return $count > 0;
+    }
+    
+    public function insert($name, $image, $status)
+    {
+        try {
+            $sql = "INSERT INTO categories (name, image, status, create_at, update_at) VALUES (:name, :image, :status, NOW(), NOW())";
+            $stmt = $this->connection->prepare($sql);
+            return $stmt->execute([
+                ':name' => $name,
+                ':image' => $image,
+                ':status' => $status
+            ]);
+        } catch (PDOException $e) {
+            var_dump($e->getMessage());
+            return false;
+        }
+    }
+    public function checkName()
+    {
+        try {
+            $sql = "SELECT name FROM categories";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute();
+            $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $categories;
+        } catch (PDOexception $e) {
+            var_dump($e->getMessage());
+        }
     }
     public function delete($id)
     {

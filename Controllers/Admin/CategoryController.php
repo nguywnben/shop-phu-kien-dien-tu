@@ -74,7 +74,7 @@ class CategoryController
 
             // Nếu có ảnh mới và hợp lệ thì upload
             if (!empty($image) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-                
+
                 $target_dir = "Assets/client/img/";
                 $new_name = date("YmdHis") . '_' . basename($image);
                 $target_file = $target_dir . $new_name;
@@ -91,7 +91,7 @@ class CategoryController
             }
 
             // Gọi model update 
-            $result = $this->categoryModel->updateCategory($id, $name, $status);
+            $result = $this->categoryModel->updateCategory($id, $image_to_save, $name, $status);
 
             if ($result) {
                 unset($_SESSION['name_error'], $_SESSION['status_error'], $_SESSION['image_error']);
@@ -110,9 +110,77 @@ class CategoryController
     {
         require_once "Views/admin/category-add.php";
     }
+    public function store()
+    {
+        if (isset($_POST['create'])) {
+            $name = isset($_POST['name']) ? trim($_POST['name']) : '';
+            $status = (isset($_POST['status']) && ($_POST['status'] === '0' || $_POST['status'] === '1')) ? $_POST['status'] : '';
+            $image = $_FILES['image']['name'] ?? '';
+
+            // Kiểm tra lỗi
+            $_SESSION['name_error'] = '';
+            $_SESSION['status_error'] = '';
+            $_SESSION['image_error'] = '';
+
+            if (empty($name)) {
+                $_SESSION['name_error'] = 'Vui lòng nhập tên loại sản phẩm';
+            }
+            if ($status === '') {
+                $_SESSION['status_error'] = 'Vui lòng chọn trạng thái';
+            }
+            // Kiểm tra tên đã tồn tại
+            $checkName = $this->categoryModel->checkName();
+            foreach ($checkName as $check) {
+                if ($name == $check['name']) {
+                    $_SESSION['name_error'] = 'Tên loại sản phẩm đã tồn tại';
+                    break;
+                }
+            }
+            // Kiểm tra hình ảnh
+            if (empty($image) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+                $_SESSION['image_error'] = 'Vui lòng chọn file hợp lệ để upload';
+            }
+
+            // Lưu lại giá trị cũ
+            $_SESSION['name_old'] = $name;
+            $_SESSION['status_old'] = $status;
+
+            if (!empty($_SESSION['name_error']) || !empty($_SESSION['status_error']) || !empty($_SESSION['image_error'])) {
+                header('location: ?page=categories&action=add');
+                exit;
+            }
+
+            // Xử lý upload 
+            $target_dir = "Assets/client/img/";
+            $new_name = date("YmdHis") . '_' . basename($image);
+            $target_file = $target_dir . $new_name;
+
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                // Thêm vào CSDL với tên file mới
+                $category = $this->categoryModel->insert($name, $new_name, $status);
+
+                if ($category) {
+                    unset($_SESSION['name_error'], $_SESSION['status_error'], $_SESSION['image_error']);
+                    unset($_SESSION['name_old'], $_SESSION['status_old']);
+
+                    $_SESSION['success'] = 'Thêm loại sản phẩm thành công';
+                    header('location: ?page=categories&action=index');
+                    exit;
+                } else {
+                    $_SESSION['error'] = 'Thêm loại sản phẩm thất bại';
+                    header('location: ?page=categories&action=add');
+                    exit;
+                }
+            } else {
+                $_SESSION['image_error'] = 'Upload ảnh thất bại!';
+                header('location: ?page=categories&action=add');
+                exit;
+            }
+        }
+    }
     public function delete()
     {
-        
+
         $id = '';
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $_POST['id'] ?? '';
