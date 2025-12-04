@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="header__user-actions">
-                <a href="wishlist.php" class="header__action-btn" title="Danh sách yêu thích">
+                <a href="index.php?page=wishlist" class="header__action-btn" title="Danh sách yêu thích">
                     <img src="Assets/client/img/icon-heart.svg" alt="" />
                     <span class="count">3</span>
                 </a>

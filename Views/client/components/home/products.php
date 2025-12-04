@@ -20,8 +20,8 @@
                                     if (file_exists($path)) return $val;
                                     $alt = 'Assets/client/img/' . basename($val);
                                     if (file_exists($serverRoot . DIRECTORY_SEPARATOR . $alt)) return $alt;
-                                    return $val;
-                                }
+                                     return $val;
+                                } 
                                 $cand = 'Assets/client/img/' . $val;
                                 if (file_exists($serverRoot . DIRECTORY_SEPARATOR . $cand)) return $cand;
 
@@ -49,14 +49,8 @@
                                         <img src="<?php echo htmlspecialchars($hoverImg); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="product__img hover" />
                                     </a>
                                     <div class="product__actions">
-                                        <a href="#" class="action__btn" aria-label="Xem Nhanh">
-                                            <i class="fi fi-rs-eye"></i>
-                                        </a>
                                         <a href="#" class="action__btn" aria-label="Thêm vào Danh sách yêu thích">
                                             <i class="fi fi-rs-heart"></i>
-                                        </a>
-                                        <a href="#" class="action__btn" aria-label="So Sánh">
-                                            <i class="fi fi-rs-shuffle"></i>
                                         </a>
                                     </div>
                                     <div class="product__badge light-pink">Hot</div>
@@ -74,8 +68,8 @@
                                         <i class="fi fi-rs-star"></i>
                                     </div>
                                     <div class="product__price flex">
-                                        <span class="new__price"><?php echo $product['price']; ?></span>
-                                        <span class="old__price"><?php echo $product['price']; ?></span>
+                                        <span class="new__price"><?php echo number_format($product['price']) . ' VNĐ'; ?></span>
+                                        <span class="old__price"><?php echo number_format($product['price']) . ' VNĐ'; ?></span>
                                     </div>
                                     <a href="#" class="action__btn cart__btn" aria-label="Thêm vào Giỏ hàng">
                                         <i class="fi fi-rs-shopping-bag-add"></i>
