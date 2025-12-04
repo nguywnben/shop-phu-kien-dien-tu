@@ -68,6 +68,12 @@ switch ($page) {
             case "index":
                 $product->index();
                 break;
+            case "add":
+                $product->add();
+                break;
+            case "edit":
+                $product->edit();
+                break;    
         }
         break;
     case "coupons":
