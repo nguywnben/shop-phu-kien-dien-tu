@@ -7,6 +7,7 @@ require_once 'config.php';
 $page = isset($_GET['page']) ? $_GET['page'] : '';
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 require_once 'Controllers/Client/ShopController.php';
+$shop = new ShopController();
 require_once 'Controllers/Client/HomeController.php';
 $home = new HomeController();
 require_once "Controllers/Client/AuthController.php";
