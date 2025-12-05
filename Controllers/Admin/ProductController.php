@@ -39,6 +39,32 @@ class ProductController
         $brands = $brandModel->getAllBrands();
         require_once "Views/admin/product-edit.php";
     }
+    public function delete()
+    {
+
+        $id = $_POST['id'] ?? $_GET['id'] ?? '';
+        if ($id === '') {
+            header('location: ?page=products&action=index');
+            exit;
+        }
+
+        try {
+            $deleted = $this->productModel->deleteProduct((int) $id);
+            if ($deleted) {
+                session_start();
+                $_SESSION['success'] = 'Xóa sản phẩm thành công.';
+            } else {
+                session_start();
+                $_SESSION['error'] = 'Không thể xóa sản phẩm.';
+            }
+        } catch (Exception $e) {
+            session_start();
+            $_SESSION['error'] = 'Lỗi khi xóa sản phẩm: ' . $e->getMessage();
+        }
+
+        header('location: ?page=products&action=index');
+        exit;
+    }
 }
 
 ?>

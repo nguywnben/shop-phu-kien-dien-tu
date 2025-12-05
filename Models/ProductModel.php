@@ -77,4 +77,11 @@ class ProductModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
+    public function deleteProduct($id)
+    {
+        $sql = "DELETE FROM " . $this->table . " WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }

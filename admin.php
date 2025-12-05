@@ -74,6 +74,9 @@ switch ($page) {
             case "edit":
                 $product->edit();
                 break;    
+            case "delete":
+                $product->delete();
+                break;
         }
         break;
     case "coupons":
