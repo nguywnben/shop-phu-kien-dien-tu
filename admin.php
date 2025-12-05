@@ -77,6 +77,9 @@ switch ($page) {
             case "delete":
                 $product->delete();
                 break;
+            case "update":
+                $product->update();
+                break;
         }
         break;
     case "coupons":
@@ -117,8 +120,11 @@ switch ($page) {
         }
         break;
     default:
-        echo "Không tìm thấy trang.";
-        break;
+        header('HTTP/1.0 404 Not Found');
+        require_once "Views/admin/404.php";
+        break;      
+        
+        
 }
 
 

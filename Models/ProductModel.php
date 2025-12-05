@@ -9,12 +9,13 @@ class ProductModel
         $database = new Database();
         $this->connection = $database->connect();
     }
-    public function getAllProducts()
+   public function getAllProducts()
     {
         $stmt = $this->connection->prepare(
             "SELECT 
                 p.*, 
-                b.name AS brand_name,  
+                b.name AS brand_name, 
+                c.name AS category_name, -- Lấy tên danh mục và đặt tên là category_name
                 (
                     SELECT url 
                     FROM product_images 
@@ -24,8 +25,10 @@ class ProductModel
                 ) AS main_image_url
             FROM 
                 " . $this->table . " p
-            JOIN 
+            LEFT JOIN 
                 brands b ON p.brand_id = b.id
+            LEFT JOIN  
+                categories c ON p.category_id = c.id -- JOIN với bảng categories
             WHERE 
                 p.status = 1"
         );
@@ -61,7 +64,7 @@ class ProductModel
                         LIMIT 1
                     ) AS main_image_url
                 FROM " . $this->table . " p
-                JOIN brands b ON p.brand_id = b.id
+                LEFT JOIN brands b ON p.brand_id = b.id
                 WHERE p.id = :id LIMIT 1";
 
         $stmt = $this->connection->prepare($sql);
@@ -83,5 +86,29 @@ class ProductModel
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
+    }
+
+    public function updateProduct($id, $name, $sku_model, $description, $content, $price, $category_id, $brand_id, $thumbnail, $status, $is_featured)
+    {
+        try {
+            $sql = "UPDATE " . $this->table . " SET name = :name, sku_model = :sku_model, description = :description, content = :content, price = :price, category_id = :category_id, brand_id = :brand_id, thumbnail = :thumbnail, status = :status, is_featured = :is_featured, updated_at = NOW() WHERE id = :id";
+            $stmt = $this->connection->prepare($sql);
+            return $stmt->execute([
+                ':name' => $name,
+                ':sku_model' => $sku_model,
+                ':description' => $description,
+                ':content' => $content,
+                ':price' => $price,
+                ':category_id' => $category_id,
+                ':brand_id' => $brand_id,
+                ':thumbnail' => $thumbnail,
+                ':status' => $status,
+                ':is_featured' => $is_featured,
+                ':id' => $id
+            ]);
+        } catch (PDOException $e) {
+            // For debugging during development you might log $e->getMessage()
+            return false;
+        }
     }
 }

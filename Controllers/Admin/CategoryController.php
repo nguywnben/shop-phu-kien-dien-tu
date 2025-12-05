@@ -24,6 +24,11 @@ class CategoryController
             exit;
         }
         $category = $this->categoryModel->getOneCategory((int) $id);
+        if (!$category) {
+            header('HTTP/1.0 404 Not Found');
+            require_once "Views/admin/404.php";
+            exit;
+        }
         require_once "Views/admin/category-edit.php";
     }
     public function update()
@@ -31,6 +36,13 @@ class CategoryController
         // Trigger update on POST request (form submits with name 'btn_update')
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = (int) ($_POST['id'] ?? 0);
+            // Ensure category exists
+            $existing = $this->categoryModel->getOneCategory($id);
+            if (!$existing) {
+                header('HTTP/1.0 404 Not Found');
+                require_once "Views/admin/404.php";
+                exit;
+            }
             $name = trim($_POST['name'] ?? '');
             $status = ($_POST['status'] === '0' || $_POST['status'] === '1') ? $_POST['status'] : '';
             $image = $_FILES['image']['name'] ?? '';
@@ -190,6 +202,13 @@ class CategoryController
 
         if (empty($id) || !is_numeric($id)) {
             header('location: ?page=categories&action=index');
+            exit;
+        }
+        // Ensure category exists before deleting
+        $existing = $this->categoryModel->getOneCategory((int) $id);
+        if (!$existing) {
+            header('HTTP/1.0 404 Not Found');
+            require_once "Views/admin/404.php";
             exit;
         }
 

@@ -47,7 +47,8 @@ switch ($page) {
         $auth->logout();
         break;
     default:
-        echo "Không tìm thấy trang.";
+        header('HTTP/1.0 404 Not Found');
+        require_once "Views/client/404.php";
         break;
 }
 

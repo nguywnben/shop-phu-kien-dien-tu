@@ -1,7 +1,6 @@
-<?php
-// BẢNG SỬA SẢN PHẨM (edit-product.php)
 
-// 1. DỮ LIỆU SẢN PHẨM HIỆN TẠI VÀ DỮ LIỆU CŨ/LỖI TỪ SESSION
+<?php
+
 
 // Biến lỗi và dữ liệu cũ từ phiên (session)
 $name_error = $_SESSION['name_error'] ?? "";
@@ -10,7 +9,7 @@ $price_error = $_SESSION['price_error'] ?? "";
 $category_id_error = $_SESSION['category_id_error'] ?? "";
 $status_error = $_SESSION['status_error'] ?? "";
 $thumbnail_error = $_SESSION['thumbnail_error'] ?? "";
-// ... thêm các biến lỗi khác nếu cần
+
 
 // Biến lưu trữ giá trị cũ (old input) nếu validation thất bại
 $name_old = $_SESSION['name_old'] ?? '';
@@ -28,6 +27,7 @@ $is_featured_old = $_SESSION['is_featured_old'] ?? '';
 
 
 // Gán giá trị sản phẩm hiện tại cho biến 'old' nếu không có dữ liệu cũ từ session
+$product_id = $product['id'] ?? null;
 $name_value = $name_old ?: ($product['name'] ?? '');
 $sku_model_value = $sku_model_old ?: ($product['sku_model'] ?? '');
 $description_value = $description_old ?: ($product['description'] ?? '');
@@ -40,7 +40,7 @@ $main_image_value = $main_image_old ?: ($product['main_image_url'] ?? '');
 $status_value = $status_old ?: ($product['status'] ?? '');
 $is_featured_value = $is_featured_old ?: ($product['is_featured'] ?? '');
 
-// Dữ liệu tùy chọn (Giả lập việc lấy từ CSDL)
+
 
 
 ?>
@@ -145,7 +145,7 @@ $is_featured_value = $is_featured_old ?: ($product['is_featured'] ?? '');
                                     phẩm <span class="text-error-500">*</span></label>
                                 <input type="text" name="name" id="productName"
                                     class="dark:bg-dark-900 shadow-theme-xs h-11 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-800"
-                                    placeholder="Nhập tên sản phẩm" required
+                                    placeholder="Nhập tên sản phẩm" 
                                     value="<?= htmlspecialchars($name_value) ?>" />
                                 <?php if ($name_error): ?>
                                 <p class="mt-1 text-sm text-error-500"><?= $name_error ?></p>
@@ -218,7 +218,7 @@ $is_featured_value = $is_featured_old ?: ($product['is_featured'] ?? '');
                                     phẩm <span class="text-error-500">*</span></label>
                                 <input type="number" name="price" id="price"
                                     class="dark:bg-dark-900 shadow-theme-xs h-11 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-800"
-                                    placeholder="0" min="0" required value="<?= htmlspecialchars($price_value) ?>" />
+                                    placeholder="0" min="0"  value="<?= htmlspecialchars($price_value) ?>" />
                                 <?php if ($price_error): ?>
                                 <p class="mt-1 text-sm text-error-500"><?= $price_error ?></p>
                                 <?php endif; ?>
@@ -231,7 +231,7 @@ $is_featured_value = $is_featured_old ?: ($product['is_featured'] ?? '');
                                 <div class="relative z-20 bg-transparent">
                                     <select id="cate_id" name="category_id"
                                         class="dark:bg-dark-900 shadow-theme-xs h-11 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-800"
-                                        required>
+                                        >
                                         <option value="" disabled>Vui lòng chọn danh mục</option>
                                         <?php foreach ($categories as $cat): ?>
                                         <option value="<?= $cat['id'] ?>"
@@ -271,7 +271,7 @@ $is_featured_value = $is_featured_old ?: ($product['is_featured'] ?? '');
                                 <div class="relative z-20 bg-transparent">
                                     <select id="status" name="status"
                                         class="dark:bg-dark-900 shadow-theme-xs h-11 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-800"
-                                        required>
+                                        >
                                         <option value="" disabled>Vui lòng chọn trạng thái</option>
                                         <option value="1" <?= ($status_value == '1') ? 'selected' : '' ?>>Hiển thị
                                         </option>

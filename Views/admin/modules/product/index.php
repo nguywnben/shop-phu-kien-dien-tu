@@ -155,7 +155,7 @@
                                                             </span>
                                                             <span
                                                                 class="inline-block text-gray-500 text-theme-xs dark:text-gray-400">
-                                                                Danh mục
+                                                                <?= $product['category_name'] ?>
                                                             </span>
                                                         </div>
                                                     </div>
