@@ -60,7 +60,7 @@ switch ($page) {
                 break;
             case 'add':
                 $category->add();
-                break;    
+                break;
         }
         break;
     case "products":
@@ -116,6 +116,15 @@ switch ($page) {
         switch ($action) {
             case "index":
                 $post->index();
+                break;
+            case "edit":
+                $post->edit();
+                break;
+            case "update":
+                $post->update();
+                break;
+            case 'delete':
+                $post->delete();
                 break;
         }
         break;
