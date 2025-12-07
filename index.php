@@ -43,6 +43,26 @@ switch ($page) {
                 break;
         }
         break;
+    case "forgot-password":
+        switch ($action) {
+            case "index":
+                $auth->forgotPassword();
+                break;
+            case "handle":
+                $auth->handleForgotPassword();
+                break;
+        }
+        break;
+    case "reset-password":
+        switch ($action) {
+            case "index":
+                $auth->resetPassword();
+                break;
+            case "handle":
+                $auth->handleResetPassword();
+                break;
+        }
+        break;
     case "logout":
         $auth->logout();
         break;

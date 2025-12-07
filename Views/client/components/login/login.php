@@ -30,6 +30,9 @@
                         <?php if (isset($errors["password"])): ?>
                             <div style="color: red; font-size: 14px;"><?= $errors["password"] ?></div>
                         <?php endif; ?>
+                        <div style="text-align: right; margin-bottom: 1rem;">
+                            <a href="index.php?page=forgot-password&action=index" style="color: blue; text-decoration: none; font-size: 14px;">Quên mật khẩu?</a>
+                        </div>
                         <div class="form__btn">
                             <button type="submit" name="login" style="cursor: pointer;" class="btn">Xác nhận</button>
                         </div>
