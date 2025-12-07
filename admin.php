@@ -71,6 +71,9 @@ switch ($page) {
             case "add":
                 $product->add();
                 break;
+            case "store":
+                $product->store();
+                break;
             case "edit":
                 $product->edit();
                 break;    
