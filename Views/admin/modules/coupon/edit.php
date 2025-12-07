@@ -57,7 +57,7 @@ unset($_SESSION["errors"]);
                                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
                                     ID Mã giảm giá
                                 </label>
-                                <input type="hidden" name="id" value="<?= htmlspecialchars($coupon['id']) ?>"
+                                <input type="text" name="id" value="<?= htmlspecialchars($coupon['id']) ?>"readonly
                                     
                                     class="bg-gray-100 cursor-not-allowed dark:bg-gray-800 shadow-theme-xs h-11 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-500 focus:outline-none dark:border-gray-700 dark:text-gray-400" />
                             </div>
@@ -166,11 +166,10 @@ unset($_SESSION["errors"]);
                     Hủy bỏ
                 </a>
                 <button type="submit" name="btn_update"
-                    class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    class="shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 flex h-11 items-center justify-center rounded-lg border border-transparent bg-success-500 px-4 py-2.5 text-sm font-medium text-white transition duration-300 ease-out hover:bg-success-600 dark:bg-success-600 dark:hover:bg-success-700">
                     Cập nhật
                 </button>
             </div>
-
         </form>
     </div>
 </main>

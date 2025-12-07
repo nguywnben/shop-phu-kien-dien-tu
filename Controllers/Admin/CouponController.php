@@ -25,6 +25,11 @@ class CouponController
             exit;
         }
         $coupon = $this->couponModel->getCouponById($id);
+        if (!$coupon) {
+            header('HTTP/1.0 404 Not Found');
+            require_once "Views/admin/404.php";
+            exit;
+        }
         require_once "Views/admin/coupon-edit.php";
     }
 
@@ -60,7 +65,7 @@ class CouponController
             $errors["usage_limit"] = "Số lần sử dụng không được để trống.";
         } elseif (!filter_var($usageLimit, FILTER_VALIDATE_INT)) {
             $errors["usage_limit"] = "Số lần sử dụng phải là số nguyên.";
-        } elseif ($usageLimit < 1) { 
+        } elseif ($usageLimit < 1) {
             $errors["usage_limit"] = "Số lần sử dụng phải lớn hơn 0.";
         }
         if (!empty($errors)) {

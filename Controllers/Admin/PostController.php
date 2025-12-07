@@ -25,6 +25,11 @@ class PostController
             exit;
         }
         $post = $this->postModel->getPostById($id);
+        if (!$post) {
+            header('HTTP/1.0 404 Not Found');
+            require_once "Views/admin/404.php";
+            exit;
+        }
         require_once "Views/admin/post-edit.php";
     }
 
@@ -36,32 +41,29 @@ class PostController
         }
         $errors = [];
         $postId = $_POST["id"] ?? "";
-        $maxDiscount = $_POST["max_discount"] ?? "";
-        $minOrderTotal = $_POST["min_order_total"] ?? "";
-        $usageLimit = $_POST["usage_limit"] ?? "";
-        $startAt = $_POST["start_at"] ?? "";
-        $endAt = $_POST["end_at"] ?? "";
+        $title = $_POST["title"] ?? "";
+        $slug = $_POST["slug"] ?? "";
+        $content = $_POST["content"] ?? "";
+        $coverImage = $_POST["cover_image"] ?? "";
+        $authorId = $_POST["author_id"] ?? "";
         $status = $_POST["status"] ?? "";
-        if (empty($maxDiscount)) {
-            $errors["max_discount"] = "Tiền giảm không được để trống.";
-        } elseif (!is_numeric($maxDiscount)) {
-            $errors["max_discount"] = "Tiền giảm phải là một số.";
-        } elseif ($maxDiscount < 0) {
-            $errors["max_discount"] = "Tiền giảm không được là số âm.";
+        $publishedAt = $_POST["published_at"] ?? "";
+        $created_At = $_POST["created_at"] ?? "";
+        $updated_At = $_POST["updated_at"] ?? "";
+        if (empty($title)) {
+            $errors["title"] = "Tiêu đề không được để trống.";
+        } 
+        if (empty($slug)) {
+            $errors["slug"] = "Đường dẫn SEO không được để trống.";
         }
-        if (empty($minOrderTotal)) {
-            $errors["min_order_total"] = "Giá trị đơn hàng không được để trống.";
-        } elseif (!is_numeric($minOrderTotal)) {
-            $errors["min_order_total"] = "Giá trị đơn hàng phải là một số.";
-        } elseif ($minOrderTotal < 0) {
-            $errors["min_order_total"] = "Giá trị đơn hàng không được là số âm.";
+        if (empty($content)) {
+            $errors["content"] = "Nội dung bài viết không được để trống.";
         }
-        if (empty($usageLimit)) {
-            $errors["usage_limit"] = "Số lần sử dụng không được để trống.";
-        } elseif (!filter_var($usageLimit, FILTER_VALIDATE_INT)) {
-            $errors["usage_limit"] = "Số lần sử dụng phải là số nguyên.";
-        } elseif ($usageLimit < 1) { 
-            $errors["usage_limit"] = "Số lần sử dụng phải lớn hơn 0.";
+        if (empty($coverImage)) {
+            $errors["cover_image"] = "Ảnh đại diện bài viết không được để trống.";
+        }
+        if (empty($authorId)){
+            $errors["author_id"] = "Tác giả không được để trống.";
         }
         if (!empty($errors)) {
             $_SESSION["errors"] = $errors;
@@ -70,16 +72,19 @@ class PostController
         }
         $data = [
             "id" => $postId,
-            "max_discount" => $maxDiscount,
-            "min_order_total" => $minOrderTotal,
-            "usage_limit" => $usageLimit,
-            "start_at" => $startAt,
-            "end_at" => $endAt,
-            "status" => $status
+            "title" => $title,
+            "slug" => $slug,
+            "content" => $content,
+            "cover_image" => $coverImage,
+            "author_id" => $authorId,
+            "status" => $status,
+            "published_at" => $publishedAt,
+            "created_at" => $created_At,
+            "updated_at" => $updated_At
         ];
         $result = $this->postModel->updatePost($data);
         if ($result) {
-            $_SESSION["success"] = "Chỉnh sửa mã giảm giá thành công.";
+            $_SESSION["success"] = "Chỉnh sửa bài viết thành công.";
             header("location: admin.php?page=posts&action=index");
             exit;
         }
@@ -106,13 +111,13 @@ class PostController
 
         $posts = $this->postModel->delete((int) $id);
         if ($posts) {
-            $_SESSION['success'] = 'Xóa mã giảm giá thành công';
+            $_SESSION['success'] = 'Xóa bài viết thành công';
         } else {
-            $_SESSION['error'] = 'Xóa mã giảm giá thất bại';
+            $_SESSION['error'] = 'Xóa bài viết thất bại';
         }
         header('location: ?page=posts&action=index');
         exit;
     }
-}
 
+}
 ?>
