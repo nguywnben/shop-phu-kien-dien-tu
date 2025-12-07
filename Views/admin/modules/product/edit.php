@@ -168,7 +168,7 @@ $is_featured_value = $is_featured_old ?: ($product['is_featured'] ?? '');
                                 <label
                                     class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Mô tả
                                     ngắn</label>
-                                <textarea name="description" id="productDescription" rows="2"
+                                <textarea name="description" id="shortDescription" rows="2"
                                     class="dark:bg-dark-900 shadow-theme-xs w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-800"
                                     placeholder="Tóm tắt về sản phẩm"><?= htmlspecialchars($description_value) ?></textarea>
                             </div>
@@ -177,7 +177,7 @@ $is_featured_value = $is_featured_old ?: ($product['is_featured'] ?? '');
                                 <label
                                     class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">Nội dung
                                     chi tiết sản phẩm</label>
-                                <textarea name="content" id="productContent" rows="4"
+                                <textarea name="content" id="content" rows="4"
                                     class="dark:bg-dark-900 shadow-theme-xs w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-800"
                                     placeholder="Mô tả chi tiết, thông số kỹ thuật"><?= htmlspecialchars($content_value) ?></textarea>
                             </div>
