@@ -1,11 +1,10 @@
 <?php
 
 require_once "Models/AuthModel.php";
+require_once 'vendor/autoload.php'; 
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require_once "Assets/PHPMailer-7.0.1/src/Exception.php";
-require_once "Assets/PHPMailer-7.0.1/src/PHPMailer.php";
-require_once "Assets/PHPMailer-7.0.1/src/SMTP.php";
 
 class AuthController
 {
