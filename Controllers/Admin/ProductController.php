@@ -21,8 +21,8 @@ class ProductController
     }
     public function add()
     {
-        require_once "Models/CategoryModel.php"; 
-        require_once "Models/BrandModel.php";   
+        require_once "Models/CategoryModel.php";
+        require_once "Models/BrandModel.php";
 
         // Lấy danh mục và thương hiệu để đổ vào form select
         $categoryModel = new CategoryModel();
@@ -76,6 +76,8 @@ class ProductController
         // Xác thực các trường bắt buộc
         if (empty($name)) {
             $_SESSION['name_error'] = 'Vui lòng nhập tên sản phẩm';
+        } elseif ($this->productModel->checkNameExists($name)) {
+            $_SESSION['name_error'] = 'Tên sản phẩm này đã tồn tại.';
         }
         if (empty($sku_model)) {
             $_SESSION['sku_model_error'] = 'Vui lòng nhập mã SKU hoặc model sản phẩm';
@@ -274,6 +276,9 @@ class ProductController
         // Xác thực các trường bắt buộc (Giữ nguyên)
         if (empty($name)) {
             $_SESSION['name_error'] = 'Vui lòng nhập tên sản phẩm';
+        }
+        elseif ($this->productModel->checkNameExists($name, $id)) {
+            $_SESSION['name_error'] = 'Tên sản phẩm này đã tồn tại.';
         }
         if (empty($sku_model)) {
             $_SESSION['sku_model_error'] = 'Vui lòng nhập mã SKU hoặc model sản phẩm';

@@ -134,9 +134,7 @@ class ProductModel
             return false;
         }
     }
-    // ... trong class ProductModel (file ProductModel.php)
 
-    // Phương thức thêm sản phẩm mới vào bảng products
     public function createProduct($name, $sku_model, $description, $content, $price, $category_id, $brand_id, $status, $is_featured)
     {
         try {
@@ -156,14 +154,13 @@ class ProductModel
                 ':is_featured' => $is_featured
             ]);
 
-            // Trả về ID của sản phẩm vừa được tạo
+
             if ($success) {
                 return $this->connection->lastInsertId();
             }
             return false;
 
         } catch (PDOException $e) {
-            // Có thể ghi log lỗi ở đây
             return false;
         }
     }
@@ -178,9 +175,26 @@ class ProductModel
             $stmt->bindValue(':url', $url);
             return $stmt->execute();
         } catch (PDOException $e) {
-            // Có thể ghi log lỗi ở đây
             return false;
         }
     }
-    // ...
+    public function checkNameExists($name, $ignoreId = null)
+    {
+        $sql = "SELECT COUNT(*) FROM " . $this->table . " WHERE name = :name";
+
+        // Nếu cung cấp $ignoreId (đang sửa), loại trừ bản ghi đó
+        if ($ignoreId !== null) {
+            $sql .= " AND id != :ignoreId";
+        }
+
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':name', $name);
+
+        if ($ignoreId !== null) {
+            $stmt->bindParam(':ignoreId', $ignoreId, PDO::PARAM_INT);
+        }
+
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0; // Trả về true nếu tên đã tồn tại
+    }
 }
