@@ -106,6 +106,12 @@ switch ($page) {
             case "index":
                 $order->index();
                 break;
+            case "edit":
+                $order->edit();
+                break;
+            case "update":
+                $order->update();   
+                break;
         }
         break;
     case "brands":
