@@ -21,8 +21,8 @@ class ProductController
     }
     public function add()
     {
-        require_once "Models/CategoryModel.php"; // Đảm bảo đã include ở đầu file
-        require_once "Models/BrandModel.php";   // Đảm bảo đã include ở đầu file
+        require_once "Models/CategoryModel.php"; 
+        require_once "Models/BrandModel.php";   
 
         // Lấy danh mục và thương hiệu để đổ vào form select
         $categoryModel = new CategoryModel();

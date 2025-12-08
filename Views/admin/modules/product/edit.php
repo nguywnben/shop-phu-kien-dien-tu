@@ -305,7 +305,7 @@ $is_featured_value = $is_featured_old ?: ($product['is_featured'] ?? '');
                 </div>
             </div>
 
-            <div class="flex items-center justify-end gap-3 mt-6 border-t border-gray-100 pt-6 dark:border-gray-800">
+            <div class="flex items-center justify-end gap-3 mt-6 border-t border-gray-100 p-5 sm:p-6 dark:border-gray-800">
                 <a href="?page=products&action=index"
                     class="rounded-lg border border-gray-300 bg-white px-5 py-2.5 text-sm font-medium text-gray-700">Hủy
                     bỏ</a>
