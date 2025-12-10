@@ -35,6 +35,31 @@ class ProductModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function getAllProductsForAdmin()
+    {
+        $stmt = $this->connection->prepare(
+            "SELECT 
+                p.*, 
+                b.name AS brand_name, 
+                c.name AS category_name,
+                (
+                    SELECT url 
+                    FROM product_images 
+                    WHERE product_id = p.id 
+                    ORDER BY sort_order ASC 
+                    LIMIT 1
+                ) AS main_image_url
+            FROM 
+                " . $this->table . " p
+            LEFT JOIN 
+                brands b ON p.brand_id = b.id
+            LEFT JOIN  
+                categories c ON p.category_id = c.id
+         "
+        );
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function countProducts()
     {
         $sql = "SELECT COUNT(*) FROM " . $this->table . " WHERE status = 1";
@@ -51,6 +76,7 @@ class ProductModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
     public function getById($id)
     {
         $sql = "SELECT 

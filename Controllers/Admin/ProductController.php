@@ -15,7 +15,7 @@ class ProductController
 
     public function index()
     {
-        $products = $this->productModel->getAllProducts();
+        $products = $this->productModel->getAllProductsForAdmin();
         require_once "Views/admin/product-index.php";
 
     }
