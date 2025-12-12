@@ -256,7 +256,6 @@ class ProductModel
     public function updateProduct($id, $name, $sku_model, $description, $content, $price, $category_id, $brand_id, $status, $is_featured)
     {
         try {
-            // Đã loại bỏ cột thumbnail khỏi câu lệnh UPDATE
             $sql = "UPDATE " . $this->table . " SET name = :name, sku_model = :sku_model, description = :description, content = :content, price = :price, category_id = :category_id, brand_id = :brand_id, status = :status, is_featured = :is_featured, updated_at = NOW() WHERE id = :id";
             $stmt = $this->connection->prepare($sql);
             return $stmt->execute([

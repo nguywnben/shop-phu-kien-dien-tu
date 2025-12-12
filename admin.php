@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 // if ($_SESSION["login"]["role"] != 1) {
@@ -28,6 +29,9 @@ require_once "Controllers/Admin/PostController.php";
 $post = new PostController();
 require_once "Controllers/Admin/BrandController.php";
 $brand = new BrandController();
+require_once "Controllers/Admin/ProfileController.php";
+$profile = new ProfileController(); 
+
 
 switch ($page) {
     case "":
@@ -37,6 +41,16 @@ switch ($page) {
         switch ($action) {
             case "index":
                 $user->index();
+                break;
+        }
+        break;
+    case "profile":
+        switch ($action) {
+            case "index":
+                $profile->index();
+                break;
+            case "update":
+                $profile->update();
                 break;
         }
         break;
@@ -124,7 +138,7 @@ switch ($page) {
             case "index":
                 $brand->index();
                 break;
-             case "delete":
+            case "delete":
                 $brand->delete();
                 break;
             case "edit":

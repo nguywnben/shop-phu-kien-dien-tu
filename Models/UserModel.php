@@ -13,6 +13,7 @@ class UserModel
         $this->connection = $database->connect();
     }
 
+
     public function getAllUsers()
     {
         $stmt = $this->connection->prepare("SELECT * FROM " . $this->table);
@@ -36,6 +37,37 @@ class UserModel
         $stmt->bindValue(':name', $name);
         $stmt->bindValue(':phone', $phone);
         return $stmt->execute();
+    }
+    public function getUserById($id)
+    {
+        $stmt = $this->connection->prepare("SELECT * FROM users WHERE id = :id LIMIT 1");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function updateUserProfileFull($id, $name, $email, $phone, $avatar = null)
+    {
+        try {
+            $sql = "UPDATE users SET name = :name, email = :email, phone = :phone";
+
+            $bindings = [
+                ':name' => $name,
+                ':email' => $email,
+                ':phone' => $phone,
+                ':id' => $id
+            ];
+            // Xử lý Avatar 
+            if ($avatar !== null) {
+                $sql .= ", avatar = :avatar";
+                $bindings[':avatar'] = $avatar;
+            }
+            $sql .= " WHERE id = :id";  
+            $stmt = $this->connection->prepare($sql);
+            return $stmt->execute($bindings);
+        } catch (PDOException $e) {
+
+            return false;
+        }
     }
 }
 
