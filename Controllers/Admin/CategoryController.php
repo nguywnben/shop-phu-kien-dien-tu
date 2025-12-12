@@ -1,6 +1,8 @@
 <?php
 
+
 require_once "Models/CategoryModel.php";
+require_once "Models/ProductModel.php";
 
 class CategoryController
 {
@@ -209,6 +211,14 @@ class CategoryController
         if (!$existing) {
             header('HTTP/1.0 404 Not Found');
             require_once "Views/admin/404.php";
+            exit;
+        }
+
+        // Kiểm tra ràng buộc: Nếu còn sản phẩm thuộc danh mục này thì không cho xóa
+        $productModel = new ProductModel();
+        if ($productModel->hasProductsInCategory((int)$id)) {
+            $_SESSION['error'] = 'Không thể xóa danh mục vì vẫn còn sản phẩm thuộc danh mục này!';
+            header('location: ?page=categories&action=index');
             exit;
         }
 

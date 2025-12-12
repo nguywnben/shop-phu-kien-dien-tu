@@ -1,3 +1,5 @@
+
+
 <?php
 require_once "Database.php";
 class ProductModel
@@ -137,6 +139,14 @@ class ProductModel
             $stmtInsert->bindValue(':url', $newUrl);
             return $stmtInsert->execute();
         }
+    }
+        public function hasProductsInCategory($categoryId)
+    {
+        $sql = "SELECT COUNT(*) FROM products WHERE category_id = :category_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':category_id', $categoryId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
     }
     public function updateProduct($id, $name, $sku_model, $description, $content, $price, $category_id, $brand_id, $status, $is_featured)
     {
