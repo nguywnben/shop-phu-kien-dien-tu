@@ -1,66 +1,60 @@
 <?php
-require_once "Models/WishlistModel.php";
-require_once "Models/ProductModel.php";
+require_once "Models/UserModel.php";
 
-class WishlistController
+class AccountController
 {
-    private $wishlistModel;
-    private $productModel;
+    private $userModel;
 
     public function __construct()
     {
-        $this->wishlistModel = new WishlistModel();
-        $this->productModel = new ProductModel();
+        $this->userModel = new UserModel();
     }
 
     public function index()
     {
-        // Check if user is logged in
-        session_start();
-        if (!isset($_SESSION['user_id'])) {
-            // Redirect to login page
-            header("Location: index.php?page=login");
+        if (!isset($_SESSION['login'])) {
+            header("Location: index.php?page=login&action=index");
             exit();
         }
 
-        $userId = $_SESSION['user_id'];
-        
-        // Get wishlist items for this user
-        $wishlistItems = $this->wishlistModel->getWishlistByUserId($userId);
-        
-        // Attach images to each product
-        foreach ($wishlistItems as $i => $item) {
-            $wishlistItems[$i]['images'] = [];
-            if (isset($item['product_id'])) {
-                $wishlistItems[$i]['images'] = $this->productModel->getImagesByProductId($item['product_id']);
-            }
-            
-            // Determine stock status
-            $wishlistItems[$i]['stock_status'] = (isset($item['status']) && $item['status'] == 1) ? 'Còn hàng' : 'Hết hàng';
-        }
+        $userId = $_SESSION['login']['id'] ?? 0;
+        $user = $this->userModel->getById($userId);
 
-        require_once "Views/client/wishlist.php";
+        require_once "Views/client/accounts.php";
     }
 
-    public function remove()
+    public function update()
     {
-        session_start();
-        if (!isset($_SESSION['user_id'])) {
-            echo json_encode(['success' => false, 'message' => 'Vui lòng đăng nhập']);
+        if (!isset($_SESSION['login'])) {
+            header("Location: index.php?page=login&action=index");
             exit();
         }
 
-        $wishlistId = isset($_POST['wishlist_id']) ? intval($_POST['wishlist_id']) : 0;
-        $userId = $_SESSION['user_id'];
+        $userId = $_SESSION['login']['id'] ?? 0;
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = $_POST['name'] ?? '';
+            $phone = $_POST['phone'] ?? '';
 
-        if ($wishlistId > 0) {
-            $result = $this->wishlistModel->removeFromWishlist($wishlistId, $userId);
+            if (empty($name)) {
+                $_SESSION['error'] = 'Tên không được để trống.';
+                header("Location: index.php?page=account");
+                exit();
+            }
+
+            $result = $this->userModel->updateProfile($userId, $name, $phone);
             if ($result) {
-                header("Location: index.php?page=wishlist");
+                $_SESSION['login']['name'] = $name;
+                $_SESSION['login']['phone'] = $phone;
+                $_SESSION['success'] = 'Cập nhật hồ sơ thành công!';
+                header("Location: index.php?page=account");
+                exit();
+            } else {
+                $_SESSION['error'] = 'Cập nhật hồ sơ thất bại. Vui lòng thử lại.';
+                header("Location: index.php?page=account");
                 exit();
             }
         }
-        
-        echo "Không thể xóa sản phẩm";
     }
 }
+

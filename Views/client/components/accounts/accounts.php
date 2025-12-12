@@ -16,17 +16,16 @@
                     <p class="account__tab" data-target="#change-password">
                         <i class="fi fi-rs-settings-sliders"></i> Đổi Mật Khẩu
                     </p>
-                    <p class="account__tab"><i class="fi fi-rs-exit"></i> Đăng Xuất</p>
+                    <a href="index.php?page=logout" class="account__tab" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất?');"><i class="fi fi-rs-exit"></i> Đăng Xuất</a>
                 </div>
                 <div class="tabs__content">
                     <div class="tab__content active-tab" content id="dashboard">
-                        <h3 class="tab__header">Xin Chào Rosie</h3>
+                        <h3 class="tab__header">Xin Chào <?php echo htmlspecialchars($user['name'] ?? ''); ?></h3>
                         <div class="tab__body">
                             <p class="tab__description">
-                                Từ bảng điều khiển tài khoản của bạn, bạn có thể dễ dàng kiểm
-                                tra và xem các đơn hàng gần đây, quản lý địa chỉ giao hàng và
-                                thanh toán, đồng thời chỉnh sửa mật khẩu và chi tiết tài khoản
-                                của bạn.
+                                Email: <?php echo htmlspecialchars($user['email'] ?? ''); ?><br>
+                                Số điện thoại: <?php echo htmlspecialchars($user['phone'] ?? 'Chưa cập nhật'); ?><br>
+                                Vai trò: <?php echo (isset($user['role']) && $user['role'] == 1) ? 'Admin' : 'Khách hàng'; ?>
                             </p>
                         </div>
                     </div>
@@ -72,10 +71,12 @@
                     <div class="tab__content" content id="update-profile">
                         <h3 class="tab__header">Cập Nhật Hồ Sơ</h3>
                         <div class="tab__body">
-                            <form class="form grid">
-                                <input type="text" placeholder="Tên người dùng" class="form__input" />
+                            <form class="form grid" method="POST" action="index.php?page=account&action=update">
+                                <input type="text" name="name" value="<?php echo htmlspecialchars($user['name'] ?? ''); ?>" placeholder="Tên người dùng" class="form__input" required />
+                                <input type="email" name="email" value="<?php echo htmlspecialchars($user['email'] ?? ''); ?>" placeholder="Email" class="form__input" disabled />
+                                <input type="text" name="phone" value="<?php echo htmlspecialchars($user['phone'] ?? ''); ?>" placeholder="Số điện thoại" class="form__input" />
                                 <div class="form__btn">
-                                    <button class="btn btn--md">Lưu</button>
+                                    <button class="btn btn--md" type="submit">Lưu</button>
                                 </div>
                             </form>
                         </div>
