@@ -15,27 +15,18 @@ class WishlistController
 
     public function index()
     {
-        // Check if user is logged in
-        session_start();
-        if (!isset($_SESSION['user_id'])) {
-            // Redirect to login page
-            header("Location: index.php?page=login");
+        if (!isset($_SESSION['login'])) {
+            header("Location: index.php?page=login&action=index");
             exit();
         }
 
-        $userId = $_SESSION['user_id'];
-        
-        // Get wishlist items for this user
+        $userId = isset($_SESSION['login']['id']) ? (int)$_SESSION['login']['id'] : 0;
         $wishlistItems = $this->wishlistModel->getWishlistByUserId($userId);
-        
-        // Attach images to each product
         foreach ($wishlistItems as $i => $item) {
             $wishlistItems[$i]['images'] = [];
             if (isset($item['product_id'])) {
                 $wishlistItems[$i]['images'] = $this->productModel->getImagesByProductId($item['product_id']);
             }
-            
-            // Determine stock status
             $wishlistItems[$i]['stock_status'] = (isset($item['status']) && $item['status'] == 1) ? 'Còn hàng' : 'Hết hàng';
         }
 
@@ -44,14 +35,13 @@ class WishlistController
 
     public function remove()
     {
-        session_start();
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['login'])) {
             echo json_encode(['success' => false, 'message' => 'Vui lòng đăng nhập']);
             exit();
         }
 
         $wishlistId = isset($_POST['wishlist_id']) ? intval($_POST['wishlist_id']) : 0;
-        $userId = $_SESSION['user_id'];
+        $userId = isset($_SESSION['login']['id']) ? (int)$_SESSION['login']['id'] : 0;
 
         if ($wishlistId > 0) {
             $result = $this->wishlistModel->removeFromWishlist($wishlistId, $userId);
