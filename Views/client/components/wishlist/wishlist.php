@@ -12,61 +12,60 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><i class="fi fi-rs-trash table__trash"></i></td>
-                            <td>
-                                <img src="Assets/client/img/product-1-2.jpg" alt="" class="table__img" />
-                            </td>
-                            <td>
-                                <h3 class="table__title">
-                                    Áo Sơ Mi Nữ Tay Ngắn J.Crew Mercantile
-                                </h3>
-                                <p class="table__description">
-                                    Đây là mô tả ngắn về sản phẩm.
-                                </p>
-                            </td>
-                            <td><span class="table__price">2.750.000₫</span></td>
-                            <td><span class="table__stock">Còn hàng</span></td>
-                            <td>
-                                <a href="#" class="btn btn--sm">Thêm vào Giỏ hàng</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fi fi-rs-trash table__trash"></i></td>
-                            <td>
-                                <img src="Assets/client/img/product-7-1.jpg" alt="" class="table__img" />
-                            </td>
-                            <td>
-                                <h3 class="table__title">Áo Ba Lỗ Nữ Amazon Essentials</h3>
-                                <p class="table__description">
-                                    Đây là mô tả ngắn về sản phẩm.
-                                </p>
-                            </td>
-                            <td><span class="table__price">1.850.000₫</span></td>
-                            <td><span class="table__stock">Còn hàng</span></td>
-                            <td>
-                                <a href="#" class="btn btn--sm">Thêm vào Giỏ hàng</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><i class="fi fi-rs-trash table__trash"></i></td>
-                            <td>
-                                <img src="Assets/client/img/product-2-1.jpg" alt="" class="table__img" />
-                            </td>
-                            <td>
-                                <h3 class="table__title">
-                                    Thương Hiệu Amazon - Áo Jersey Nữ Daily Ritual
-                                </h3>
-                                <p class="table__description">
-                                    Đây là mô tả ngắn về sản phẩm.
-                                </p>
-                            </td>
-                            <td><span class="table__price">2.125.000₫</span></td>
-                            <td><span class="table__stock">Còn hàng</span></td>
-                            <td>
-                                <a href="#" class="btn btn--sm">Thêm vào Giỏ hàng</a>
-                            </td>
-                        </tr>
+                        <?php if (empty($wishlistItems)): ?>
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 40px;">
+                                    <p>Bạn chưa có sản phẩm nào trong danh sách yêu thích.</p>
+                                    <a href="index.php?page=shop" class="btn btn--sm" style="margin-top: 20px;">Tiếp tục mua sắm</a>
+                                </td>
+                            </tr>
+                        <?php else: ?>
+                            <?php foreach ($wishlistItems as $item): 
+                                $productImg = 'Assets/client/img/product-1-1.jpg';
+                                if (!empty($item['images']) && is_array($item['images'])) {
+                                    $imgUrl = $item['images'][0];
+                                    if (!empty($imgUrl)) {
+                                        if (strpos($imgUrl, '/') !== false || strpos($imgUrl, '\\') !== false) {
+                                            $productImg = $imgUrl;
+                                        } else {
+                                            $productImg = 'Assets/client/img/' . $imgUrl;
+                                        }
+                                    }
+                                } elseif (!empty($item['thumbnail'])) {
+                                    $productImg = $item['thumbnail'];
+                                }
+                            ?>
+                            <tr>
+                                <td>
+                                    <form method="POST" action="index.php?page=wishlist&action=remove" style="display: inline;">
+                                        <input type="hidden" name="wishlist_id" value="<?php echo htmlspecialchars($item['wishlist_id']); ?>" />
+                                        <button type="submit" style="background: none; border: none; cursor: pointer; color: inherit;">
+                                            <i class="fi fi-rs-trash table__trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <img src="<?php echo htmlspecialchars($productImg); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" class="table__img" />
+                                </td>
+                                <td>
+                                    <h3 class="table__title">
+                                        <a href="index.php?page=details&product_id=<?php echo $item['product_id']; ?>">
+                                            <?php echo htmlspecialchars($item['name']); ?>
+                                        </a>
+                                    </h3>
+                                    <p class="table__description">
+                                        <?php echo htmlspecialchars(substr($item['description'] ?? '', 0, 100)); ?>
+                                        <?php echo strlen($item['description'] ?? '') > 100 ? '...' : ''; ?>
+                                    </p>
+                                </td>
+                                <td><span class="table__price"><?php echo number_format($item['price'], 0, ',', '.'); ?>₫</span></td>
+                                <td><span class="table__stock"><?php echo htmlspecialchars($item['stock_status']); ?></span></td>
+                                <td>
+                                    <a href="index.php?page=cart&action=add&product_id=<?php echo $item['product_id']; ?>" class="btn btn--sm">Thêm vào Giỏ hàng</a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>
