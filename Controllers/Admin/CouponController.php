@@ -94,6 +94,90 @@ class CouponController
     {
         require_once "Views/admin/coupon-add.php";
     }
+
+    public function store()
+    {
+        if (!isset($_POST["create"])) {
+            header("location: admin.php?page=coupons&action=index");
+            exit;
+        }
+
+        $errors = [];
+        $code = $_POST["code"] ?? "";
+        $maxDiscount = $_POST["max_discount"] ?? "";
+        $minOrderTotal = $_POST["min_order_total"] ?? "";
+        $usageLimit = $_POST["usage_limit"] ?? "";
+        $startAt = $_POST["start_at"] ?? "";
+        $endAt = $_POST["end_at"] ?? "";
+        $status = $_POST["status"] ?? "1";
+
+        // Validation
+        if (empty($code)) {
+            $errors["code"] = "Mã giảm giá không được để trống.";
+        } elseif (strlen($code) > 255) {
+            $errors["code"] = "Mã giảm giá không được vượt quá 255 ký tự.";
+        }
+
+        if (empty($maxDiscount)) {
+            $errors["max_discount"] = "Tiền giảm không được để trống.";
+        } elseif (!is_numeric($maxDiscount)) {
+            $errors["max_discount"] = "Tiền giảm phải là một số.";
+        } elseif ($maxDiscount < 0) {
+            $errors["max_discount"] = "Tiền giảm không được là số âm.";
+        }
+
+        if (empty($minOrderTotal)) {
+            $errors["min_order_total"] = "Giá trị đơn hàng không được để trống.";
+        } elseif (!is_numeric($minOrderTotal)) {
+            $errors["min_order_total"] = "Giá trị đơn hàng phải là một số.";
+        } elseif ($minOrderTotal < 0) {
+            $errors["min_order_total"] = "Giá trị đơn hàng không được là số âm.";
+        }
+
+        if (empty($usageLimit)) {
+            $errors["usage_limit"] = "Số lần sử dụng không được để trống.";
+        } elseif (!filter_var($usageLimit, FILTER_VALIDATE_INT)) {
+            $errors["usage_limit"] = "Số lần sử dụng phải là số nguyên.";
+        } elseif ($usageLimit < 1) {
+            $errors["usage_limit"] = "Số lần sử dụng phải lớn hơn 0.";
+        }
+
+        if (empty($status)) {
+            $errors["status"] = "Trạng thái không được để trống.";
+        }
+
+        if (!empty($errors)) {
+            $_SESSION["errors"] = $errors;
+            $_SESSION["code_old"] = $code;
+            $_SESSION["max_discount_old"] = $maxDiscount;
+            $_SESSION["min_order_total_old"] = $minOrderTotal;
+            $_SESSION["usage_limit_old"] = $usageLimit;
+            $_SESSION["start_at_old"] = $startAt;
+            $_SESSION["end_at_old"] = $endAt;
+            $_SESSION["status_old"] = $status;
+            header("location: admin.php?page=coupons&action=add");
+            exit;
+        }
+
+        $result = $this->couponModel->createCoupon($code, $maxDiscount, $minOrderTotal, $usageLimit, $startAt, $endAt, $status);
+        if ($result) {
+            $_SESSION["success"] = "Thêm mã giảm giá thành công.";
+            header("location: admin.php?page=coupons&action=index");
+            exit;
+        } else {
+            $_SESSION["error"] = "Thêm mã giảm giá thất bại. Vui lòng thử lại.";
+            $_SESSION["code_old"] = $code;
+            $_SESSION["max_discount_old"] = $maxDiscount;
+            $_SESSION["min_order_total_old"] = $minOrderTotal;
+            $_SESSION["usage_limit_old"] = $usageLimit;
+            $_SESSION["start_at_old"] = $startAt;
+            $_SESSION["end_at_old"] = $endAt;
+            $_SESSION["status_old"] = $status;
+            header("location: admin.php?page=coupons&action=add");
+            exit;
+        }
+    }
+
     public function delete()
     {
 

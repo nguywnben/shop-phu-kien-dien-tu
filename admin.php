@@ -75,7 +75,7 @@ switch ($page) {
                 break;
             case "edit":
                 $product->edit();
-                break;    
+                break;
             case "delete":
                 $product->delete();
                 break;
@@ -88,6 +88,12 @@ switch ($page) {
         switch ($action) {
             case "index":
                 $coupon->index();
+                break;
+            case "add":
+                $coupon->add();
+                break;
+            case "store":
+                $coupon->store();
                 break;
             case "edit":
                 $coupon->edit();
@@ -109,7 +115,7 @@ switch ($page) {
                 $order->edit();
                 break;
             case "update":
-                $order->update();   
+                $order->update();
                 break;
         }
         break;
@@ -154,9 +160,9 @@ switch ($page) {
     default:
         header('HTTP/1.0 404 Not Found');
         require_once "Views/admin/404.php";
-        break;      
-        
-        
+        break;
+
+
 }
 
 

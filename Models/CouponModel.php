@@ -29,16 +29,18 @@ class CouponModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function createCoupon($code, $discount, $type, $expiry_date, $status = 1)
+    public function createCoupon($code, $maxDiscount, $minOrderTotal, $usageLimit, $startAt, $endAt, $status = 1)
     {
         try {
-            $sql = "INSERT INTO coupons (code, discount, type, expiry_date, status) VALUES (:code, :discount, :type, :expiry_date, :status)";
+            $sql = "INSERT INTO coupons (code, max_discount, min_order_total, usage_limit, start_at, end_at, status) VALUES (:code, :max_discount, :min_order_total, :usage_limit, :start_at, :end_at, :status)";
             $stmt = $this->connection->prepare($sql);
             return $stmt->execute([
                 ':code' => $code,
-                ':discount' => $discount,
-                ':type' => $type,
-                ':expiry_date' => $expiry_date, 
+                ':max_discount' => $maxDiscount,
+                ':min_order_total' => $minOrderTotal,
+                ':usage_limit' => $usageLimit,
+                ':start_at' => $startAt ? $startAt : null, 
+                ':end_at' => $endAt ? $endAt : null, 
                 ':status' => $status
             ]);
         } catch (PDOException $e) {

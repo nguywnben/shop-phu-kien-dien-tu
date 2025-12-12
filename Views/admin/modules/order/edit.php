@@ -153,10 +153,10 @@ $note = $order['note'] ?? '';
                                             <?= $qty ?>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                                            <?= number_format($price, 0, ',', '.') ?> VND
+                                            <?= number_format($price, 0, ',', '.') ?> đ
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                                            <?= number_format($itemTotal, 0, ',', '.') ?> VND
+                                            <?= number_format($itemTotal, 0, ',', '.') ?> đ
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -164,8 +164,8 @@ $note = $order['note'] ?? '';
                         </table>
                         
                         <div class="mt-4 border-t pt-4 text-right dark:border-gray-700">
-                            <p class="text-lg font-semibold">Tổng phụ: <?= number_format($subTotal, 0, ',', '.') ?> VND</p>
-                            <p class="text-xl font-bold mt-2">Tổng thanh toán: <?= number_format($order['grand_total'] ?? 0, 0, ',', '.') ?> VND</p>
+                            <p class="text-lg font-semibold">Tổng phụ: <?= number_format($subTotal, 0, ',', '.') ?> đ</p>
+                            <p class="text-xl font-bold mt-2">Tổng thanh toán: <?= number_format($order['grand_total'] ?? 0, 0, ',', '.') ?> đ</p>
                         </div>
                     </div>
                 </div>

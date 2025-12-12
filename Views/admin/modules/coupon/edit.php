@@ -60,6 +60,9 @@ unset($_SESSION["errors"]);
                                 <input type="text" name="id" value="<?= htmlspecialchars($coupon['id']) ?>"readonly
                                     
                                     class="bg-gray-100 cursor-not-allowed dark:bg-gray-800 shadow-theme-xs h-11 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-500 focus:outline-none dark:border-gray-700 dark:text-gray-400" />
+                                <?php if (isset($errors['id'])): ?>
+                                    <p class="mt-1.5 text-xs text-error-500"><?= htmlspecialchars($errors['id']) ?></p>
+                                <?php endif; ?>
                             </div>
 
                             <div>
@@ -69,7 +72,10 @@ unset($_SESSION["errors"]);
                                 </label>
                                 <input type="number" name="max_discount"
                                     value="<?= htmlspecialchars($coupon['max_discount']) ?>"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30">
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30 <?= isset($errors['max_discount']) ? 'border-error-500 text-error-500 focus:border-error-500 focus:ring-error-500/10' : '' ?>">
+                                <?php if (isset($errors['max_discount'])): ?>
+                                    <p class="mt-1.5 text-xs text-error-500"><?= htmlspecialchars($errors['max_discount']) ?></p>
+                                <?php endif; ?>
                             </div>
 
                             <div>
@@ -79,7 +85,10 @@ unset($_SESSION["errors"]);
                                 </label>
                                 <input type="number" name="min_order_total"
                                     value="<?= htmlspecialchars($coupon['min_order_total']) ?>"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30">
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30 <?= isset($errors['min_order_total']) ? 'border-error-500 text-error-500 focus:border-error-500 focus:ring-error-500/10' : '' ?>">
+                                <?php if (isset($errors['min_order_total'])): ?>
+                                    <p class="mt-1.5 text-xs text-error-500"><?= htmlspecialchars($errors['min_order_total']) ?></p>
+                                <?php endif; ?>
                             </div>
 
                             <div>
@@ -89,7 +98,10 @@ unset($_SESSION["errors"]);
                                 </label>
                                 <input type="number" name="usage_limit"
                                     value="<?= htmlspecialchars($coupon['usage_limit']) ?>"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30">
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30 <?= isset($errors['usage_limit']) ? 'border-error-500 text-error-500 focus:border-error-500 focus:ring-error-500/10' : '' ?>">
+                                <?php if (isset($errors['usage_limit'])): ?>
+                                    <p class="mt-1.5 text-xs text-error-500"><?= htmlspecialchars($errors['usage_limit']) ?></p>
+                                <?php endif; ?>
                             </div>
 
                         </div>
@@ -111,7 +123,10 @@ unset($_SESSION["errors"]);
                                 </label>
                                 <input type="datetime-local" name="start_at"
                                     value="<?= htmlspecialchars($coupon['start_at']) ?>"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30">
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30 <?= isset($errors['start_at']) ? 'border-error-500 text-error-500 focus:border-error-500 focus:ring-error-500/10' : '' ?>">
+                                <?php if (isset($errors['start_at'])): ?>
+                                    <p class="mt-1.5 text-xs text-error-500"><?= htmlspecialchars($errors['start_at']) ?></p>
+                                <?php endif; ?>
                             </div>
 
                             <div>
@@ -120,7 +135,10 @@ unset($_SESSION["errors"]);
                                 </label>
                                 <input type="datetime-local" name="end_at"
                                     value="<?= htmlspecialchars($coupon['end_at']) ?>"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30">
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30 <?= isset($errors['end_at']) ? 'border-error-500 text-error-500 focus:border-error-500 focus:ring-error-500/10' : '' ?>">
+                                <?php if (isset($errors['end_at'])): ?>
+                                    <p class="mt-1.5 text-xs text-error-500"><?= htmlspecialchars($errors['end_at']) ?></p>
+                                <?php endif; ?>
                             </div>
 
                             <div>
@@ -131,7 +149,7 @@ unset($_SESSION["errors"]);
 
                                 <div class="relative z-20 bg-transparent">
                                     <select id="status" name="status"
-                                        class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30">
+                                        class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full appearance-none rounded-lg border border-gray-300 bg-transparent bg-none px-4 py-2.5 pr-11 text-sm text-gray-800 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 <?= isset($errors['status']) ? 'border-error-500 text-error-500 focus:border-error-500 focus:ring-error-500/10' : '' ?>">
                                         <option value="1" <?= $coupon['status']== '1' ? 'selected' : '' ?>>
                                             Hoạt động
                                         </option>
@@ -151,8 +169,8 @@ unset($_SESSION["errors"]);
                                     </span>
                                 </div>
 
-                                <?php if (!empty($status_error)): ?>
-                                    <p class="mt-1.5 text-xs text-red-500"><?= $status_error ?></p>
+                                <?php if (isset($errors['status'])): ?>
+                                    <p class="mt-1.5 text-xs text-error-500"><?= htmlspecialchars($errors['status']) ?></p>
                                 <?php endif; ?>
                             </div>
 
