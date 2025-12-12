@@ -17,7 +17,7 @@ class ProductModel
             "SELECT 
                 p.*, 
                 b.name AS brand_name, 
-                c.name AS category_name, -- Lấy tên danh mục và đặt tên là category_name
+                c.name AS category_name,
                 (
                     SELECT url 
                     FROM product_images 
@@ -62,10 +62,73 @@ class ProductModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    /**
+     * Search and filter products by keyword and/or category.
+     */
+    public function getProductsFiltered($keyword = '', $categoryId = null)
+    {
+        $sql = "SELECT 
+                    p.*, 
+                    b.name AS brand_name, 
+                    c.name AS category_name,
+                    (
+                        SELECT url 
+                        FROM product_images 
+                        WHERE product_id = p.id 
+                        ORDER BY sort_order ASC 
+                        LIMIT 1
+                    ) AS main_image_url
+                FROM 
+                    " . $this->table . " p
+                LEFT JOIN brands b ON p.brand_id = b.id
+                LEFT JOIN categories c ON p.category_id = c.id
+                WHERE p.status = 1";
+
+        $params = [];
+
+        if (!empty($keyword)) {
+            $sql .= " AND (p.name LIKE :kw OR p.description LIKE :kw OR p.sku_model LIKE :kw)";
+            $params[':kw'] = "%" . $keyword . "%";
+        }
+
+        if (!empty($categoryId) && is_numeric($categoryId)) {
+            $sql .= " AND p.category_id = :cid";
+            $params[':cid'] = (int) $categoryId;
+        }
+
+        $sql .= " ORDER BY p.id DESC";
+
+        $stmt = $this->connection->prepare($sql);
+        foreach ($params as $key => $value) {
+            $stmt->bindValue($key, $value);
+        }
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function countProducts()
     {
         $sql = "SELECT COUNT(*) FROM " . $this->table . " WHERE status = 1";
         $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return (int) $stmt->fetchColumn();
+    }
+    public function countProductsFiltered($keyword = '', $categoryId = null)
+    {
+        $sql = "SELECT COUNT(*) FROM " . $this->table . " p WHERE p.status = 1";
+        $params = [];
+        if (!empty($keyword)) {
+            $sql .= " AND (p.name LIKE :kw OR p.description LIKE :kw OR p.sku_model LIKE :kw)";
+            $params[':kw'] = "%" . $keyword . "%";
+        }
+        if (!empty($categoryId) && is_numeric($categoryId)) {
+            $sql .= " AND p.category_id = :cid";
+            $params[':cid'] = (int) $categoryId;
+        }
+        $stmt = $this->connection->prepare($sql);
+        foreach ($params as $key => $value) {
+            $stmt->bindValue($key, $value);
+        }
         $stmt->execute();
         return (int) $stmt->fetchColumn();
     }
@@ -79,6 +142,48 @@ class ProductModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getProductsFilteredPaginated($keyword = '', $categoryId = null, $limit = 10, $offset = 0)
+    {
+        $sql = "SELECT 
+                    p.*, 
+                    b.name AS brand_name, 
+                    c.name AS category_name,
+                    (
+                        SELECT url 
+                        FROM product_images 
+                        WHERE product_id = p.id 
+                        ORDER BY sort_order ASC 
+                        LIMIT 1
+                    ) AS main_image_url
+                FROM 
+                    " . $this->table . " p
+                LEFT JOIN brands b ON p.brand_id = b.id
+                LEFT JOIN categories c ON p.category_id = c.id
+                WHERE p.status = 1";
+
+        $params = [];
+
+        if (!empty($keyword)) {
+            $sql .= " AND (p.name LIKE :kw OR p.description LIKE :kw OR p.sku_model LIKE :kw)";
+            $params[':kw'] = "%" . $keyword . "%";
+        }
+
+        if (!empty($categoryId) && is_numeric($categoryId)) {
+            $sql .= " AND p.category_id = :cid";
+            $params[':cid'] = (int) $categoryId;
+        }
+
+        $sql .= " ORDER BY p.id DESC LIMIT :limit OFFSET :offset";
+
+        $stmt = $this->connection->prepare($sql);
+        foreach ($params as $key => $value) {
+            $stmt->bindValue($key, $value);
+        }
+        $stmt->bindValue(':limit', (int) $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function getById($id)
     {
         $sql = "SELECT 

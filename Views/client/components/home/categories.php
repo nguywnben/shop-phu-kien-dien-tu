@@ -3,8 +3,8 @@
             <div class="categories__container swiper">
                 <div class="swiper-wrapper">
                     <?php foreach ($categories as $category): ?>
-                        <a href="shop.html?category_id=<?php echo $category['id']; ?>" class="category__item swiper-slide">
-                            <img src="Assets/client/img/<?php echo $category['image']; ?>" alt="" class="category__img" />
+                        <a href="index.php?page=shop&category_id=<?php echo $category['id']; ?>" class="category__item swiper-slide">
+                            <img src="Assets/client/img/<?php echo htmlspecialchars($category['image']); ?>" alt="<?php echo htmlspecialchars($category['name']); ?>" class="category__img" />
                             <h3 class="category__title"><?php echo htmlspecialchars($category['name']); ?></h3>
                         </a>
                     <?php endforeach; ?>

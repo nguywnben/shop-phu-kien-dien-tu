@@ -16,14 +16,17 @@ class ShopController
     {
         $categories = $this->categoryModel->getAllCategories();
 
+        $keyword = isset($_GET['q']) ? trim($_GET['q']) : '';
+        $categoryId = isset($_GET['category_id']) ? intval($_GET['category_id']) : null;
+
         $perPage = 8;
         $currentPage = isset($_GET['p']) ? max(1, intval($_GET['p'])) : 1;
         $offset = ($currentPage - 1) * $perPage;
 
-        $totalProducts = $this->productModel->countProducts();
+        $totalProducts = $this->productModel->countProductsFiltered($keyword, $categoryId);
         $totalPages = $totalProducts > 0 ? (int) ceil($totalProducts / $perPage) : 1;
 
-        $products = $this->productModel->getProductsPaginated($perPage, $offset);
+        $products = $this->productModel->getProductsFilteredPaginated($keyword, $categoryId, $perPage, $offset);
         foreach ($products as $i => $p) {
             $products[$i]['images'] = [];
             if (isset($p['id'])) {
@@ -34,6 +37,8 @@ class ShopController
         $totalPages = $totalPages;
         $currentPage = $currentPage;
         $perPage = $perPage;
+        $keyword = $keyword;
+        $categoryId = $categoryId;
         require_once "Views/client/shop.php";
     }
     public function details()
