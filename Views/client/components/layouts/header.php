@@ -41,12 +41,13 @@
                         <a href="index.php?page=shop" class="nav__link">Cửa Hàng</a>
                     </li>
                 </ul>
-                <div class="header__search">
-                    <input type="text" placeholder="Tìm kiếm sản phẩm..." class="form__input" />
-                    <button class="search__btn">
+                <form class="header__search" method="GET" action="index.php">
+                    <input type="hidden" name="page" value="" />
+                    <input type="text" name="q" value="<?php echo isset($_GET['q']) ? htmlspecialchars($_GET['q']) : ''; ?>" placeholder="Tìm kiếm sản phẩm..." class="form__input" />
+                    <button class="search__btn" type="submit">
                         <img src="Assets/client/img/search.png" alt="biểu tượng tìm kiếm" />
                     </button>
-                </div>
+                </form>
             </div>
             <div class="header__user-actions">
                 <a href="index.php?page=wishlist" class="header__action-btn" title="Danh sách yêu thích">

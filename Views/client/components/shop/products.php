@@ -75,7 +75,10 @@
             <?php if (isset($totalPages) && $totalPages > 1): ?>
                 <ul class="pagination">
                     <?php
-                    $baseUrl = 'index.php?page=shop';
+                    $params = ['page' => 'shop'];
+                    if (!empty($keyword)) $params['q'] = $keyword;
+                    if (!empty($categoryId)) $params['category_id'] = $categoryId;
+                    $baseUrl = 'index.php?' . http_build_query($params);
                     $cur = isset($currentPage) ? (int)$currentPage : 1;
                     $tp = isset($totalPages) ? (int)$totalPages : 1;
                     $start = max(1, $cur - 2);
