@@ -2,6 +2,7 @@
 
 require_once "header.php";
 
+// Expect $user from controller
 $array = [
     "components/layouts/header.php",
     "components/layouts/breadcrumb.php",

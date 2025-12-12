@@ -14,6 +14,8 @@ require_once "Controllers/Client/AuthController.php";
 $auth = new AuthController();
 require_once "Controllers/Client/WishlistController.php";
 $wishlist = new WishlistController();
+require_once "Controllers/Client/AccountController.php";
+$account = new AccountController();
 
 switch ($page) {
     case "":
@@ -27,6 +29,17 @@ switch ($page) {
         break;
     case "wishlist":
         $wishlist->index();
+        break;
+    case "account":
+        switch ($action) {
+            case "index":
+            case "":
+                $account->index();
+                break;
+            case "update":
+                $account->update();
+                break;
+        }
         break;
     case "login":
         switch ($action) {
