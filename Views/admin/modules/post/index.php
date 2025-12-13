@@ -75,10 +75,18 @@
         </div>
         <div class="space-y-5 sm:space-y-6">
             <div class="rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-white/[0.03]">
-                <div class="px-5 py-4 sm:px-6 sm:py-5">
+                <div class="flex items-center justify-between px-5 py-4 sm:px-6 sm:py-5">
                     <h3 class="text-base font-medium text-gray-800 dark:text-white/90">
                         Danh sách
                     </h3>
+                    <a href="?page=posts&action=add"
+                        class="inline-flex items-center justify-center rounded-lg border border-transparent bg-brand-500 px-3 py-2 text-sm font-medium text-white transition duration-300 ease-out hover:bg-brand-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                        </svg>
+                        Thêm bài viết
+                    </a>
                 </div>
                 <div class="p-5 border-t border-gray-100 dark:border-gray-800 sm:p-6">
                     <div

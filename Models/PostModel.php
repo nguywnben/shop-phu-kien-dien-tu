@@ -34,6 +34,27 @@ class PostModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function createPost($title, $slug, $content, $coverImage, $authorId, $status = 1)
+    {
+        try {
+            $sql = "INSERT INTO blog (title, slug, content, cover_image, author_id, status, published_at, created_at, updated_at) 
+                    VALUES (:title, :slug, :content, :cover_image, :author_id, :status, :published_at, NOW(), NOW())";
+            $stmt = $this->connection->prepare($sql);
+            return $stmt->execute([
+                ':title' => $title,
+                ':slug' => $slug,
+                ':content' => $content,
+                ':cover_image' => $coverImage,
+                ':author_id' => $authorId,
+                ':status' => $status,
+                ':published_at' => $status == 1 ? date('Y-m-d H:i:s') : null
+            ]);
+        } catch (PDOException $e) {
+            var_dump($e->getMessage());
+            return false;
+        }
+    }
+
     public function updatePost($data)
 {
     try {

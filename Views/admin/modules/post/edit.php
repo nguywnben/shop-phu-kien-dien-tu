@@ -1,6 +1,6 @@
 <?php
 
-$errors = $_SESSION["errors"] ?? "";
+$errors = $_SESSION["errors"] ?? [];
 unset($_SESSION["errors"]);
 
 ?>
@@ -39,7 +39,7 @@ unset($_SESSION["errors"]);
             </div>
         </div>
 
-        <form action="?page=posts&action=update" method="POST">
+        <form action="?page=posts&action=update" method="POST" enctype="multipart/form-data">
 
             <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
 
@@ -96,14 +96,13 @@ unset($_SESSION["errors"]);
 
                             <div>
                                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                                    Ảnh đại diện bài viết<span class="text-error-500">*</span>
+                                    Ảnh đại diện <span class="text-error-500">*</span>
                                 </label>
-                                <input type="text" name="cover_image"
-                                    value="<?= htmlspecialchars($post['cover_image']) ?>"
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30">
+                                <input type="file" name="cover_image" accept="image/*"
+                                    class="focus:border-ring-brand-300 shadow-theme-xs focus:file:ring-brand-300 h-11 w-full overflow-hidden rounded-lg border border-gray-300 bg-transparent text-sm text-gray-500 transition-colors file:mr-5 file:border-collapse file:cursor-pointer file:rounded-l-lg file:border-0 file:border-r file:border-solid file:border-gray-200 file:bg-gray-50 file:py-3 file:pr-3 file:pl-3.5 file:text-sm file:text-gray-700 placeholder:text-gray-400 hover:file:bg-gray-100 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400 dark:text-white/90 dark:file:border-gray-800 dark:file:bg-white/[0.03] dark:file:text-gray-400 dark:placeholder:text-gray-400
+                                    <?= isset($errors['cover_image']) ? 'border-error-500' : '' ?>" />
                                 <?php if (isset($errors['cover_image'])): ?>
-                                    <p class="mt-1.5 text-xs text-error-500"><?= htmlspecialchars($errors['cover_image']) ?>
-                                    </p>
+                                    <p class="mt-1.5 text-xs text-error-500"><?= htmlspecialchars($errors['cover_image']) ?></p>
                                 <?php endif; ?>
                             </div>
 
@@ -123,10 +122,18 @@ unset($_SESSION["errors"]);
 
                             <div>
                                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                                    Mã người viết
+                                    Tác giả <span class="text-error-500">*</span>
                                 </label>
-                                <input type="text" name="author_id" value="<?= htmlspecialchars($post['author_id']) ?>" readonly
-                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30">
+                                <select name="author_id"
+                                    class="dark:bg-dark-900 shadow-theme-xs focus:border-brand-300 focus:ring-brand-500/10 dark:focus:border-brand-800 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 dark:text-white/90 placeholder:text-gray-400 focus:ring-3 focus:outline-hidden dark:border-gray-700 dark:bg-gray-900 dark:placeholder:text-white/30">
+                                    <option value="">-- Chọn tác giả --</option>
+                                    <?php if (!empty($users)): ?>
+                                        <?php foreach ($users as $user): ?>
+                                            <option value="<?= $user['id'] ?>" <?= ($post['author_id'] == $user['id']) ? 'selected' : '' ?>
+                                            ><?= htmlspecialchars($user['fullname'] ?? ($user['name'] ?? 'User #' . $user['id'])) ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </select>
                                 <?php if (isset($errors['author_id'])): ?>
                                     <p class="mt-1.5 text-xs text-error-500"><?= htmlspecialchars($errors['author_id']) ?>
                                     </p>

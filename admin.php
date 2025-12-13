@@ -166,6 +166,12 @@ switch ($page) {
             case "index":
                 $post->index();
                 break;
+            case "add":
+                $post->add();
+                break;
+            case "store":
+                $post->store();
+                break;
             case "edit":
                 $post->edit();
                 break;
