@@ -19,6 +19,24 @@ class PostModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getAllPostsPaginated($limit, $offset)
+    {
+        $sql = "SELECT * FROM blog ORDER BY id DESC LIMIT :limit OFFSET :offset";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function countPosts()
+    {
+        $sql = "SELECT COUNT(*) FROM blog";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return (int)$stmt->fetchColumn();
+    }
+
     public function getActivePosts()
     {
         $stmt = $this->connection->prepare("SELECT * FROM blog WHERE status = 1");

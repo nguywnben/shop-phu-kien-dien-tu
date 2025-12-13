@@ -16,7 +16,24 @@ class PostController
 
     public function index()
     {
-        $posts = $this->postModel->getAllPosts();
+        $limit = 10;
+        $currentPage = isset($_GET['page_num']) ? (int)$_GET['page_num'] : 1;
+        if ($currentPage < 1) {
+            $currentPage = 1;
+        }
+        $offset = ($currentPage - 1) * $limit;
+
+        $posts = $this->postModel->getAllPostsPaginated($limit, $offset);
+        $totalPosts = $this->postModel->countPosts();
+        $totalPages = ceil($totalPosts / $limit);
+
+        $pagination = [
+            'currentPage' => $currentPage,
+            'totalPages' => $totalPages,
+            'limit' => $limit,
+            'totalPosts' => $totalPosts,
+        ];
+
         require_once "Views/admin/post-index.php";
     }
 
