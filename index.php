@@ -16,6 +16,8 @@ require_once "Controllers/Client/WishlistController.php";
 $wishlist = new WishlistController();
 require_once "Controllers/Client/AccountController.php";
 $account = new AccountController();
+require_once "Controllers/Client/PostController.php";
+$post = new PostController();
 
 switch ($page) {
     case "":
@@ -38,6 +40,18 @@ switch ($page) {
                 break;
             case "update":
                 $account->update();
+                break;
+        }
+        break;
+    case "blog":
+        switch ($action) {
+            case "detail":
+                $post->detail();
+                break;
+            case "index":
+            case "":
+            default:
+                $post->index();
                 break;
         }
         break;
