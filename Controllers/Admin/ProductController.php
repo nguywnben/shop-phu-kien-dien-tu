@@ -13,9 +13,29 @@ class ProductController
         $this->productModel = new ProductModel();
     }
 
-    public function index()
+ public function index()
     {
-        $products = $this->productModel->getAllProductsForAdmin();
+  
+        $limit = 10; 
+        $currentPage = isset($_GET['page_num']) ? (int)$_GET['page_num'] : 1;
+        if ($currentPage < 1) {
+            $currentPage = 1;
+        }
+        $offset = ($currentPage - 1) * $limit;
+
+        $products = $this->productModel->getAllProductsForAdmin($limit, $offset);
+        
+   
+        $totalProducts = $this->productModel->countProducts();
+        $totalPages = ceil($totalProducts / $limit);
+
+        $pagination = [
+            'currentPage' => $currentPage,
+            'totalPages' => $totalPages,
+            'limit' => $limit,
+            'totalProducts' => $totalProducts,
+        ];
+        
         require_once "Views/admin/product-index.php";
 
     }

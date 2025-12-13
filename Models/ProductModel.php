@@ -37,28 +37,32 @@ class ProductModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function getAllProductsForAdmin()
+   public function getAllProductsForAdmin($limit, $offset)
     {
-        $stmt = $this->connection->prepare(
-            "SELECT 
-                p.*, 
-                b.name AS brand_name, 
-                c.name AS category_name,
-                (
-                    SELECT url 
-                    FROM product_images 
-                    WHERE product_id = p.id 
-                    ORDER BY sort_order ASC 
-                    LIMIT 1
-                ) AS main_image_url
-            FROM 
-                " . $this->table . " p
-            LEFT JOIN 
-                brands b ON p.brand_id = b.id
-            LEFT JOIN  
-                categories c ON p.category_id = c.id
-         "
-        );
+        $sql = "SELECT 
+                    p.*, 
+                    b.name AS brand_name, 
+                    c.name AS category_name,
+                    (
+                        SELECT url 
+                        FROM product_images 
+                        WHERE product_id = p.id 
+                        ORDER BY sort_order ASC 
+                        LIMIT 1
+                    ) AS main_image_url
+                FROM 
+                    " . $this->table . " p
+                LEFT JOIN 
+                    brands b ON p.brand_id = b.id
+                LEFT JOIN  
+                    categories c ON p.category_id = c.id
+                ORDER BY 
+                    p.id ASC  
+                LIMIT :limit OFFSET :offset";
+        
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':limit', (int) $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int) $offset, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -105,6 +109,13 @@ class ProductModel
         }
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function countAllProducts()
+    {
+        $sql = "SELECT COUNT(*) FROM " . $this->table; 
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return (int) $stmt->fetchColumn();
     }
     public function countProducts()
     {
