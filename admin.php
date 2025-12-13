@@ -42,6 +42,12 @@ switch ($page) {
             case "index":
                 $user->index();
                 break;
+            case "edit":
+                $user->edit();
+                break;
+            case "update":
+                $user->update();
+                break;
         }
         break;
     case "profile":
