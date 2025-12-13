@@ -18,7 +18,8 @@ require_once "Controllers/Client/AccountController.php";
 $account = new AccountController();
 require_once "Controllers/Client/PostController.php";
 $post = new PostController();
-
+require_once "Controllers/Client/CheckOutController.php";
+$checkout = new CheckOutController();
 switch ($page) {
     case "":
         $home->index();
@@ -31,6 +32,9 @@ switch ($page) {
         break;
     case "wishlist":
         $wishlist->index();
+        break;
+         case "checkout":
+        $checkout->index();
         break;
     case "account":
         switch ($action) {
