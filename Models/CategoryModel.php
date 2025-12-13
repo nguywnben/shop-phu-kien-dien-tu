@@ -1,3 +1,4 @@
+
 <?php
 
 require_once "Database.php";
@@ -19,6 +20,21 @@ class CategoryModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function countCategories()
+    {
+        $stmt = $this->connection->prepare("SELECT COUNT(*) FROM categories");
+        $stmt->execute();
+        return (int)$stmt->fetchColumn();
+    }
+
+    public function getCategoriesPaginated($limit, $offset)
+    {
+        $stmt = $this->connection->prepare("SELECT * FROM categories ORDER BY id ASC LIMIT :limit OFFSET :offset");
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function getActiveCategories()
     {
         $stmt = $this->connection->prepare("SELECT * FROM categories WHERE status = 1");

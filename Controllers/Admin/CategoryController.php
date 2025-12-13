@@ -15,7 +15,29 @@ class CategoryController
 
     public function index()
     {
-        $categories = $this->categoryModel->getAllCategories();
+        // Phân trang
+        $limit = 10;
+        $currentPage = isset($_GET['page_num']) ? (int)$_GET['page_num'] : 1;
+        if ($currentPage < 1) {
+            $currentPage = 1;
+        }
+        $offset = ($currentPage - 1) * $limit;
+
+        // Lấy tổng số danh mục
+        $totalCategories = $this->categoryModel->countCategories();
+        $totalPages = ceil($totalCategories / $limit);
+
+        // Lấy danh sách danh mục cho trang hiện tại
+        $categories = $this->categoryModel->getCategoriesPaginated($limit, $offset);
+
+        // Biến phân trang
+        $pagination = [
+            'currentPage' => $currentPage,
+            'totalPages' => $totalPages,
+            'limit' => $limit,
+            'totalCategories' => $totalCategories,
+        ];
+
         require_once "Views/admin/category-index.php";
     }
     public function edit()
