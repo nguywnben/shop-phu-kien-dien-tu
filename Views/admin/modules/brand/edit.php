@@ -116,10 +116,10 @@ $status_value = $status_old ?: ($brand['status'] ?? '');
                                 <select id="status" name="status"
                                     class="dark:bg-dark-900 shadow-theme-xs h-11 w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-800">
                                     <option value="1" <?= ($status_value == '1') ? 'selected' : '' ?>>
-                                        1: Hiển thị
+                                        Hiển thị
                                     </option>
                                     <option value="0" <?= ($status_value == '0') ? 'selected' : '' ?>>
-                                        0: Ẩn
+                                        Ẩn
                                     </option>
                                 </select>
                             </div>

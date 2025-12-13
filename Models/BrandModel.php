@@ -1,3 +1,5 @@
+
+
 <?php
 
 require_once "Database.php";
@@ -16,6 +18,24 @@ class BrandModel
     public function getAllBrands()
     {
         $stmt = $this->connection->prepare("SELECT * FROM " . $this->table);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+        // Đếm tổng số thương hiệu
+    public function countBrands()
+    {
+        $stmt = $this->connection->prepare("SELECT COUNT(*) FROM " . $this->table);
+        $stmt->execute();
+        return (int)$stmt->fetchColumn();
+    }
+    public $lastError = null;
+
+    // Lấy thương hiệu theo phân trang
+    public function getBrandsPaginated($limit, $offset)
+    {
+        $stmt = $this->connection->prepare("SELECT * FROM " . $this->table . " ORDER BY id ASC LIMIT :limit OFFSET :offset");
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -56,6 +76,7 @@ class BrandModel
     }
     public function createBrand($name, $slug, $logo_url, $status)
     {
+        $this->lastError = null;
         try {
             $sql = "INSERT INTO " . $this->table . " (name, slug, logo, status, created_at, updated_at) 
                     VALUES (:name, :slug, :logo, :status, NOW(), NOW())";
@@ -69,7 +90,7 @@ class BrandModel
                 ':status' => $status,
             ]);
         } catch (PDOException $e) {
-
+            $this->lastError = $e->getMessage();
             return false;
         }
     }
@@ -91,6 +112,21 @@ class BrandModel
         
         $stmt->execute();
         return $stmt->fetchColumn() > 0; // Trả về true nếu tên đã tồn tại
+    }
+        // Kiểm tra slug đã tồn tại chưa
+    public function checkSlugExists($slug, $ignoreId = null)
+    {
+        $sql = "SELECT COUNT(*) FROM " . $this->table . " WHERE slug = :slug";
+        if ($ignoreId !== null) {
+            $sql .= " AND id != :ignoreId";
+        }
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindParam(':slug', $slug);
+        if ($ignoreId !== null) {
+            $stmt->bindParam(':ignoreId', $ignoreId, PDO::PARAM_INT);
+        }
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
     }
 }
 

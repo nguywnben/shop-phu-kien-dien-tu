@@ -20,7 +20,26 @@ class BrandController
 
     public function index()
     {
-        $brands = $this->brandModel->getAllBrands();
+    
+        $limit = 10;
+        $currentPage = isset($_GET['page_num']) ? (int)$_GET['page_num'] : 1;
+        if ($currentPage < 1) {
+            $currentPage = 1;
+        }
+        $offset = ($currentPage - 1) * $limit;
+
+        $totalBrands = $this->brandModel->countBrands();
+        $totalPages = ceil($totalBrands / $limit);
+
+        $brands = $this->brandModel->getBrandsPaginated($limit, $offset);
+
+        $pagination = [
+            'currentPage' => $currentPage,
+            'totalPages' => $totalPages,
+            'limit' => $limit,
+            'totalBrands' => $totalBrands,
+        ];
+
         require_once "Views/admin/brand-index.php";
     }
 
@@ -214,6 +233,12 @@ class BrandController
         if (empty($slug)) {
             $_SESSION['slug_error'] = 'Vui lòng nhập URL thân thiện.';
             $hasError = true;
+        } else {
+   
+            if ($this->brandModel->checkSlugExists($slug)) {
+                $_SESSION['slug_error'] = 'Slug này đã tồn tại, vui lòng chọn slug khác.';
+                $hasError = true;
+            }
         }
         if ($status === '') {
             $_SESSION['status_error'] = 'Vui lòng chọn trạng thái.';
@@ -257,10 +282,11 @@ class BrandController
             header('location: ?page=brands&action=index');
             exit;
         } else {
-  
             if (file_exists($target_file)) {
                 unlink($target_file);
             }
+
+          
             $_SESSION['error'] = 'Thêm thương hiệu thất bại';
             header('location: ?page=brands&action=add');
             exit;
