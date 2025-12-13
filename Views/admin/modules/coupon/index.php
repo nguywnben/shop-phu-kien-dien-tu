@@ -210,6 +210,45 @@
                     </div>
                 </div>
             </div>
+
+            <?php 
+            // Đảm bảo biến $pagination tồn tại và có tổng số trang lớn hơn 1
+            if (isset($pagination) && $pagination['totalPages'] > 1): 
+            ?>
+            <div class="w-full flex flex-col items-center justify-center mt-6 mb-4">
+                <div class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                    Hiển thị 
+                    <span class="font-semibold text-brand-600 dark:text-brand-400"><?= ($pagination['currentPage'] - 1) * $pagination['limit'] + 1 ?></span> 
+                    đến 
+                    <span class="font-semibold text-brand-600 dark:text-brand-400"><?= min($pagination['currentPage'] * $pagination['limit'], $pagination['totalCoupons']) ?></span> 
+                    trên tổng số 
+                    <span class="font-semibold text-brand-600 dark:text-brand-400"><?= $pagination['totalCoupons'] ?></span> mã giảm giá.
+                </div>
+                <nav class="flex flex-wrap gap-1 justify-center items-center" aria-label="Pagination">
+                    <!-- Previous -->
+                    <a href="?page=coupons&action=index&page_num=<?= $pagination['currentPage'] - 1 ?>"
+                       class="px-3 py-1 rounded-full border border-gray-300 bg-white text-gray-500 hover:bg-brand-100 hover:text-brand-700 transition disabled:opacity-50 disabled:pointer-events-none"
+                       style="<?= $pagination['currentPage'] <= 1 ? 'pointer-events:none;opacity:0.5;' : '' ?>">
+                        &laquo;
+                    </a>
+                    <?php for ($i = 1; $i <= $pagination['totalPages']; $i++): ?>
+                        <a href="?page=coupons&action=index&page_num=<?= $i ?>"
+                           class="px-3 py-1 rounded-full border text-sm font-medium transition
+                           <?= ($i == $pagination['currentPage']) 
+                               ? 'bg-brand-500 border-brand-500 text-white shadow' 
+                               : 'bg-white border-gray-300 text-gray-700 hover:bg-brand-100 hover:text-brand-700' ?>">
+                            <?= $i ?>
+                        </a>
+                    <?php endfor; ?>
+                    <!-- Next -->
+                    <a href="?page=coupons&action=index&page_num=<?= $pagination['currentPage'] + 1 ?>"
+                       class="px-3 py-1 rounded-full border border-gray-300 bg-white text-gray-500 hover:bg-brand-100 hover:text-brand-700 transition disabled:opacity-50 disabled:pointer-events-none"
+                       style="<?= $pagination['currentPage'] >= $pagination['totalPages'] ? 'pointer-events:none;opacity:0.5;' : '' ?>">
+                        &raquo;
+                    </a>
+                </nav>
+            </div>
+            <?php endif; ?>
         </div>
     </div>
 </main>

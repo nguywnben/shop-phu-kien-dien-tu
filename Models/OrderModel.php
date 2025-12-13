@@ -18,6 +18,24 @@ class OrderModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getAllOrdersPaginated($limit, $offset)
+    {
+        $sql = "SELECT * FROM " . $this->table . " ORDER BY id DESC LIMIT :limit OFFSET :offset";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function countOrders()
+    {
+        $sql = "SELECT COUNT(*) FROM " . $this->table;
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return (int)$stmt->fetchColumn();
+    }
+
     public function getOrderById($id)
     {
         $stmt = $this->connection->prepare("SELECT * FROM " . $this->table . " WHERE id = :id LIMIT 1");

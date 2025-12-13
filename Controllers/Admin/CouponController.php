@@ -13,7 +13,24 @@ class CouponController
 
     public function index()
     {
-        $coupons = $this->couponModel->getAllCoupons();
+        $limit = 10;
+        $currentPage = isset($_GET['page_num']) ? (int)$_GET['page_num'] : 1;
+        if ($currentPage < 1) {
+            $currentPage = 1;
+        }
+        $offset = ($currentPage - 1) * $limit;
+
+        $coupons = $this->couponModel->getAllCouponsPaginated($limit, $offset);
+        $totalCoupons = $this->couponModel->countCoupons();
+        $totalPages = ceil($totalCoupons / $limit);
+
+        $pagination = [
+            'currentPage' => $currentPage,
+            'totalPages' => $totalPages,
+            'limit' => $limit,
+            'totalCoupons' => $totalCoupons,
+        ];
+
         require_once "Views/admin/coupon-index.php";
     }
 

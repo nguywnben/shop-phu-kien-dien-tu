@@ -14,6 +14,24 @@ class CouponModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getAllCouponsPaginated($limit, $offset)
+    {
+        $sql = "SELECT * FROM coupons ORDER BY id DESC LIMIT :limit OFFSET :offset";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function countCoupons()
+    {
+        $sql = "SELECT COUNT(*) FROM coupons";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return (int)$stmt->fetchColumn();
+    }
     public function getActiveCoupons()
     {
         $stmt = $this->connection->prepare("SELECT * FROM coupons WHERE status = 1");

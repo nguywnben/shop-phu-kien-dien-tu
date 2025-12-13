@@ -13,7 +13,24 @@ class OrderController
 
     public function index()
     {
-        $orders = $this->orderModel->getAllOrders();
+        $limit = 10;
+        $currentPage = isset($_GET['page_num']) ? (int)$_GET['page_num'] : 1;
+        if ($currentPage < 1) {
+            $currentPage = 1;
+        }
+        $offset = ($currentPage - 1) * $limit;
+
+        $orders = $this->orderModel->getAllOrdersPaginated($limit, $offset);
+        $totalOrders = $this->orderModel->countOrders();
+        $totalPages = ceil($totalOrders / $limit);
+
+        $pagination = [
+            'currentPage' => $currentPage,
+            'totalPages' => $totalPages,
+            'limit' => $limit,
+            'totalOrders' => $totalOrders,
+        ];
+
         require_once "Views/admin/orders-index.php"; 
     }
     
