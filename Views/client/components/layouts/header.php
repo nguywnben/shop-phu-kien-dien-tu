@@ -40,6 +40,9 @@
                     <li class="nav__item">
                         <a href="index.php?page=shop" class="nav__link">Cửa Hàng</a>
                     </li>
+                    <li class="nav__item">
+                        <a href="index.php?page=blog" class="nav__link">Bài Viết</a>
+                    </li>
                 </ul>
                 <form class="header__search" method="GET" action="index.php">
                     <input type="hidden" name="page" value="" />
