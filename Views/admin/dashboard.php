@@ -121,7 +121,7 @@ if (!isset($formattedOrders)) $formattedOrders = number_format(0);
                                             Doanh số hàng tháng
                                         </h3>
 
-                                        <div x-data="{openDropDown: false}" class="relative h-fit">
+                                        <!-- <div x-data="{openDropDown: false}" class="relative h-fit">
                                             <button @click="openDropDown = !openDropDown"
                                                 :class="openDropDown ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:hover:text-white'">
                                                 <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -142,12 +142,12 @@ if (!isset($formattedOrders)) $formattedOrders = number_format(0);
                                                     Xóa
                                                 </button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="max-w-full overflow-x-auto custom-scrollbar">
                                         <div class="-ml-5 min-w-[650px] pl-2 xl:min-w-full">
-                                            <div id="chartOne" class="-ml-5 h-full min-w-[650px] pl-2 xl:min-w-full"></div>
+                                            <canvas id="myChart" class="h-96 w-full"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -448,3 +448,46 @@ if (!isset($formattedOrders)) $formattedOrders = number_format(0);
                     </div>
                 </div>
             </main>
+            <!-- Chart Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+    const labels = ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12"];
+    const data = <?= json_encode($finalData ?? []); ?>;
+    
+    console.log('Chart Data:', data);
+    console.log('Canvas element:', document.getElementById('myChart'));
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Tổng số đơn hàng theo tháng',
+                data: data,
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(54,162,235,0.6)",
+                borderColor: "rgba(255, 0, 200, 0.33)",
+                borderWidth: 2
+            }]
+
+        },
+        options: {
+            legend: {
+                display: true,
+                labels: {
+                    fontSize: 14
+                }
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        min: 0
+                    }
+                }]
+            }
+        }
+    });
+</script>
