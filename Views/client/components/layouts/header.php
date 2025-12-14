@@ -14,8 +14,8 @@
         <div class="header__top">
             <div class="header__container container">
                 <div class="header__contact">
-                    <span>(+01) - 2345 - 6789</span>
-                    <span>Địa chỉ của chúng tôi</span>
+                    <span>(+84) 0797 164 052</span>
+                    <span>22 Thường Thạnh, Cái Răng, Cần Thơ</span>
                 </div>
                 <p class="header__alert-news">
                     Ưu Đãi Giá Trị Lớn - Tiết kiệm nhiều hơn với phiếu giảm giá
@@ -34,7 +34,7 @@
 
         <nav class="nav container">
             <a href="index.php" class="nav__logo">
-                <img class="nav__logo-img" src="Assets/client/img/logo.svg" alt="logo trang web" />
+                <img class="nav__logo-img" src="Assets/client/img/logo.png" alt="logo trang web" style="width: 200px;"/>
             </a>
             <div class="nav__menu" id="nav-menu">
                 <div class="nav__menu-top">

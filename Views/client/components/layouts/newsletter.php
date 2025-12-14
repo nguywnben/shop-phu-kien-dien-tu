@@ -5,7 +5,7 @@
                     Đăng ký Bản tin
                 </h3>
                 <p class="newsletter__description">
-                    ...và nhận phiếu giảm giá 25₫ cho lần mua sắm đầu tiên.
+                    Nhận phiếu giảm giá lên đến 250.000₫ cho lần mua sắm đầu tiên.
                 </p>
                 <form action="" class="newsletter__form">
                     <input type="text" placeholder="Nhập Email của bạn" class="newsletter__input" />

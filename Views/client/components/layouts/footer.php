@@ -4,17 +4,17 @@
         <div class="footer__container grid">
             <div class="footer__content">
                 <a href="index.html" class="footer__logo">
-                    <img src="Assets/client/img/logo.svg" alt="" class="footer__logo-img" />
+                    <img src="Assets/client/img/logo.png" alt="" class="footer__logo-img" style="width: 200px;"/>
                 </a>
                 <h4 class="footer__subtitle">Liên hệ</h4>
                 <p class="footer__description">
-                    <span>Địa chỉ:</span> 13 Tlemcen Road, Street 32, Beb-Wahren
+                    <span>Địa chỉ:</span> 22 Thường Thạnh, Cái Răng, Cần Thơ
                 </p>
                 <p class="footer__description">
-                    <span>Điện thoại:</span> +01 2222 365 /(+91) 01 2345 6789
+                    <span>Điện thoại:</span> +84 0797 164 052
                 </p>
                 <p class="footer__description">
-                    <span>Giờ làm việc:</span> 10:00 - 18:00, Thứ Hai - Thứ Bảy
+                    <span>Giờ làm việc:</span> 08:00 - 22:00, Thứ Hai - Thứ Bảy
                 </p>
                 <div class="footer__social">
                     <h4 class="footer__subtitle">Theo dõi tôi</h4>
@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="footer__bottom">
-            <p class="copyright">&copy; 2024 Evara. Mọi quyền được bảo lưu</p>
-            <span class="designer">Thiết kế bởi Crypticalcoder</span>
+            <p class="copyright">&copy; 2025 GearZon. Mọi quyền được bảo lưu</p>
+            <span class="designer">Thiết kế bởi GearZon</span>
         </div>
     </footer>
