@@ -65,11 +65,11 @@ class CouponController
         $endAt = $_POST["end_at"] ?? "";
         $status = $_POST["status"] ?? "";
         if (empty($maxDiscount)) {
-            $errors["max_discount"] = "Tiền giảm không được để trống.";
+            $errors["max_discount"] = "Phần trăm giảm giá không được để trống.";
         } elseif (!is_numeric($maxDiscount)) {
-            $errors["max_discount"] = "Tiền giảm phải là một số.";
-        } elseif ($maxDiscount < 0) {
-            $errors["max_discount"] = "Tiền giảm không được là số âm.";
+            $errors["max_discount"] = "Phần trăm giảm giá phải là một số.";
+        } elseif ($maxDiscount < 0 || $maxDiscount > 100) {
+            $errors["max_discount"] = "Phần trăm giảm giá phải từ 0 đến 100.";
         }
         if (empty($minOrderTotal)) {
             $errors["min_order_total"] = "Giá trị đơn hàng không được để trống.";
@@ -136,11 +136,11 @@ class CouponController
         }
 
         if (empty($maxDiscount)) {
-            $errors["max_discount"] = "Tiền giảm không được để trống.";
+            $errors["max_discount"] = "Phần trăm giảm giá không được để trống.";
         } elseif (!is_numeric($maxDiscount)) {
-            $errors["max_discount"] = "Tiền giảm phải là một số.";
-        } elseif ($maxDiscount < 0) {
-            $errors["max_discount"] = "Tiền giảm không được là số âm.";
+            $errors["max_discount"] = "Phần trăm giảm giá phải là một số.";
+        } elseif ($maxDiscount < 0 || $maxDiscount > 100) {
+            $errors["max_discount"] = "Phần trăm giảm giá phải từ 0 đến 100.";
         }
 
         if (empty($minOrderTotal)) {

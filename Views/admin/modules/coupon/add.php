@@ -97,10 +97,10 @@ $status_old = $_SESSION['status_old'] ?? '1';
 
                             <div>
                                 <label class="mb-1.5 block text-sm font-medium text-gray-700 dark:text-gray-400">
-                                    Tiền giảm tối đa (VND) <span class="text-error-500">*</span>
+                                    Phần trăm giảm giá (%) <span class="text-error-500">*</span>
                                 </label>
                                 <input type="number" name="max_discount" value="<?= htmlspecialchars($max_discount_old, ENT_QUOTES) ?>" 
-                                    placeholder="Nhập số tiền giảm" min="0" 
+                                    placeholder="Nhập phần trăm giảm (0-100)" min="0" max="100" step="0.01"
                                     class="h-11 w-full rounded-lg border border-gray-300 dark:border-gray-700 dark:bg-gray-900 px-4 py-2.5 text-sm text-gray-800 dark:text-white/90 placeholder:text-gray-400 dark:placeholder:text-white/30
                                     <?= isset($errors['max_discount']) ? 'border-error-500 text-error-500 focus:border-error-500 focus:ring-error-500/10' : 'focus:border-brand-300 focus:ring-brand-500/10' ?>" />
                                 <?php if (isset($errors['max_discount'])): ?>
