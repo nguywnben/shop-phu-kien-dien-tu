@@ -55,7 +55,7 @@
                                             </button>
                                         </form>
                                     </div>
-                                    <div class="product__badge light-pink">Hot</div>
+                                    
                                 </div>
                                 <div class="product__content">
                                     <span class="product__category"><?php echo htmlspecialchars($product['category_name'] ?? 'Khác'); ?></span>
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="product__price flex">
                                         <span class="new__price"><?php echo number_format($product['price']) . ' VNĐ'; ?></span>
-                                        <span class="old__price"><?php echo number_format($product['price']) . ' VNĐ'; ?></span>
+                                        
                                     </div>
                                     <a href="#" class="action__btn cart__btn" aria-label="Thêm vào Giỏ hàng">
                                         <i class="fi fi-rs-shopping-bag-add"></i>
