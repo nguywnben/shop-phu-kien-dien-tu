@@ -87,6 +87,14 @@ class UserModel
             return false;
         }
     }
+    public function getById($userId)
+    {
+        $sql = "SELECT * FROM " . $this->table . " WHERE id = :id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':id', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }  
 
 ?>
