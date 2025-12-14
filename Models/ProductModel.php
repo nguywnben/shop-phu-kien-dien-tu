@@ -32,7 +32,8 @@ class ProductModel
             LEFT JOIN  
                 categories c ON p.category_id = c.id -- JOIN với bảng categories
             WHERE 
-                p.status = 1"
+                p.status = 1
+            ORDER BY p.category_id DESC, p.id DESC"
         );
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -57,7 +58,7 @@ class ProductModel
                 LEFT JOIN  
                     categories c ON p.category_id = c.id
                 ORDER BY 
-                    p.id ASC  
+                    p.category_id DESC, p.id DESC  
                 LIMIT :limit OFFSET :offset";
         
         $stmt = $this->connection->prepare($sql);

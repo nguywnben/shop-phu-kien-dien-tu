@@ -12,7 +12,13 @@ class CategoryModel
         $database = new Database();
         $this->connection = $database->connect();
     }
-
+ public function getAllCategories() : array
+    {
+        $stmt = $this->connection->prepare("SELECT * FROM categories ORDER BY id DESC");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+ }
 
     public function countCategories()
     {
