@@ -53,4 +53,35 @@ class WishlistController
         
         echo "Không thể xóa sản phẩm";
     }
+
+    public function add()
+    {
+        if (!isset($_SESSION['login'])) {
+            header("Location: index.php?page=login&action=index");
+            exit();
+        }
+
+        $productId = isset($_POST['product_id']) ? intval($_POST['product_id']) : 0;
+        $userId = isset($_SESSION['login']['id']) ? (int)$_SESSION['login']['id'] : 0;
+        $variantId = isset($_POST['variant_id']) ? intval($_POST['variant_id']) : null;
+
+        if ($productId > 0) {
+            $result = $this->wishlistModel->addToWishlist($userId, $productId, $variantId);
+            
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ajax'])) {
+                header('Content-Type: application/json');
+                echo json_encode($result);
+                exit();
+            }
+            
+            if ($result['success']) {
+                $referer = isset($_POST['referer']) ? $_POST['referer'] : 'index.php?page=shop';
+                header("Location: " . $referer);
+                exit();
+            }
+        }
+        
+        header("Location: index.php?page=shop");
+        exit();
+    }
 }

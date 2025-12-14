@@ -42,9 +42,12 @@
                                 <img src="<?php echo htmlspecialchars($hoverImg); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" class="product__img hover" />
                             </a>
                             <div class="product__actions">
-                                <a href="#" class="action__btn" aria-label="Thêm vào Danh sách yêu thích">
-                                    <i class="fi fi-rs-heart"></i>
-                                </a>
+                                <form method="POST" action="index.php?page=wishlist&action=add" style="display: inline;">
+                                    <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>" />
+                                    <button type="submit" class="action__btn" aria-label="Thêm vào Danh sách yêu thích" onclick="if(!<?php echo isset($_SESSION['login']) ? 'true' : 'false'; ?>) {event.preventDefault(); window.location.href='index.php?page=login&action=index'; return false;}">
+                                        <i class="fi fi-rs-heart"></i>
+                                    </button>
+                                </form>
                             </div>
                             <div class="product__badge light-pink">Hot</div>
                         </div>

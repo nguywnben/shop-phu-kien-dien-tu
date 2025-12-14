@@ -47,9 +47,12 @@
                     <div class="details__action">
                         <input type="number" class="quantity" value="1" />
                         <a href="#" class="btn btn--sm">Thêm vào Giỏ hàng</a>
-                        <a href="#" class="details__action-btn">
-                            <i class="fi fi-rs-heart"></i>
-                        </a>
+                        <form method="POST" action="index.php?page=wishlist&action=add" style="display: inline;">
+                            <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>" />
+                            <button type="submit" class="details__action-btn" onclick="if(!<?php echo isset($_SESSION['login']) ? 'true' : 'false'; ?>) {event.preventDefault(); window.location.href='index.php?page=login&action=index'; return false;}">
+                                <i class="fi fi-rs-heart"></i>
+                            </button>
+                        </form>
                     </div>
                     <ul class="details__meta">
                         <li class="meta__list flex"><span>Mã SKU:</span><?php echo htmlspecialchars($product['sku_model'] ?? ''); ?></li>

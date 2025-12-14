@@ -30,7 +30,19 @@ switch ($page) {
         $shop->details();
         break;
     case "wishlist":
-        $wishlist->index();
+        switch ($action) {
+            case "add":
+                $wishlist->add();
+                break;
+            case "remove":
+                $wishlist->remove();
+                break;
+            case "index":
+            case "":
+            default:
+                $wishlist->index();
+                break;
+        }
         break;
     case "account":
         switch ($action) {

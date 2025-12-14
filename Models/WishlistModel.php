@@ -58,4 +58,40 @@ class WishlistModel
         $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function addToWishlist($userId, $productId, $variantId = null)
+    {
+        // Check if product already exists in wishlist
+        $checkSql = "SELECT id FROM " . $this->table . " WHERE user_id = :user_id AND product_id = :product_id";
+        $checkStmt = $this->connection->prepare($checkSql);
+        $checkStmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
+        $checkStmt->bindValue(':product_id', $productId, PDO::PARAM_INT);
+        $checkStmt->execute();
+        
+        if ($checkStmt->rowCount() > 0) {
+            return ['success' => false, 'message' => 'Sản phẩm đã có trong danh sách yêu thích'];
+        }
+
+        $sql = "INSERT INTO " . $this->table . " (user_id, product_id, variant_id, added_at) 
+                VALUES (:user_id, :product_id, :variant_id, NOW())";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
+        $stmt->bindValue(':product_id', $productId, PDO::PARAM_INT);
+        $stmt->bindValue(':variant_id', $variantId);
+        
+        if ($stmt->execute()) {
+            return ['success' => true, 'message' => 'Đã thêm vào danh sách yêu thích'];
+        }
+        return ['success' => false, 'message' => 'Không thể thêm sản phẩm'];
+    }
+
+    public function isInWishlist($userId, $productId)
+    {
+        $sql = "SELECT id FROM " . $this->table . " WHERE user_id = :user_id AND product_id = :product_id";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
+        $stmt->bindValue(':product_id', $productId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->rowCount() > 0;
+    }
 }
