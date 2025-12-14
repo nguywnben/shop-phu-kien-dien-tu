@@ -1,4 +1,23 @@
+        <?php
+
+        $failed = $_SESSION["failed"] ?? "";
+        $successful = $_SESSION["successful"] ?? "";
+        unset($_SESSION["failed"], $_SESSION["successful"]);
+
+        ?>
         <section class="details section--lg">
+            <div class="container">
+                <?php if ($failed): ?>
+                    <div style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: .75rem 1.25rem; margin-bottom: 1rem; border-radius: .25rem;" role="alert">
+                        <?= $failed ?>
+                    </div>
+                <?php endif; ?>
+                <?php if ($successful): ?>
+                    <div style="color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; padding: .75rem 1.25rem; margin-bottom: 1rem; border-radius: .25rem;" role="alert">
+                        <?= $successful ?>
+                    </div>
+                <?php endif; ?>
+            </div>
             <div class="details__container container grid">
                 <div class="details__group">
                     <?php
@@ -45,14 +64,15 @@
                         </li>
                     </ul>
                     <div class="details__action">
-                        <input type="number" class="quantity" value="1" />
-                        <a href="#" class="btn btn--sm">Thêm vào Giỏ hàng</a>
-                        <form method="POST" action="index.php?page=wishlist&action=add" style="display: inline;">
-                            <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>" />
-                            <button type="submit" class="details__action-btn" onclick="if(!<?php echo isset($_SESSION['login']) ? 'true' : 'false'; ?>) {event.preventDefault(); window.location.href='index.php?page=login&action=index'; return false;}">
-                                <i class="fi fi-rs-heart"></i>
-                            </button>
-                        </form>
+                        <form method="GET" action="index.php">
+                            <input type="hidden" name="page" value="cart" />
+                            <input type="hidden" name="action" value="add" />
+                            <input type="hidden" name="product_id" value="<?= $product["id"] ?? '' ?>" /> 
+
+                            <input type="number" class="quantity" name="quantity" value="1" min="1" />
+                            
+                            <button type="submit" class="btn btn--sm">Thêm vào Giỏ hàng</button>
+                            </form>
                     </div>
                     <ul class="details__meta">
                         <li class="meta__list flex"><span>Mã SKU:</span><?php echo htmlspecialchars($product['sku_model'] ?? ''); ?></li>

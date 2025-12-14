@@ -67,6 +67,35 @@ switch ($page) {
                 break;
         }
         break;
+    case "cart":
+        switch ($action) {
+            case "index":
+                $account->cart();
+                break;
+            case "add":
+                $account->addCart();
+                break;
+            case "update":
+                $account->updateCart();
+                break;
+            case "remove":
+                $account->removeCart();
+                break;
+            case "coupon":
+                $account->coupon();
+                break;
+        }
+        break;
+    case "checkout":
+        switch ($action) {
+            case "index":
+                $account->checkout();
+                break;
+            case "handle":
+                $account->handleCheckout();
+                break;
+        }
+        break;
     case "login":
         switch ($action) {
             case "index":

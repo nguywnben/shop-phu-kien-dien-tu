@@ -1,3 +1,15 @@
+    <?php
+
+    require_once "Models/CartModel.php";
+    $cartItemCount = 0;
+
+    if (isset($_SESSION["login"])) {
+        $userId = $_SESSION["login"]["id"];
+        $cartModel = new CartModel();
+        $cartItemCount = $cartModel->getTotalUniqueProductsInCart($userId);
+    }
+
+    ?>
     <header class="header">
         <div class="header__top">
             <div class="header__container container">
@@ -57,9 +69,9 @@
                     <img src="Assets/client/img/icon-heart.svg" alt="" />
                     <span class="count">3</span>
                 </a>
-                <a href="cart.php" class="header__action-btn" title="Giỏ hàng">
+                <a href="index.php?page=cart&action=index" class="header__action-btn" title="Giỏ hàng">
                     <img src="Assets/client/img/icon-cart.svg" alt="" />
-                    <span class="count">3</span>
+                    <span class="count"><?= $cartItemCount ?></span>
                 </a>
                 <div class="header__action-btn nav__toggle" id="nav-toggle">
                     <img src="Assets/client//img/menu-burger.svg" alt="" />
