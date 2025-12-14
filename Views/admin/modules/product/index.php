@@ -1,7 +1,7 @@
 <?php if (isset($_SESSION['error']) && !empty($_SESSION['error'])): ?>
-    <div x-data="{ open: true }" x-show="open" 
-         class="rounded-xl border border-error-500 bg-error-50 p-4 dark:border-error-500/30 dark:bg-error-500/15 mb-4 relative">
-        
+    <div x-data="{ open: true }" x-show="open"
+        class="rounded-xl border border-error-500 bg-error-50 p-4 dark:border-error-500/30 dark:bg-error-500/15 mb-4 relative">
+
         <div class="flex items-start gap-3 mr-6"> <div class="-mt-0.5 text-error-500">
                 <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M3.70186 12.0001C3.70186 7.41711 7.41711 3.70186 12.0001 3.70186C16.5831 3.70186 20.2984 7.41711 20.2984 12.0001C20.2984 16.5831 16.5831 20.2984 12.0001 20.2984C7.41711 20.2984 3.70186 16.5831 3.70186 12.0001ZM12.0001 1.90186C6.423 1.90186 1.90186 6.423 1.90186 12.0001C1.90186 17.5772 6.423 22.0984 12.0001 22.0984C17.5772 22.0984 22.0984 17.5772 22.0984 12.0001C22.0984 6.423 17.5772 1.90186 12.0001 1.90186ZM15.6197 10.7395C15.9712 10.388 15.9712 9.81819 15.6197 9.46672C15.2683 9.11525 14.6984 9.11525 14.347 9.46672L11.1894 12.6243L9.6533 11.0883C9.30183 10.7368 8.73198 10.7368 8.38051 11.0883C8.02904 11.4397 8.02904 12.0096 8.38051 12.3611L10.553 14.5335C10.7217 14.7023 10.9507 14.7971 11.1894 14.7971C11.428 14.7971 11.657 14.7023 11.8257 14.5335L15.6197 10.7395Z" fill=""/>
@@ -14,8 +14,8 @@
             </div>
         </div>
 
-        <button type="button" @click="open = false" 
-                class="absolute top-1/2 transform -translate-y-1/2 right-4 text-error-500 hover:text-error-700 dark:text-error-400 dark:hover:text-error-200 p-1">
+        <button type="button" @click="open = false"
+            class="absolute top-1/2 transform -translate-y-1/2 right-4 text-error-500 hover:text-error-700 dark:text-error-400 dark:hover:text-error-200 p-1">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
@@ -26,8 +26,8 @@
 
 <?php if (isset($_SESSION['success']) && !empty($_SESSION['success'])): ?>
     <div x-data="{ open: true }" x-show="open"
-         class="rounded-xl border border-success-500 bg-success-50 p-4 dark:border-success-500/30 dark:bg-success-500/15 mb-4 relative">
-        
+        class="rounded-xl border border-success-500 bg-success-50 p-4 dark:border-success-500/30 dark:bg-success-500/15 mb-4 relative">
+
         <div class="flex items-start gap-3 mr-6"> <div class="-mt-0.5 text-success-500">
                 <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.70186 12.0001C3.70186 7.41711 7.41711 3.70186 12.0001 3.70186C16.5831 3.70186 20.2984 7.41711 20.2984 12.0001C20.2984 16.5831 16.5831 20.2984 12.0001 20.2984C7.41711 20.2984 3.70186 16.5831 3.70186 12.0001ZM12.0001 1.90186C6.423 1.90186 1.90186 6.423 1.90186 12.0001C1.90186 17.5772 6.423 22.0984 12.0001 22.0984C17.5772 22.0984 22.0984 17.5772 22.0984 12.0001C22.0984 6.423 17.5772 1.90186 12.0001 1.90186ZM15.6197 10.7395C15.9712 10.388 15.9712 9.81819 15.6197 9.46672C15.2683 9.11525 14.6984 9.11525 14.347 9.46672L11.1894 12.6243L9.6533 11.0883C9.30183 10.7368 8.73198 10.7368 8.38051 11.0883C8.02904 11.4397 8.02904 12.0096 8.38051 12.3611L10.553 14.5335C10.7217 14.7023 10.9507 14.7971 11.1894 14.7971C11.428 14.7971 11.657 14.7023 11.8257 14.5335L15.6197 10.7395Z" fill=""/>
@@ -40,8 +40,8 @@
             </div>
         </div>
 
-        <button type="button" @click="open = false" 
-                class="absolute top-1/2 transform -translate-y-1/2 right-4 text-success-500 hover:text-success-700 dark:text-success-400 dark:hover:text-success-200 p-1">
+        <button type="button" @click="open = false"
+            class="absolute top-1/2 transform -translate-y-1/2 right-4 text-success-500 hover:text-success-700 dark:text-success-400 dark:hover:text-success-200 p-1">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
@@ -134,6 +134,13 @@
                                         <th class="px-5 py-3 sm:px-6">
                                             <div class="flex items-center">
                                                 <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
+                                                    Nổi bật
+                                                </p>
+                                            </div>
+                                        </th>
+                                        <th class="px-5 py-3 sm:px-6">
+                                            <div class="flex items-center">
+                                                <p class="font-medium text-gray-500 text-theme-xs dark:text-gray-400">
                                                     Thao tác
                                                 </p>
                                             </div>
@@ -200,6 +207,21 @@
                                                     <?php endif; ?>
                                                 </div>
                                             </td>
+                                            <td class="px-5 py-4 sm:px-6">
+                                                <div class="flex items-center">
+                                                    <?php if ($product['is_featured'] == 1): ?>
+                                                        <p
+                                                            class="rounded-full bg-success-50 px-2 py-0.5 text-theme-xs font-medium text-success-700 dark:bg-success-500/15 dark:text-success-500">
+                                                            Nổi bật
+                                                        </p>
+                                                    <?php else: ?>
+                                                        <p
+                                                            class="rounded-full bg-error-50 px-2 py-0.5 text-theme-xs font-medium text-error-700 dark:bg-error-500/15 dark:text-error-500">
+                                                            Không
+                                                        </p>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </td>
                                             <td>
                                                 <a href="admin.php?page=products&action=edit&id=<?= $product['id'] ?>"
                                                     class="inline-flex items-center justify-center gap-1 rounded-full bg-blue-light-50 px-2.5 py-0.5 text-sm font-medium text-blue-light-500 dark:bg-blue-light-500/15 dark:text-blue-light-500 ">
@@ -224,44 +246,44 @@
                     </div>
                 </div>
             </div>
-            
-            <?php 
+
+            <?php
             // Đảm bảo biến $pagination tồn tại và có tổng số trang lớn hơn 1
-            if (isset($pagination) && $pagination['totalPages'] > 1): 
-            ?>
-            <div class="w-full flex flex-col items-center justify-center mt-6 mb-4">
-                <div class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                    Hiển thị 
+            if (isset($pagination) && $pagination['totalPages'] > 1):
+                ?>
+                <div class="w-full flex flex-col items-center justify-center mt-6 mb-4">
+                    <div class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                        Hiển thị
                     <span class="font-semibold text-brand-600 dark:text-brand-400"><?= ($pagination['currentPage'] - 1) * $pagination['limit'] + 1 ?></span> 
-                    đến 
+                        đến
                     <span class="font-semibold text-brand-600 dark:text-brand-400"><?= min($pagination['currentPage'] * $pagination['limit'], $pagination['totalProducts']) ?></span> 
-                    trên tổng số 
+                        trên tổng số
                     <span class="font-semibold text-brand-600 dark:text-brand-400"><?= $pagination['totalProducts'] ?></span> sản phẩm.
-                </div>
-                <nav class="flex flex-wrap gap-1 justify-center items-center" aria-label="Pagination">
-                    <!-- Previous -->
-                    <a href="?page=products&action=index&page_num=<?= $pagination['currentPage'] - 1 ?>"
-                       class="px-3 py-1 rounded-full border border-gray-300 bg-white text-gray-500 hover:bg-brand-100 hover:text-brand-700 transition disabled:opacity-50 disabled:pointer-events-none"
-                       style="<?= $pagination['currentPage'] <= 1 ? 'pointer-events:none;opacity:0.5;' : '' ?>">
-                        &laquo;
-                    </a>
-                    <?php for ($i = 1; $i <= $pagination['totalPages']; $i++): ?>
+                    </div>
+                    <nav class="flex flex-wrap gap-1 justify-center items-center" aria-label="Pagination">
+                        <!-- Previous -->
+                        <a href="?page=products&action=index&page_num=<?= $pagination['currentPage'] - 1 ?>"
+                            class="px-3 py-1 rounded-full border border-gray-300 bg-white text-gray-500 hover:bg-brand-100 hover:text-brand-700 transition disabled:opacity-50 disabled:pointer-events-none"
+                            style="<?= $pagination['currentPage'] <= 1 ? 'pointer-events:none;opacity:0.5;' : '' ?>">
+                            &laquo;
+                        </a>
+                        <?php for ($i = 1; $i <= $pagination['totalPages']; $i++): ?>
                         <a href="?page=products&action=index&page_num=<?= $i ?>"
                            class="px-3 py-1 rounded-full border text-sm font-medium transition
-                           <?= ($i == $pagination['currentPage']) 
-                               ? 'bg-brand-500 border-brand-500 text-white shadow' 
+                           <?= ($i == $pagination['currentPage'])
+                               ? 'bg-brand-500 border-brand-500 text-white shadow'
                                : 'bg-white border-gray-300 text-gray-700 hover:bg-brand-100 hover:text-brand-700' ?>">
-                            <?= $i ?>
+                                <?= $i ?>
+                            </a>
+                        <?php endfor; ?>
+                        <!-- Next -->
+                        <a href="?page=products&action=index&page_num=<?= $pagination['currentPage'] + 1 ?>"
+                            class="px-3 py-1 rounded-full border border-gray-300 bg-white text-gray-500 hover:bg-brand-100 hover:text-brand-700 transition disabled:opacity-50 disabled:pointer-events-none"
+                            style="<?= $pagination['currentPage'] >= $pagination['totalPages'] ? 'pointer-events:none;opacity:0.5;' : '' ?>">
+                            &raquo;
                         </a>
-                    <?php endfor; ?>
-                    <!-- Next -->
-                    <a href="?page=products&action=index&page_num=<?= $pagination['currentPage'] + 1 ?>"
-                       class="px-3 py-1 rounded-full border border-gray-300 bg-white text-gray-500 hover:bg-brand-100 hover:text-brand-700 transition disabled:opacity-50 disabled:pointer-events-none"
-                       style="<?= $pagination['currentPage'] >= $pagination['totalPages'] ? 'pointer-events:none;opacity:0.5;' : '' ?>">
-                        &raquo;
-                    </a>
-                </nav>
-            </div>
+                    </nav>
+                </div>
             <?php endif; ?>
         </div>
     </div>

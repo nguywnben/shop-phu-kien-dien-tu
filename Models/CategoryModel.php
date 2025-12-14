@@ -13,12 +13,6 @@ class CategoryModel
         $this->connection = $database->connect();
     }
 
-    public function getAllCategories()
-    {
-        $stmt = $this->connection->prepare("SELECT * FROM categories");
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
 
     public function countCategories()
     {
@@ -29,7 +23,7 @@ class CategoryModel
 
     public function getCategoriesPaginated($limit, $offset)
     {
-        $stmt = $this->connection->prepare("SELECT * FROM categories ORDER BY id ASC LIMIT :limit OFFSET :offset");
+        $stmt = $this->connection->prepare("SELECT * FROM categories ORDER BY id DESC LIMIT :limit OFFSET :offset");
         $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
         $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
         $stmt->execute();

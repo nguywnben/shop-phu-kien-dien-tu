@@ -228,9 +228,9 @@
         <div class="w-full flex flex-col items-center justify-center mt-6 mb-4">
             <div class="mb-2 text-sm text-gray-500 dark:text-gray-400">
                 Hiển thị 
-                <span class="font-semibold text-brand-600 dark:text-brand-400"><?= ($pagination['currentPage'] - 1) * $pagination['limit'] + 1 ?></span> 
+                <span class="font-semibold text-brand-600 dark:text-brand-400"><?= $pagination['totalCategories'] - ($pagination['currentPage'] - 1) * $pagination['limit'] ?></span> 
                 đến 
-                <span class="font-semibold text-brand-600 dark:text-brand-400"><?= min($pagination['currentPage'] * $pagination['limit'], $pagination['totalCategories']) ?></span> 
+                <span class="font-semibold text-brand-600 dark:text-brand-400"><?= max($pagination['totalCategories'] - $pagination['currentPage'] * $pagination['limit'] + 1, 1) ?></span> 
                 trên tổng số 
                 <span class="font-semibold text-brand-600 dark:text-brand-400"><?= $pagination['totalCategories'] ?></span> danh mục.
             </div>
