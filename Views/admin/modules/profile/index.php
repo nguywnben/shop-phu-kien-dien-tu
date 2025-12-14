@@ -115,20 +115,7 @@
                         </p>
                     </div>
 
-                    <nav class="space-y-1">
-                        <a href="#"
-                            class="flex items-center gap-3 p-3 rounded-lg bg-gray-100 text-gray-900 font-medium dark:bg-white/5 dark:text-white/90 shadow-theme-xs">
-                            <i class="fas fa-cog w-5 h-5"></i> Cài đặt chung
-                        </a>
-                        <a href="#"
-                            class="flex items-center gap-3 p-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white/90">
-                            <i class="fas fa-lock w-5 h-5"></i> Bảo mật & Mật khẩu
-                        </a>
-                        <a href="#"
-                            class="flex items-center gap-3 p-3 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white/90">
-                            <i class="fas fa-bell w-5 h-5"></i> Cài đặt thông báo
-                        </a>
-                    </nav>
+             
 
                 </div>
             </div>
