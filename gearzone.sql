@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 26, 2025 lúc 09:48 AM
+-- Thời gian đã tạo: Th12 14, 2025 lúc 07:36 AM
 -- Phiên bản máy phục vụ: 8.0.39
 -- Phiên bản PHP: 8.2.27
 
@@ -30,12 +30,12 @@ SET time_zone = "+00:00";
 CREATE TABLE `addresses` (
   `id` int NOT NULL,
   `user_id` int NOT NULL COMMENT 'Liên kết với bảng users',
-  `recipient_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `province` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tỉnh/Thành phố',
-  `district` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Quận/Huyện',
-  `ward` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Phường/Xã',
-  `address_line` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Số nhà, tên đường',
+  `recipient_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `province` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tỉnh/Thành phố',
+  `district` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Quận/Huyện',
+  `ward` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Phường/Xã',
+  `address_line` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Số nhà, tên đường',
   `is_default` tinyint DEFAULT '0' COMMENT '1: Mặc định, 0: Phụ',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -65,10 +65,10 @@ INSERT INTO `addresses` (`id`, `user_id`, `recipient_name`, `phone`, `province`,
 
 CREATE TABLE `blog` (
   `id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tiêu đề bài viết',
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Đường dẫn thân thiện (SEO)',
-  `content` text COLLATE utf8mb4_unicode_ci COMMENT 'Nội dung bài viết',
-  `cover_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Ảnh đại diện bài viết',
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tiêu đề bài viết',
+  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Đường dẫn thân thiện (SEO)',
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT 'Nội dung bài viết',
+  `cover_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Ảnh đại diện bài viết',
   `author_id` int NOT NULL COMMENT 'Người viết (User ID)',
   `status` tinyint DEFAULT '1' COMMENT '1: Xuất bản, 0: Bản nháp',
   `published_at` timestamp NULL DEFAULT NULL COMMENT 'Thời gian công khai',
@@ -100,9 +100,9 @@ INSERT INTO `blog` (`id`, `title`, `slug`, `content`, `cover_image`, `author_id`
 
 CREATE TABLE `brands` (
   `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên thương hiệu',
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'URL thân thiện (SEO)',
-  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Đường dẫn ảnh logo',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên thương hiệu',
+  `slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'URL thân thiện (SEO)',
+  `logo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Đường dẫn ảnh logo',
   `status` tinyint DEFAULT '1' COMMENT '1: Hiển thị, 0: Ẩn',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -165,7 +165,7 @@ INSERT INTO `cart_items` (`id`, `user_id`, `product_id`, `variant_id`, `qty`, `c
 CREATE TABLE `categories` (
   `id` int NOT NULL,
   `parent_id` int DEFAULT NULL COMMENT 'ID danh mục cha (NULL nếu là danh mục gốc)',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên danh mục',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên danh mục',
   `level` tinyint DEFAULT '0' COMMENT '0: Root, 1: Sub-category, ...',
   `status` tinyint DEFAULT '1' COMMENT '1: Hiển thị, 0: Ẩn',
   `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -197,9 +197,9 @@ INSERT INTO `categories` (`id`, `parent_id`, `name`, `level`, `status`, `create_
 
 CREATE TABLE `coupons` (
   `id` int NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã giảm giá (VD: SALE50)',
+  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã giảm giá (VD: SALE50)',
   `max_discount` int DEFAULT '0' COMMENT 'Số tiền giảm tối đa',
-  `min_order_total` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Giá trị đơn tối thiểu để áp dụng',
+  `min_order_total` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Giá trị đơn tối thiểu để áp dụng',
   `usage_limit` int DEFAULT '0' COMMENT 'Giới hạn số lần sử dụng',
   `used_count` int DEFAULT '0' COMMENT 'Số lần đã dùng',
   `start_at` timestamp NULL DEFAULT NULL COMMENT 'Thời gian bắt đầu',
@@ -240,13 +240,13 @@ CREATE TABLE `orders` (
   `grand_total` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'Tổng thanh toán cuối cùng',
   `payment_status` tinyint DEFAULT '0' COMMENT '0: Chưa thanh toán, 1: Đã thanh toán',
   `shipping_status` tinyint DEFAULT '0' COMMENT '0: Chưa giao, 1: Đang giao, 2: Đã giao',
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Ghi chú của khách hàng',
-  `recipient_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên người nhận',
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'SĐT người nhận',
-  `province` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `district` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ward` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address_line` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Ghi chú của khách hàng',
+  `recipient_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên người nhận',
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'SĐT người nhận',
+  `province` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `district` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ward` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address_line` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `canceled_at` timestamp NULL DEFAULT NULL COMMENT 'Thời gian hủy đơn (nếu có)'
@@ -279,7 +279,7 @@ CREATE TABLE `order_items` (
   `order_id` int NOT NULL COMMENT 'Thuộc về đơn hàng nào',
   `product_id` int DEFAULT NULL COMMENT 'Sản phẩm nào (Cho phép NULL nếu sản phẩm bị xóa)',
   `variant_id` int DEFAULT NULL COMMENT 'Biến thể (Màu/Size). NULL nếu sp không có biến thể',
-  `sku_snapshot` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Lưu cứng mã SKU tại thời điểm mua',
+  `sku_snapshot` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Lưu cứng mã SKU tại thời điểm mua',
   `unit_price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'Giá bán tại thời điểm mua',
   `qty` int NOT NULL DEFAULT '1' COMMENT 'Số lượng',
   `line_total` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'Thành tiền = price * qty',
@@ -312,8 +312,8 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `variant_id`, `sku_sn
 
 CREATE TABLE `password_resets` (
   `id` int NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `expires_at` timestamp NULL DEFAULT NULL COMMENT 'Thời gian hết hạn của token',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -344,11 +344,10 @@ CREATE TABLE `products` (
   `id` int NOT NULL,
   `brand_id` int NOT NULL COMMENT 'Liên kết với bảng brands',
   `category_id` int NOT NULL COMMENT 'Liên kết với bảng categories',
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên sản phẩm',
-  `sku_model` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Mã SKU hoặc Model sản phẩm',
-  `description` text COLLATE utf8mb4_unicode_ci COMMENT 'Mô tả ngắn',
-  `content` text COLLATE utf8mb4_unicode_ci COMMENT 'Nội dung chi tiết sản phẩm',
-  `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Ảnh đại diện sản phẩm',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Tên sản phẩm',
+  `sku_model` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Mã SKU hoặc Model sản phẩm',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT 'Mô tả ngắn',
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci COMMENT 'Nội dung chi tiết sản phẩm',
   `price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'Giá bán',
   `status` tinyint DEFAULT '1' COMMENT '1: Đang bán, 0: Ngừng kinh doanh',
   `rating_count` int DEFAULT '0' COMMENT 'Số lượt đánh giá',
@@ -360,17 +359,17 @@ CREATE TABLE `products` (
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `brand_id`, `category_id`, `name`, `sku_model`, `description`, `content`, `thumbnail`, `price`, `status`, `rating_count`, `created_at`, `updated_at`) VALUES
-(1, 1, 5, 'Củ sạc nhanh Anker Nano III 30W', 'ANK-30W-01', 'Sạc siêu nhỏ gọn cho iPhone 14/15', 'Chi tiết về công nghệ GaN...', 'uploads/products/anker-30w.jpg', 350000.00, 1, 150, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
-(2, 2, 5, 'Cáp sạc Baseus Crystal Shine USB-C to Lightning', 'BAS-CBL-02', 'Cáp bọc dù siêu bền, dài 1.2m', 'Hỗ trợ sạc nhanh PD 20W...', 'uploads/products/baseus-cable.jpg', 120000.00, 1, 89, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
-(3, 3, 8, 'Chuột không dây Logitech MX Master 3S', 'LOG-MX3S', 'Chuột công thái học cao cấp', 'Cảm biến 8000 DPI, cuộn vô cực...', 'uploads/products/logitech-mx3s.jpg', 2190000.00, 1, 342, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
-(4, 5, 4, 'Ốp lưng MagSafe iPhone 15 Pro Max', 'APP-CASE-15PM', 'Ốp lưng nhựa trong suốt chính hãng', 'Hỗ trợ sạc không dây MagSafe...', 'uploads/products/apple-case.jpg', 1100000.00, 1, 56, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
-(5, 7, 7, 'Sạc dự phòng Xiaomi Gen 3 20000mAh', 'XIA-PB-20K', 'Sạc nhanh 2 chiều 18W', 'Dung lượng lớn, sạc được laptop...', 'uploads/products/xiaomi-pb.jpg', 590000.00, 1, 210, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
-(6, 6, 10, 'Tai nghe Bluetooth JBL Tour Pro 2', 'JBL-TOUR-2', 'Tai nghe chống ồn chủ động', 'Màn hình cảm ứng trên hộp sạc...', 'uploads/products/jbl-tour.jpg', 4500000.00, 1, 45, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
-(7, 10, 10, 'Tai nghe chụp tai Sony WH-1000XM5', 'SON-XM5', 'Chống ồn hàng đầu thế giới', 'Thiết kế mới, pin 30 giờ...', 'uploads/products/sony-xm5.jpg', 6990000.00, 1, 120, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
-(8, 8, 6, 'Kính cường lực Remax GL-27', 'REM-GL27', 'Kính full màn hình cho iPhone', 'Độ cứng 9H, chống bám vân tay...', 'uploads/products/remax-glass.jpg', 90000.00, 1, 300, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
-(9, 9, 4, 'Giá đỡ điện thoại xe hơi Hoco CA80', 'HOC-CA80', 'Giá đỡ kẹp khe gió điều hòa', 'Xoay 360 độ tiện lợi...', 'uploads/products/hoco-holder.jpg', 150000.00, 1, 75, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
-(10, 1, 7, 'Trạm sạc dự phòng Anker 757 PowerHouse', 'ANK-PH-757', 'Trạm năng lượng di động 1229Wh', 'Cung cấp điện cho cả thiết bị gia dụng...', 'uploads/products/anker-757.jpg', 29000000.00, 1, 12, '2025-11-24 01:12:40', '2025-11-24 01:12:40');
+INSERT INTO `products` (`id`, `brand_id`, `category_id`, `name`, `sku_model`, `description`, `content`, `price`, `status`, `rating_count`, `created_at`, `updated_at`) VALUES
+(1, 1, 5, 'Củ sạc nhanh Anker Nano III 30W', 'ANK-30W-01', 'Sạc siêu nhỏ gọn cho iPhone 14/15', 'Chi tiết về công nghệ GaN...', 350000.00, 1, 150, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
+(2, 2, 5, 'Cáp sạc Baseus Crystal Shine USB-C to Lightning', 'BAS-CBL-02', 'Cáp bọc dù siêu bền, dài 1.2m', 'Hỗ trợ sạc nhanh PD 20W...', 120000.00, 1, 89, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
+(3, 3, 8, 'Chuột không dây Logitech MX Master 3S', 'LOG-MX3S', 'Chuột công thái học cao cấp', 'Cảm biến 8000 DPI, cuộn vô cực...', 2190000.00, 1, 342, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
+(4, 5, 4, 'Ốp lưng MagSafe iPhone 15 Pro Max', 'APP-CASE-15PM', 'Ốp lưng nhựa trong suốt chính hãng', 'Hỗ trợ sạc không dây MagSafe...', 1100000.00, 1, 56, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
+(5, 7, 7, 'Sạc dự phòng Xiaomi Gen 3 20000mAh', 'XIA-PB-20K', 'Sạc nhanh 2 chiều 18W', 'Dung lượng lớn, sạc được laptop...', 590000.00, 1, 210, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
+(6, 6, 10, 'Tai nghe Bluetooth JBL Tour Pro 2', 'JBL-TOUR-2', 'Tai nghe chống ồn chủ động', 'Màn hình cảm ứng trên hộp sạc...', 4500000.00, 1, 45, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
+(7, 10, 10, 'Tai nghe chụp tai Sony WH-1000XM5', 'SON-XM5', 'Chống ồn hàng đầu thế giới', 'Thiết kế mới, pin 30 giờ...', 6990000.00, 1, 120, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
+(8, 8, 6, 'Kính cường lực Remax GL-27', 'REM-GL27', 'Kính full màn hình cho iPhone', 'Độ cứng 9H, chống bám vân tay...', 90000.00, 1, 300, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
+(9, 9, 4, 'Giá đỡ điện thoại xe hơi Hoco CA80', 'HOC-CA80', 'Giá đỡ kẹp khe gió điều hòa', 'Xoay 360 độ tiện lợi...', 150000.00, 1, 75, '2025-11-24 01:12:40', '2025-11-24 01:12:40'),
+(10, 1, 7, 'Trạm sạc dự phòng Anker 757 PowerHouse', 'ANK-PH-757', 'Trạm năng lượng di động 1229Wh', 'Cung cấp điện cho cả thiết bị gia dụng...', 29000000.00, 1, 12, '2025-11-24 01:12:40', '2025-11-24 01:12:40');
 
 -- --------------------------------------------------------
 
@@ -381,7 +380,7 @@ INSERT INTO `products` (`id`, `brand_id`, `category_id`, `name`, `sku_model`, `d
 CREATE TABLE `product_images` (
   `id` int NOT NULL,
   `product_id` int NOT NULL COMMENT 'Liên kết với bảng products',
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Đường dẫn ảnh',
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Đường dẫn ảnh',
   `sort_order` int DEFAULT '0' COMMENT 'Thứ tự hiển thị (0 ưu tiên nhất)',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -412,10 +411,10 @@ INSERT INTO `product_images` (`id`, `product_id`, `url`, `sort_order`, `created_
 CREATE TABLE `product_variants` (
   `id` int NOT NULL,
   `product_id` int NOT NULL COMMENT 'Liên kết với bảng products',
-  `sku` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã kho riêng cho từng biến thể',
+  `sku` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mã kho riêng cho từng biến thể',
   `price` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT 'Giá riêng của biến thể (nếu khác giá gốc)',
-  `weight` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Cân nặng (lưu chuỗi theo thiết kế)',
-  `color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Màu sắc',
+  `weight` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Cân nặng (lưu chuỗi theo thiết kế)',
+  `color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'Màu sắc',
   `status` tinyint DEFAULT '1' COMMENT '1: Còn hàng, 0: Hết hàng',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -445,13 +444,13 @@ INSERT INTO `product_variants` (`id`, `product_id`, `sku`, `price`, `weight`, `c
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `role` tinyint DEFAULT '0' COMMENT '0: User, 1: Admin',
   `status` tinyint DEFAULT '1' COMMENT '1: Active, 0: Inactive',
-  `password_hash` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password_hash` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_login_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

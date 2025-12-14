@@ -23,9 +23,15 @@ class WishlistModel
                     p.name,
                     p.description,
                     p.price,
-                    p.thumbnail,
                     p.status,
-                    p.sku_model
+                    p.sku_model,
+                    (
+                        SELECT url 
+                        FROM product_images 
+                        WHERE product_id = p.id 
+                        ORDER BY sort_order ASC 
+                        LIMIT 1
+                    ) AS main_image_url
                 FROM " . $this->table . " w
                 INNER JOIN products p ON w.product_id = p.id
                 WHERE w.user_id = :user_id

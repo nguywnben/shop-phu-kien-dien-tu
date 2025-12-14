@@ -31,8 +31,8 @@
                                             $productImg = 'Assets/client/img/' . $imgUrl;
                                         }
                                     }
-                                } elseif (!empty($item['thumbnail'])) {
-                                    $productImg = $item['thumbnail'];
+                                } elseif (!empty($item['main_image_url'])) {
+                                    $productImg = $item['main_image_url'];
                                 }
                             ?>
                             <tr>

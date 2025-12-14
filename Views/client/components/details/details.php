@@ -10,14 +10,14 @@
                         if (strpos($u, 'uploads') !== false || strpos($u, 'Assets') !== false) return $u;
                         return 'Assets/client/img/' . $u;
                     }
-                    $mainImg = _img_url($images[0] ?? ($product['thumbnail'] ?? ''));
+                    $mainImg = _img_url($images[0] ?? ($product['main_image_url'] ?? ''));
                     ?>
                     <img src="<?php echo htmlspecialchars($mainImg); ?>" alt="<?php echo htmlspecialchars($product['name'] ?? ''); ?>" class="details__img" />
                     <div class="details__small-images grid">
                         <?php
                         $small = $images;
-                        if (empty($small) && !empty($product['thumbnail'])) {
-                            $small[] = $product['thumbnail'];
+                        if (empty($small) && !empty($product['main_image_url'])) {
+                            $small[] = $product['main_image_url'];
                         }
                         $small = array_slice($small, 0, 4);
                         foreach ($small as $si) {

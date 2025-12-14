@@ -34,8 +34,8 @@
                                 $h = isset($product['images'][1]) ? $resolveCandidate($product['images'][1]) : $d;
                                 if ($d) $defaultImg = $d;
                                 if ($h) $hoverImg = $h;
-                            } elseif (!empty($product['thumbnail'])) {
-                                $t = $resolveCandidate($product['thumbnail']);
+                            } elseif (!empty($product['main_image_url'])) {
+                                $t = $resolveCandidate($product['main_image_url']);
                                 if ($t) {
                                     $defaultImg = $t;
                                     $hoverImg = $t;
