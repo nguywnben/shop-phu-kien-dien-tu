@@ -21,13 +21,20 @@ class UserModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getUserById($userId) {
+    public function getUserById($userId)
+    {
         $stmt = $this->connection->prepare("SELECT * FROM users WHERE id = :id");
         $stmt->bindParam(":id", $userId, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
+    public function countAllUsers()
+    {
+        $sql = "SELECT COUNT(*) FROM " . $this->table;
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return (int) $stmt->fetchColumn();
+    }
     public function updateProfile($id, $name, $phone)
     {
         $sql = "UPDATE " . $this->table . " SET name = :name, phone = :phone, updated_at = NOW() WHERE id = :id";
@@ -54,7 +61,7 @@ class UserModel
                 $sql .= ", avatar = :avatar";
                 $bindings[':avatar'] = $avatar;
             }
-            $sql .= " WHERE id = :id";  
+            $sql .= " WHERE id = :id";
             $stmt = $this->connection->prepare($sql);
             return $stmt->execute($bindings);
         } catch (PDOException $e) {
@@ -63,7 +70,8 @@ class UserModel
         }
     }
 
-    public function updateUser($data) {
+    public function updateUser($data)
+    {
         try {
             $sql = "UPDATE users SET name = :name, email = :email, phone = :phone, role = :role, status = :status, updated_at = NOW()";
             if (isset($data['avatar'])) {
