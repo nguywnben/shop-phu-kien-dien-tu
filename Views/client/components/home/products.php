@@ -56,7 +56,7 @@
                                     <div class="product__badge light-pink">Hot</div>
                                 </div>
                                 <div class="product__content">
-                                    <span class="product__category"><?php echo $product['category_id']; ?></span>
+                                    <span class="product__category"><?php echo htmlspecialchars($product['category_name'] ?? 'Khác'); ?></span>
                                     <a href="details.html">
                                         <h3 class="product__title"><?php echo $product['name']; ?></h3>
                                     </a>

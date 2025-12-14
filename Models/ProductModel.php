@@ -68,9 +68,6 @@ class ProductModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /**
-     * Search and filter products by keyword and/or category.
-     */
     public function getProductsFiltered($keyword = '', $categoryId = null)
     {
         $sql = "SELECT 
