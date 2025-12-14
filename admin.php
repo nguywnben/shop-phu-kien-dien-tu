@@ -183,6 +183,10 @@ switch ($page) {
                 break;
         }
         break;
+    case "logout":
+        unset($_SESSION["login"]);
+        header("location: index.php");
+        exit;
     default:
         header('HTTP/1.0 404 Not Found');
         require_once "Views/admin/404.php";

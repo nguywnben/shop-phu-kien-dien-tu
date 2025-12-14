@@ -94,7 +94,7 @@
                     @click.prevent="dropdownOpen = ! dropdownOpen">
                     <span class="mr-3 h-11 w-11 overflow-hidden rounded-full">
                         <img src="<?php echo isset($_SESSION['login']['avatar']) && $_SESSION['login']['avatar'] ? htmlspecialchars($_SESSION['login']['avatar']) : 'Assets/admin/images/user/default.png'; ?>"
-                             style="width:80px;object-fit:cover;" alt="Ảnh đại diện" class="object-cover h-full w-full">
+                            style="width:80px;object-fit:cover;" alt="Ảnh đại diện" class="object-cover h-full w-full">
                     </span>
 
                     <span class="text-theme-sm mr-1 block font-medium">
@@ -133,8 +133,22 @@
                                 Chỉnh sửa hồ sơ
                             </a>
                         </li>
+
+                        <li>
+                            <a href="index.php"
+                                class="group text-theme-sm flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
+                                <svg class="fill-gray-500 group-hover:fill-gray-700 dark:fill-gray-400 dark:group-hover:fill-gray-300"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M11.9997 3.06451L3.9997 9.06451V20.0645H20.0003V9.06451L11.9997 3.06451ZM18.5003 18.5645H14.0003V13.0645H9.9997V18.5645H5.5003V9.56451L11.9997 4.56451L18.5003 9.56451V18.5645Z"
+                                        fill="" />
+                                </svg>
+                                Quay về trang chủ
+                            </a>
+                        </li>
                     </ul>
-                    <button
+                    <a href="admin.php?page=logout"
                         class="group text-theme-sm mt-3 flex items-center gap-3 rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300">
                         <svg class="fill-gray-500 group-hover:fill-gray-700 dark:group-hover:fill-gray-300" width="24"
                             height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -144,7 +158,7 @@
                         </svg>
 
                         Đăng xuất
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
