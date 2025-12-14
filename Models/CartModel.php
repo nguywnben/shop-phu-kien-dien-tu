@@ -3,6 +3,7 @@
 require_once "Database.php";
 
 class CartModel
+
 {
     private $conn;
 
@@ -35,7 +36,15 @@ class CartModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
+    public function getOrdersByUserId($userId)
+    {
+        $stmt = $this->conn->prepare("
+            SELECT * FROM orders WHERE user_id = :user_id ORDER BY id DESC
+        ");
+        $stmt->bindParam(":user_id", $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function addCart($userId, $productId, $quantity = 1)
     {
         try {

@@ -27,7 +27,7 @@ class AccountController
 
         $userId = $_SESSION['login']['id'] ?? 0;
         $user = $this->userModel->getById($userId);
-
+        $orders = $this->cartModel->getOrdersByUserId($userId);
         require_once "Views/client/accounts.php";
     }
 

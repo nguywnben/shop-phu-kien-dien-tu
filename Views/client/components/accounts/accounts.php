@@ -10,12 +10,7 @@
                     <p class="account__tab" data-target="#update-profile">
                         <i class="fi fi-rs-user"></i> Cập Nhật Hồ Sơ
                     </p>
-                    <p class="account__tab" data-target="#address">
-                        <i class="fi fi-rs-marker"></i> Địa Chỉ Của Tôi
-                    </p>
-                    <p class="account__tab" data-target="#change-password">
-                        <i class="fi fi-rs-settings-sliders"></i> Đổi Mật Khẩu
-                    </p>
+                 
                     <a href="index.php?page=logout" class="account__tab" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất?');"><i class="fi fi-rs-exit"></i> Đăng Xuất</a>
                 </div>
                 <div class="tabs__content">
@@ -39,31 +34,41 @@
                                         <th>Ngày</th>
                                         <th>Trạng thái</th>
                                         <th>Tổng cộng</th>
-                                        <th>Hành động</th>
+                                      
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php if (!empty($orders)) : ?>
+                                    <?php foreach ($orders as $order) : ?>
+                                        <tr>
+                                            <td>#<?php echo htmlspecialchars($order['id']); ?></td>
+                                            <td><?php echo date('d/m/Y H:i', strtotime($order['created_at'])); ?></td>
+                                            <td>
+                                                <?php
+                                                    switch ($order['shipping_status']) {
+                                                        case 1:
+                                                            echo 'Đang xử lý';
+                                                            break;
+                                                        case 2:
+                                                            echo 'Đã hoàn thành';
+                                                            break;
+                                                        case 3:
+                                                            echo 'Đã hủy';
+                                                            break;
+                                                        default:
+                                                            echo 'Không xác định';
+                                                    }
+                                                ?>
+                                            </td>
+                                            <td><?php echo number_format($order['grand_total'], 0, ',', '.'); ?>₫</td>
+                                          
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php else : ?>
                                     <tr>
-                                        <td>#1357</td>
-                                        <td>Ngày 19 tháng 3, 2022</td>
-                                        <td>Đang xử lý</td>
-                                        <td>3.125.000₫</td>
-                                        <td><a href="#" class="view__order">Xem</a></td>
+                                        <td colspan="5">Bạn chưa có đơn hàng nào.</td>
                                     </tr>
-                                    <tr>
-                                        <td>#2468</td>
-                                        <td>Ngày 29 tháng 6, 2022</td>
-                                        <td>Đã hoàn thành</td>
-                                        <td>9.100.000₫</td>
-                                        <td><a href="#" class="view__order">Xem</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#2366</td>
-                                        <td>Ngày 02 tháng 8, 2022</td>
-                                        <td>Đã hoàn thành</td>
-                                        <td>7.000.000₫</td>
-                                        <td><a href="#" class="view__order">Xem</a></td>
-                                    </tr>
+                                <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -81,32 +86,8 @@
                             </form>
                         </div>
                     </div>
-                    <div class="tab__content" content id="address">
-                        <h3 class="tab__header">Địa Chỉ Giao Hàng</h3>
-                        <div class="tab__body">
-                            <address class="address">
-                                3522 Interstate <br />
-                                75 Business Spur, <br />
-                                Sault Ste. <br />
-                                Marie, Mi 49783
-                            </address>
-                            <p class="city">New York</p>
-                            <a href="#" class="edit">Chỉnh sửa</a>
-                        </div>
-                    </div>
-                    <div class="tab__content" content id="change-password">
-                        <h3 class="tab__header">Đổi Mật Khẩu</h3>
-                        <div class="tab__body">
-                            <form class="form grid">
-                                <input type="password" placeholder="Mật khẩu hiện tại" class="form__input" />
-                                <input type="password" placeholder="Mật khẩu mới" class="form__input" />
-                                <input type="password" placeholder="Xác nhận mật khẩu" class="form__input" />
-                                <div class="form__btn">
-                                    <button class="btn btn--md">Lưu</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+               
+               
                 </div>
             </div>
         </section>
