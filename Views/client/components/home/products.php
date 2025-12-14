@@ -1,8 +1,7 @@
         <section class="products container section">
             <div class="tab__btns">
                 <span class="tab__btn active-tab" data-target="#featured">Nổi bật</span>
-                <span class="tab__btn" data-target="#popular">Phổ biến</span>
-                <span class="tab__btn" data-target="#new-added">Mới ra mắt</span>
+               
             </div>
 
             <div class="tab__items">
