@@ -17,7 +17,7 @@ class BrandModel
 
     public function getAllBrands()
     {
-        $stmt = $this->connection->prepare("SELECT * FROM " . $this->table);
+        $stmt = $this->connection->prepare("SELECT * FROM " . $this->table . " ORDER BY id DESC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -33,7 +33,7 @@ class BrandModel
     // Lấy thương hiệu theo phân trang
     public function getBrandsPaginated($limit, $offset)
     {
-        $stmt = $this->connection->prepare("SELECT * FROM " . $this->table . " ORDER BY id ASC LIMIT :limit OFFSET :offset");
+        $stmt = $this->connection->prepare("SELECT * FROM " . $this->table . " ORDER BY id DESC LIMIT :limit OFFSET :offset");
         $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
         $stmt->bindValue(':offset', (int)$offset, PDO::PARAM_INT);
         $stmt->execute();
