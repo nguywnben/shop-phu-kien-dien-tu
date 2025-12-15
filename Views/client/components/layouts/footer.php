@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="footer__bottom">
-            <p class="copyright">&copy; 2025 GearZon. Mọi quyền được bảo lưu</p>
+            <p class="copyright">&copy; 2025 GearZone. Mọi quyền được bảo lưu</p>
             <span class="designer">Thiết kế bởi GearZon</span>
         </div>
     </footer>

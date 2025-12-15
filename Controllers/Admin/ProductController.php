@@ -128,7 +128,7 @@ class ProductController
 
         // --- Xử lý Lưu vào DB ---
 
-        // 1. Thêm sản phẩm vào bảng products và lấy ID sản phẩm mới
+
         $newProductId = $this->productModel->createProduct(
             $name,
             $sku_model,
@@ -234,8 +234,6 @@ class ProductController
         }
 
         try {
-            // Lưu ý: Nếu có ràng buộc khóa ngoại (foreign key) cascade delete giữa products và product_images, 
-            // thì chỉ cần gọi deleteProduct. Nếu không, bạn cần thêm logic xóa ảnh chính và các ảnh phụ trước.
             $deleted = $this->productModel->deleteProduct((int) $id);
             if ($deleted) {
                 session_start();

@@ -1,10 +1,10 @@
 
 <?php
 session_start();
-// if ($_SESSION["login"]["role"] != 1) {
-//     header("Location: index.php");
-//     exit;
-// }
+if ($_SESSION["login"]["role"] != 1) {
+    header("Location: index.php");
+    exit;
+}
 
 require_once 'config.php';
 
